@@ -46,7 +46,6 @@ public class EscuelaComboModel extends AbstractListModel<String> implements Comb
     public void setSelectedItem(Object anItem) {
         this.seleccionado = null;
         if (anItem != null) {
-
             for (Escuela escu : this.escuela) {
                 if (escu.getNombre().equals(anItem.toString()) == true) {
                     this.seleccionado = escu;

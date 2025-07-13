@@ -3,6 +3,9 @@ package entidades;
 
 public class Silabo {
 
+ private Facultad facultad;
+private DepartamentoAcademico departamento;
+private Escuela escuela;
  private Curso curso;
  private Docente docente;
  private String Semanas;
@@ -79,8 +82,34 @@ public class Silabo {
     public void setFuentesReferenciales(String fuentesReferenciales) {
         this.fuentesReferenciales = fuentesReferenciales;
     }
+
+    public Facultad getFacultad() {
+        return facultad;
+    }
+
+    public void setFacultad(Facultad facultad) {
+        this.facultad = facultad;
+    }
+
+    public DepartamentoAcademico getDepatamento() {
+        return departamento;
+    }
+
+   
+
+    public void setDepartamento(DepartamentoAcademico departamento) {
+        this.departamento = departamento;
+    }
+
+    public Escuela getEscuela() {
+        return escuela;
+    }
+
+    public void setEscuela(Escuela escuela) {
+        this.escuela = escuela;
+    }
  
- 
+    
  
  
 

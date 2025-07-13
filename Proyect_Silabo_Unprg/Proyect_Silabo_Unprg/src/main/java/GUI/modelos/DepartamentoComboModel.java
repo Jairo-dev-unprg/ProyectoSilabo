@@ -29,6 +29,7 @@ public class DepartamentoComboModel extends AbstractListModel<String> implements
     }
 
 
+
     @Override
     public int getSize() {
         int cantidad = 0;
