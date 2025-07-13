@@ -337,7 +337,7 @@ public class JDCrearSilabo extends javax.swing.JDialog {
                     this.departamentosVigentesFacultad.add(Departamento);
                 }
             }
-            this.modeloDepartemento.setDepa(this.departamentosVigentesFacultad);
+            this.modeloDepartemento.setDepartamento(this.departamentosVigentesFacultad);
             this.cmbDepartamento.setSelectedIndex(-1);
         }
 
@@ -347,7 +347,7 @@ public class JDCrearSilabo extends javax.swing.JDialog {
 
         if (this.departamentoSeleccionado != null) {
             for (Escuela escuelas : this.departamentoSeleccionado.getEscuelas()) {
-                if (escuelas.isVigete() == true) {
+                if (escuelas.isVigente()== true) {
                     this.escuelaVigenteDepartamento.add(escuelas);
                 }
             }
