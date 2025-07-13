@@ -8,6 +8,9 @@ public class Usuario {
     private String contraseña;
     private Docente docente;
 
+    
+    //justto
+    
     public Usuario() {
     }
 
