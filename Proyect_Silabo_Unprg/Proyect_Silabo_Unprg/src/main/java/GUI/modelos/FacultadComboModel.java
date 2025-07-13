@@ -6,17 +6,21 @@ import java.util.List;
 import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
 
+/**
+ *
+ * @author ADMIN
+ */
 public class FacultadComboModel extends AbstractListModel<String> implements ComboBoxModel<String> {
-   
-    private List<Facultad> facul;
-    private Facultad seleccionado= null;
 
-    public List<Facultad> getFacul() {
-        return facul;
+private List<Facultad> facultad;
+    private Facultad seleccionado;
+
+    public List<Facultad> getFacultad() {
+        return facultad;
     }
 
-    public void setFacul(List<Facultad> facul) {
-        this.facul = facul;
+    public void setFacultad(List<Facultad> facultad) {
+        this.facultad = facultad;
     }
 
     public Facultad getSeleccionado() {
@@ -26,19 +30,19 @@ public class FacultadComboModel extends AbstractListModel<String> implements Com
     public void setSeleccionado(Facultad seleccionado) {
         this.seleccionado = seleccionado;
     }
-
+    
     @Override
     public int getSize() {
         int cantidad = 0;
-        if (this.facul != null) {
-            cantidad = this.facul.size();
+        if (this.facultad != null) {
+            cantidad = this.facultad.size();
         }
         return cantidad;
     }
 
     @Override
     public String getElementAt(int index) {
-        return this.facul.get(index).getAbreviatura();
+        return this.facultad.get(index).getAbreviatura();
     }
 
     @Override
@@ -46,7 +50,7 @@ public class FacultadComboModel extends AbstractListModel<String> implements Com
         this.seleccionado = null;
         if (anItem != null) {
 
-            for (Facultad facul : this.facul) {
+            for (Facultad facul : this.facultad) {
                 if (facul.getAbreviatura().equals(anItem.toString()) == true) {
                     this.seleccionado = facul;
                     return;
@@ -59,13 +63,10 @@ public class FacultadComboModel extends AbstractListModel<String> implements Com
     public Object getSelectedItem() {
         String valor = "";
         if (this.seleccionado != null) {
-            valor = this.seleccionado.getNombre();
+            valor = this.seleccionado.getAbreviatura();
         }
         return valor;
 
     }
 
-
-
- 
 }

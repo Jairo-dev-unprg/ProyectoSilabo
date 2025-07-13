@@ -7,10 +7,10 @@ import java.util.List;
 import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
 
-
 public class EscuelaComboModel extends AbstractListModel<String> implements ComboBoxModel<String> {
-    private List<Escuela> escuela;
-    private Escuela seleccionado= null;
+    
+     private List<Escuela> escuela;
+    private Escuela seleccionado;
 
     public List<Escuela> getEscuela() {
         return escuela;
@@ -28,6 +28,9 @@ public class EscuelaComboModel extends AbstractListModel<String> implements Comb
         this.seleccionado = seleccionado;
     }
 
+
+
+    
     @Override
     public int getSize() {
         int cantidad = 0;
@@ -46,6 +49,7 @@ public class EscuelaComboModel extends AbstractListModel<String> implements Comb
     public void setSelectedItem(Object anItem) {
         this.seleccionado = null;
         if (anItem != null) {
+
             for (Escuela escu : this.escuela) {
                 if (escu.getNombre().equals(anItem.toString()) == true) {
                     this.seleccionado = escu;

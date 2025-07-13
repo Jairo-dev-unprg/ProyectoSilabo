@@ -1,4 +1,3 @@
-
 package GUI.modelos;
 
 import entidades.DepartamentoAcademico;
@@ -6,9 +5,8 @@ import java.util.List;
 import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
 
+public class DepartamentoComboModel extends AbstractListModel<String> implements ComboBoxModel<String>  {
 
-public class DepartamentoComboModel extends AbstractListModel<String> implements ComboBoxModel<String> {
-    
  private List<DepartamentoAcademico> departamento;
     private DepartamentoAcademico seleccionado;
 

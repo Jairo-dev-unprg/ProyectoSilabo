@@ -53,8 +53,4 @@ public class Facultad {
     public void setVigente(boolean vigente) {
         this.vigente = vigente;
     }
-
-    
-
-    
 }
