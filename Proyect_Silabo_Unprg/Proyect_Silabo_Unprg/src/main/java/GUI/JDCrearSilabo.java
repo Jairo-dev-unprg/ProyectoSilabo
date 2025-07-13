@@ -1,27 +1,38 @@
 package GUI;
 
+import GUI.modelos.DepartamentoComboModel;
+import GUI.modelos.EscuelaComboModel;
+import GUI.modelos.FacultadComboModel;
+import com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg;
 import entidades.DepartamentoAcademico;
 import entidades.Escuela;
 import entidades.Facultad;
 import entidades.Silabo;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class JDCrearSilabo extends javax.swing.JDialog {
 
-    private Escuela escuela;
-    private Facultad facultad;
-    private DepartamentoAcademico depa;
-
-    private List<Escuela> escuelasVigentes = new ArrayList<>();
+    private Facultad facultadSeleccionada;
     private List<Facultad> facultadesVigentes = new ArrayList<>();
-    private List<DepartamentoAcademico> DepartamentosVigentes = new ArrayList<>();
+    private FacultadComboModel modeloFacultad = new FacultadComboModel();
+
+    private DepartamentoAcademico departamentoSeleccionado;
+    private List<DepartamentoAcademico> departamentosVigentesFacultad = new ArrayList<>();
+    private DepartamentoComboModel modeloDepartemento = new DepartamentoComboModel();
+
+    private Escuela escuelaSelecionada;
+    private List<Escuela> escuelaVigenteDepartamento = new ArrayList<>();
+    private EscuelaComboModel modeloEscuela = new EscuelaComboModel();
+
     private static Silabo silabo;
 
     public JDCrearSilabo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        cargarFacultades();
     }
 
     @SuppressWarnings("unchecked")
@@ -37,11 +48,11 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         btnSiguiente = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbFacultad = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cmbDepartamento = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cmbEscuela = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Nuevo Silabo");
@@ -81,39 +92,53 @@ public class JDCrearSilabo extends javax.swing.JDialog {
 
         jLabel2.setText("Facultad: ");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.setSelectedIndex(-1);
+        cmbFacultad.setModel(this.modeloFacultad);
+        cmbFacultad.setSelectedIndex(-1);
+        cmbFacultad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbFacultadActionPerformed(evt);
+            }
+        });
 
-        jLabel3.setText("Departamento Academico: ");
+        jLabel3.setText("Departamento : ");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox2.setSelectedIndex(-1);
+        cmbDepartamento.setModel(this.modeloDepartemento);
+        cmbDepartamento.setSelectedIndex(-1);
+        cmbDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbDepartamentoActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Escuela: ");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox3.setSelectedIndex(-1);
+        cmbEscuela.setModel(this.modeloEscuela);
+        cmbEscuela.setSelectedIndex(-1);
+        cmbEscuela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbEscuelaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cmbEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(cmbDepartamento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbFacultad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -122,16 +147,16 @@ public class JDCrearSilabo extends javax.swing.JDialog {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
+                    .addComponent(cmbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addComponent(cmbEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -143,7 +168,7 @@ public class JDCrearSilabo extends javax.swing.JDialog {
                 .addComponent(lblFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -200,6 +225,32 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         this.setVisible(false);
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
+    private void cmbFacultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFacultadActionPerformed
+        this.escuelaSelecionada = null;
+        int pos = this.cmbFacultad.getSelectedIndex();
+        if (pos > -1) {
+            this.facultadSeleccionada = this.facultadesVigentes.get(pos);
+        }
+        cargarDepartamento();
+    }//GEN-LAST:event_cmbFacultadActionPerformed
+
+    private void cmbDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDepartamentoActionPerformed
+        int pos = this.cmbDepartamento.getSelectedIndex();
+        if (pos > -1) {
+            this.departamentoSeleccionado = this.departamentosVigentesFacultad.get(pos);
+        }
+
+        cargarEscuelas();
+
+    }//GEN-LAST:event_cmbDepartamentoActionPerformed
+
+    private void cmbEscuelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEscuelaActionPerformed
+        int pos = this.cmbEscuela.getSelectedIndex();
+        if (pos > -1) {
+            this.escuelaSelecionada = this.escuelaVigenteDepartamento.get(pos);
+        }
+    }//GEN-LAST:event_cmbEscuelaActionPerformed
+
     public static void main(String args[]) {
 
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -241,15 +292,22 @@ public class JDCrearSilabo extends javax.swing.JDialog {
     public Silabo agregar() {
         //this.cargarDatos();// aqui vamos a cargar los datos de las universidades Facultades, departamentos y escuelas comela justto
         this.setVisible(true);
+
+        Silabo sil = new Silabo();
+        sil.setFacultad(this.facultadSeleccionada);
+        sil.setDepartamento(this.departamentoSeleccionado);
+        sil.setEscuela(this.escuelaSelecionada);
+
+        this.silabo = sil;
         return this.silabo;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnSiguiente;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> cmbDepartamento;
+    private javax.swing.JComboBox<String> cmbEscuela;
+    private javax.swing.JComboBox<String> cmbFacultad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -261,11 +319,41 @@ public class JDCrearSilabo extends javax.swing.JDialog {
     private javax.swing.JTextField txtFiltrar;
     // End of variables declaration//GEN-END:variables
 
-    private void cargarDatos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private void cargarFacultades() {
+        for (Facultad facultad : Proyect_Silabo_Unprg.facultad) {
+            if (facultad.isVigente() == true) {
+                this.facultadesVigentes.add(facultad);
+            }
+        }
+        this.modeloFacultad.setFacul(this.facultadesVigentes);
+        this.cmbFacultad.setSelectedIndex(-1);
     }
 
-    private boolean validarDatos() {
-        return true;
+    private void cargarDepartamento() {
+
+        if (this.facultadSeleccionada != null) {
+            for (DepartamentoAcademico Departamento : this.facultadSeleccionada.getDepartamentosAcademicos()) {
+                if (Departamento.isVigente() == true) {
+                    this.departamentosVigentesFacultad.add(Departamento);
+                }
+            }
+            this.modeloDepartemento.setDepa(this.departamentosVigentesFacultad);
+            this.cmbDepartamento.setSelectedIndex(-1);
+        }
+
+    }
+
+    private void cargarEscuelas() {
+
+        if (this.departamentoSeleccionado != null) {
+            for (Escuela escuelas : this.departamentoSeleccionado.getEscuelas()) {
+                if (escuelas.isVigete() == true) {
+                    this.escuelaVigenteDepartamento.add(escuelas);
+                }
+            }
+            this.modeloEscuela.setEscuela(this.escuelaVigenteDepartamento);
+            this.cmbEscuela.setSelectedIndex(-1);
+        }
+
     }
 }
