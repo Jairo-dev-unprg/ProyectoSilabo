@@ -180,7 +180,7 @@ public class JFSilabo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExportarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                     JICuenta frm = JICuenta.crear(this.dpSilabo);
+        JICuenta frm = JICuenta.crear(this.dpSilabo);
         frm.setVisible(true);
         try {
             frm.setMaximum(true);
