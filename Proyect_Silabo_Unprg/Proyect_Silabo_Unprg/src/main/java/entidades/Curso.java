@@ -15,6 +15,7 @@ public class Curso {
     private int HorasPracticasSemanales;
     private String sumilla;
     private String competenciaProfesional;
+    private String capacidadDelCurso;
     private List<Competencia>competencias;
     private boolean vigente;
 
@@ -29,7 +30,7 @@ public class Curso {
     public Curso() {
     }
 
-    public Curso(String nombre, String tipo, String codigoCurso, String prerrequisitos, int cicloEstudio, int creditos, int HorasTeoricaSemanales, int HorasPracticasSemanales, String sumilla,String competenciaProfesional, List<Competencia> competencias) {
+    public Curso(String nombre, String tipo, String codigoCurso, String prerrequisitos, int cicloEstudio, int creditos, int HorasTeoricaSemanales, int HorasPracticasSemanales, String sumilla,String competenciaProfesional,String capacidaddelCurso, List<Competencia> competencias) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.codigoCurso = codigoCurso;
@@ -39,10 +40,20 @@ public class Curso {
         this.HorasTeoricaSemanales = HorasTeoricaSemanales;
         this.HorasPracticasSemanales = HorasPracticasSemanales;
         this.sumilla = sumilla;
+        this.capacidadDelCurso = capacidaddelCurso;
         this.competenciaProfesional = competenciaProfesional;
         this.competencias = competencias;
         this.vigente=true;
     }
+
+    public String getCapacidadDelCurso() {
+        return capacidadDelCurso;
+    }
+
+    public void setCapacidadDelCurso(String capacidadDelCurso) {
+        this.capacidadDelCurso = capacidadDelCurso;
+    }
+    
 
     public String getNombre() {
         return nombre;

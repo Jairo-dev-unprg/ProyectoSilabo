@@ -34,10 +34,19 @@ public class Proyect_Silabo_Unprg {
         competenciaProfesionalEspecifica[4] = "Desarrolla estrategias basadas en las tecnologías de la información, alineadas a las necesidades y en concordancia con la gestión integral de los recursos organizacionales, aplicando estándares internacionales y buenas prácticas.";
         competenciaProfesionalEspecifica[5] = "Desarrolla capacidades investigativas en proyectos tecnológicos computacionales, que satisfagan las necesidades de la sociedad, aplicando el método científico y los lineamientos establecidos por la Universidad.";
     }
+    
+    private static void capacidadCurso(){
+        capacidadCursoEpici[0]="Examina el funcionamiento de los diversos módulos de un sistema operativo, teniendo en cuenta la administración de los recursos de un sistema computacional.";
+        capacidadCursoEpici[1]="Implementa sistemas analógicos, teniendo en cuenta los fundamentos de la electrónica.";
+        
+    }
 
     private static String[] competenciaProfesionalGenerales = new String[6];
     private static String[] competenciaProfesionalEspecifica = new String[6];
     private static String[] competenciaprofesionalMedicina = new String[6];
+    
+    private static String[] capacidadCursoEpici = new String[2];
+    private static String[] capacidadCursoMedicina = new String[2];
 
     private static String sumillaEpici1 = null;
     private static String sumillaEpici2 = null;
@@ -100,6 +109,7 @@ public class Proyect_Silabo_Unprg {
         datosCurso();
         cargarSumilla();
         cargaCompetencia();
+        capacidadCurso();
 
     }
 
@@ -152,67 +162,17 @@ public class Proyect_Silabo_Unprg {
 
     private static void datosCurso() {
 
-        cursoEpici.add(new Curso("Fundamentos de Sistemas Operativos", "Específico", "CYEE1022", "Lógica Matemática", 4, 4, 3, 2, sumillaEpici1, competenciaProfesionalEspecifica[3], competenciaFDSO));
-        cursoEpici.add(new Curso("Electrónica Analógica", "Específico", "CYEE1021", "Fundamentos de física,Lógica Matemática", 4, 5, 2, 4, sumillaEpici2, competenciaProfesionalEspecifica[2], competenciaEA));
-        cursoMediciona.add(new Curso("Microbiología y Parasitología Médica", "Obligatorio", "CBAE1016", "Biología Celular, Histología, Bioquímica", 4, 5, 2, 6, sumillaMedicina1, competenciaprofesionalMedicina[0], competenciaMPM));
-        cursoMediciona.add(new Curso("Pensamiento Filosófico", "Estudios generales.", "HUMG1032", "No Aplica", 4, 2, 1, 2, sumillaMedicina2, competenciaprofesionalMedicina[1], competenciaPF));
+        cursoEpici.add(new Curso("Fundamentos de Sistemas Operativos", "Específico", "CYEE1022", "Lógica Matemática", 4, 4, 3, 2, sumillaEpici1,capacidadCursoEpici[0],competenciaProfesionalEspecifica[3], competenciaFDSO));
+        cursoEpici.add(new Curso("Electrónica Analógica", "Específico", "CYEE1021", "Fundamentos de física,Lógica Matemática", 4, 5, 2, 4, sumillaEpici2, capacidadCursoEpici[1],competenciaProfesionalEspecifica[2], competenciaEA));
+        cursoMediciona.add(new Curso("Microbiología y Parasitología Médica", "Obligatorio", "CBAE1016", "Biología Celular, Histología, Bioquímica", 4, 5, 2, 6, sumillaMedicina1,capacidadCursoEpici[0], competenciaprofesionalMedicina[0], competenciaMPM));
+        cursoMediciona.add(new Curso("Pensamiento Filosófico", "Estudios generales.", "HUMG1032", "No Aplica", 4, 2, 1, 2, sumillaMedicina2,capacidadCursoEpici[1], competenciaprofesionalMedicina[1], competenciaPF));
 
     }
 
     private static void cargarSumilla() {
-        Proyect_Silabo_Unprg.sumillaEpici1 = "La asignatura “Fundamentos de Sistemas Operativos” tiene como resultado de aprendizaje el desarrollo de\n"
-                + "la capacidad “Examina el funcionamiento de los diversos módulos de un sistema operativo teniendo en\n"
-                + "cuenta la administración de los recursos de un sistema computacional” que contribuye al desarrollo de la\n"
-                + "competencia específica “Implementa soluciones de redes y comunicaciones de datos en las organizaciones\n"
-                + "garantizando la conectividad, teniendo en cuenta aspectos de seguridad, gestión y cumplimiento de las\n"
-                + "normativas internacionales”, del perfil de egreso.\n"
-                + "Es una asignatura de naturaleza teórico-práctico, enmarcada en el enfoque por competencia que posibilita\n"
-                + "una metodología activa en un entorno real de enseñanza aprendizaje situando al estudiante como\n"
-                + "protagonista de su aprendizaje y al docente como facilitador del proceso formativo.\n"
-                + "Propone actividades como: presentación de propósito de la sesión, recojo de saberes previos a través de\n"
-                + "preguntas, revisión documentación digital, planteamiento y resolución de casos, presentación de productos,\n"
-                + "trabajos individuales y/o en equipos; que posibiliten el conocimiento sobre: Introducción a los sistemas\n"
-                + "operativos, Estructura de los sistemas operativos, Manejo de Interrupciones, Algoritmos de Administración\n"
-                + "del procesador, Controladores de tráfico, Planificación de procesos; igualmente, algoritmos de\n"
-                + "administración de la memoria física, particionamiento estático, particionamiento dinámico,\n"
-                + "particionamiento dinámico reubicable, paginación, administración de memoria virtual, paginación bajo\n"
-                + "solicitud, segmentación, algoritmos de administración de los dispositivos de entrada y salida, algoritmos de\n"
-                + "administración de la información, file system. Así mismo, las habilidades relacionadas con: descripción de\n"
-                + "las estructuras de los sistemas operativos y su funcionamiento, identificación del manejo de las\n"
-                + "interrupciones, comprobación de los algoritmos de administración del procesador, determinación de los\n"
-                + "controladores de tráfico, demostración de la planificación de procesos, identificación de los algoritmos de\n"
-                + "administración de memoria física; finalmente, comprobación del funcionamiento del particionamiento\n"
-                + "estático, dinámico, dinámico reubicable, y de la paginación, identificación de la administración de memoria\n"
-                + "virtual y la comprobación del funcionamiento de la paginación bajo solicitud, de la segmentación y de los\n"
-                + "algoritmos de administración de los dispositivos de entrada y salida y el funcionamiento de los algoritmos\n"
-                + "de administración de la información.";
+        Proyect_Silabo_Unprg.sumillaEpici1 = "La asignatura “Fundamentos de Sistemas Operativos” tiene como resultado de aprendizaje el desarrollo dela capacidad “Examina el funcionamiento de los diversos módulos de un sistema operativo teniendo en cuenta la administración de los recursos de un sistema computacional” que contribuye al desarrollo de la competencia específica “Implementa soluciones de redes y comunicaciones de datos en las organizaciones garantizando la conectividad, teniendo en cuenta aspectos de seguridad, gestión y cumplimiento de las normativas internacionales”, del perfil de egreso. Es una asignatura de naturaleza teórico-práctico, enmarcada en el enfoque por competencia que posibilita una metodología activa en un entorno real de enseñanza aprendizaje situando al estudiante como protagonista de su aprendizaje y al docente como facilitador del proceso formativo. Propone actividades como: presentación de propósito de la sesión, recojo de saberes previos a través de preguntas, revisión documentación digital, planteamiento y resolución de casos, presentación de productos, trabajos individuales y/o en equipos; que posibiliten el conocimiento sobre: Introducción a los sistemas operativos, Estructura de los sistemas operativos, Manejo de Interrupciones, Algoritmos de Administración del procesador, Controladores de tráfico, Planificación de procesos; igualmente, algoritmos de administración de la memoria física, particionamiento estático, particionamiento dinámico, particionamiento dinámico reubicable, paginación, administración de memoria virtual, paginación bajo solicitud, segmentación, algoritmos de administración de los dispositivos de entrada y salida, algoritmos de administración de la información, file system. Así mismo, las habilidades relacionadas con: descripción de las estructuras de los sistemas operativos y su funcionamiento, identificación del manejo de las interrupciones, comprobación de los algoritmos de administración del procesador, determinación de los controladores de tráfico, demostración de la planificación de procesos, identificación de los algoritmos de administración de memoria física; finalmente, comprobación del funcionamiento del particionamiento estático, dinámico, dinámico reubicable, y de la paginación, identificación de la administración de memoria virtual y la comprobación del funcionamiento de la paginación bajo solicitud, de la segmentación y de los algoritmos de administración de los dispositivos de entrada y salida y el funcionamiento de los algoritmos de administración de la información.";
 
-        Proyect_Silabo_Unprg.sumillaEpici2 = "La asignatura de “Electrónica Analógica” tiene como resultado de aprendizaje el desarrollo de la capacidad\n"
-                + "“Implementa sistemas analógicos teniendo en cuenta los fundamentos de la electrónica” que contribuye al\n"
-                + "desarrollo de la competencia específica “Desarrolla aplicaciones de inteligencia artificial que simulan las\n"
-                + "destrezas, razonamiento y el comportamiento humano, basados en metodologías, estándares vigentes, y\n"
-                + "principios éticos”, del perfil de egreso.\n"
-                + "Es una asignatura de naturaleza teórico práctica, enmarcada en el enfoque por competencia que posibilita\n"
-                + "una metodología activa en un entorno real de enseñanza aprendizaje situando al estudiante como\n"
-                + "protagonista de su aprendizaje y al docente como facilitador del proceso formativo.\n"
-                + "Propone actividades como: expectación de vídeo motivacional, presentación de propósito de la sesión, recojo\n"
-                + "de saberes previos a través de preguntas, práctica dirigida, planteamiento y resolución de casos, presentación\n"
-                + "de productos, trabajos individuales y/o en equipos; que posibiliten el conocimiento de la teoría electrónica:\n"
-                + "semiconductores tipo P y tipo N, tipos de diodos semiconductores, funcionamiento, características,\n"
-                + "codificación, polarizaciones de los diodos semiconductores, diodos rectificador, así como, el Transistor\n"
-                + "Bipolar (BJT), polarización con IB constante, autopolarización, por divisor de voltaje, el transistor como\n"
-                + "conmutador: tiempos de conmutación, limitaciones de frecuencia, aplicaciones, el transistor Unipolar,\n"
-                + "polarizaciones básicas, cálculo y diseño de circuitos, análisis en baja señal del JFET y Mosfet; finalmente, el\n"
-                + "amplificador cascodo, Darlington y amplificador diferencial, funcionamiento y análisis en Corriente alterna y\n"
-                + "corriente continua, fuentes de alimentación reguladas y estabilizadas, reguladores de voltaje positivo y\n"
-                + "negativo, el Amplificador operacional: Características, funcionamiento, Sumador, restador. Integrador,\n"
-                + "diferenciador, como filtro, integrador, diferenciador, comparador de ventana, conversiones de voltaje\n"
-                + "corriente y corriente voltaje.\n"
-                + "Así mismo, las habilidades relacionadas con el uso de los parámetros eléctricos de los diodos, clasificación de\n"
-                + "los diodos, realización de mediciones con el ohmímetro, así mismo, la diferenciación de los tipos de\n"
-                + "transistores, aplicación de la conmutación de señales eléctricas por medio de transistores; finalmente,\n"
-                + "diferenciación de los tipos de amplificadores, el conocimiento de los procesos de regulación y estabilización\n"
-                + "de fuentes de alimentación y aplicaciones del amplificador operacional.";
+        Proyect_Silabo_Unprg.sumillaEpici2 = "La asignatura de “Electrónica Analógica” tiene como resultado de aprendizaje el desarrollo de la capacidad “Implementa sistemas analógicos teniendo en cuenta los fundamentos de la electrónica” que contribuye al desarrollo de la competencia específica “Desarrolla aplicaciones de inteligencia artificial que simulan las destrezas, razonamiento y el comportamiento humano, basados en metodologías, estándares vigentes, y principios éticos”, del perfil de egreso. Es una asignatura de naturaleza teórico práctica, enmarcada en el enfoque por competencia que posibilita una metodología activa en un entorno real de enseñanza aprendizaje situando al estudiante como protagonista de su aprendizaje y al docente como facilitador del proceso formativo. Propone actividades como: expectación de vídeo motivacional, presentación de propósito de la sesión, recojo de saberes previos a través de preguntas, práctica dirigida, planteamiento y resolución de casos, presentación de productos, trabajos individuales y/o en equipos; que posibiliten el conocimiento de la teoría electrónica: semiconductores tipo P y tipo N, tipos de diodos semiconductores, funcionamiento, características, codificación, polarizaciones de los diodos semiconductores, diodos rectificador, así como, el Transistor Bipolar (BJT), polarización con IB constante, autopolarización, por divisor de voltaje, el transistor como conmutador: tiempos de conmutación, limitaciones de frecuencia, aplicaciones, el transistor Unipolar, polarizaciones básicas, cálculo y diseño de circuitos, análisis en baja señal del JFET y Mosfet; finalmente, el amplificador cascodo, Darlington y amplificador diferencial, funcionamiento y análisis en Corriente alterna y corriente continua, fuentes de alimentación reguladas y estabilizadas, reguladores de voltaje positivo y negativo, el Amplificador operacional: Características, funcionamiento, Sumador, restador. Integrador, diferenciador, como filtro, integrador, diferenciador, comparador de ventana, conversiones de voltaje corriente y corriente voltaje. Así mismo, las habilidades relacionadas con el uso de los parámetros eléctricos de los diodos, clasificación de los diodos, realización de mediciones con el ohmímetro, así mismo, la diferenciación de los tipos de transistores, aplicación de la conmutación de señales eléctricas por medio de transistores; finalmente, diferenciación de los tipos de amplificadores, el conocimiento de los procesos de regulación y estabilización de fuentes de alimentación y aplicaciones del amplificador operacional.";
 
         Proyect_Silabo_Unprg.sumillaMedicina1 = "El curso Microbiología y Parasitología Médica, tiene como resultado de aprendizaje el desarrollo de la\n"
                 + "capacidad “Analiza las características biológicas y morfológicas de las bacterias, virus, hongos y parásitos que\n"

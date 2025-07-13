@@ -1,27 +1,32 @@
 package GUI;
 
 import GUI.modelos.CiclosComboModel;
+import GUI.modelos.CursoComboModel;
 import entidades.Ciclo;
 import entidades.Curso;
 import entidades.DepartamentoAcademico;
 import entidades.Escuela;
 import entidades.Facultad;
 import entidades.Silabo;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 public class JICrearSilabo extends javax.swing.JInternalFrame {
 
-  
     private static JICrearSilabo frm;
     private static Silabo silabo;
     private static Escuela escuela;
     private static Facultad facultad;
     private static DepartamentoAcademico departamento;
-    private static Curso curso;
-    
-    private Ciclo ciclo;
+    private Ciclo cicloSeleccionado;
+    private Curso cursoSeleccionado;
+
+    private List<Ciclo> ciclosVigentes;
+    private List<Curso> cursosVigentes;
     private CiclosComboModel modeloCiclos = new CiclosComboModel();
+    private CursoComboModel modeloCursos = new CursoComboModel();
 
     public JICrearSilabo(Silabo silabo) {
         initComponents();
@@ -32,7 +37,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         this.departamento = silabo.getDepatamento();
         this.escuela = silabo.getEscuela();
         cargarDatosASilabo();
-//        cargarCiclosDeSilabo();
+        cargarCiclosDeSilabo();
 
     }
 
@@ -60,28 +65,28 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         lblEscuela = new javax.swing.JLabel();
         txtEscuela = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbCiclos = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
+        cmbCursos = new javax.swing.JComboBox<>();
+        lblPrerrequistos = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        axtPrerrequisitos = new javax.swing.JTextArea();
+        lblCodigoCurso = new javax.swing.JLabel();
+        txtCodigoCurso = new javax.swing.JTextField();
+        lblCreditos = new javax.swing.JLabel();
+        txtCreditos = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        txtHorasSemanales = new javax.swing.JTextField();
+        lblHorasTeoricas = new javax.swing.JLabel();
+        lblHorasPracticas = new javax.swing.JLabel();
+        txtHorasTeoricas = new javax.swing.JTextField();
+        txtHorasPracticas = new javax.swing.JTextField();
+        lblDuracion = new javax.swing.JLabel();
+        txtDuracion = new javax.swing.JTextField();
+        lblFechaInicio = new javax.swing.JLabel();
+        lblFechaFinal = new javax.swing.JLabel();
+        txtFechaFinal = new javax.swing.JTextField();
+        txtFechaInicio = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
@@ -89,13 +94,13 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         jLabel18 = new javax.swing.JLabel();
         jTextField13 = new javax.swing.JTextField();
         bntSiguiente1 = new javax.swing.JButton();
-        jLabel23 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
+        lblSemestreAcademico = new javax.swing.JLabel();
+        txtSemestreAcademico = new javax.swing.JTextField();
         lblFacultad = new javax.swing.JLabel();
         txtFacultad = new javax.swing.JTextField();
         pn2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        atxSumilla = new javax.swing.JTextArea();
         btnSiguiente2 = new javax.swing.JButton();
         btnAtras2 = new javax.swing.JButton();
         pn3 = new javax.swing.JPanel();
@@ -103,10 +108,10 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         bntAtras3 = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
+        atxCompetenciaProfesional = new javax.swing.JTextArea();
         jPanel11 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTextArea6 = new javax.swing.JTextArea();
+        atxCapacidadCurso = new javax.swing.JTextArea();
         jPanel12 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -183,50 +188,60 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Ciclo:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X" }));
-        jComboBox1.setSelectedIndex(-1);
+        cmbCiclos.setModel(this.modeloCiclos);
+        cmbCiclos.setSelectedIndex(-1);
+        cmbCiclos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCiclosActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Curso:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbCursos.setModel(this.modeloCursos);
+        cmbCursos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCursosActionPerformed(evt);
+            }
+        });
 
-        jLabel7.setText("Prerrequisitos:");
+        lblPrerrequistos.setText("Prerrequisitos:");
 
-        jTextArea2.setEditable(false);
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        axtPrerrequisitos.setEditable(false);
+        axtPrerrequisitos.setColumns(20);
+        axtPrerrequisitos.setRows(5);
+        jScrollPane2.setViewportView(axtPrerrequisitos);
 
-        jLabel8.setText("Codigo del curso:");
+        lblCodigoCurso.setText("Codigo del curso:");
 
-        jTextField4.setEditable(false);
+        txtCodigoCurso.setEditable(false);
 
-        jLabel9.setText("Creditos: ");
+        lblCreditos.setText("Creditos: ");
 
-        jTextField5.setEditable(false);
+        txtCreditos.setEditable(false);
 
         jLabel10.setText("Horas semanales:");
 
-        jTextField6.setEditable(false);
+        txtHorasSemanales.setEditable(false);
 
-        jLabel11.setText("Teoricas:");
+        lblHorasTeoricas.setText("Teoricas:");
 
-        jLabel12.setText("Practicas:");
+        lblHorasPracticas.setText("Practicas:");
 
-        jTextField7.setEditable(false);
+        txtHorasTeoricas.setEditable(false);
 
-        jTextField8.setEditable(false);
+        txtHorasPracticas.setEditable(false);
 
-        jLabel13.setText("Duración: ");
+        lblDuracion.setText("Duración: ");
 
-        jTextField9.setEditable(false);
-        jTextField9.setText("16 semanas");
+        txtDuracion.setEditable(false);
+        txtDuracion.setText("16 semanas");
 
-        jLabel14.setText("Fecha Inicio: ");
+        lblFechaInicio.setText("Fecha Inicio: ");
 
-        jLabel15.setText("Fecha Final:");
+        lblFechaFinal.setText("Fecha Final:");
 
-        jTextField10.setEditable(false);
+        txtFechaFinal.setEditable(false);
 
         jLabel16.setText("Docente: ");
 
@@ -245,7 +260,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel23.setText("Semestre academico:");
+        lblSemestreAcademico.setText("Semestre academico:");
 
         lblFacultad.setText("Facultad: ");
 
@@ -292,36 +307,36 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                                             .addGroup(pn1Layout.createSequentialGroup()
                                                 .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                                                .addComponent(txtHorasSemanales, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
                                             .addGroup(pn1Layout.createSequentialGroup()
                                                 .addGap(46, 46, 46)
                                                 .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(pn1Layout.createSequentialGroup()
-                                                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(lblHorasTeoricas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addGap(18, 18, 18)
-                                                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                                        .addComponent(txtHorasTeoricas, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                                                     .addGroup(pn1Layout.createSequentialGroup()
                                                         .addGap(3, 3, 3)
-                                                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(lblHorasPracticas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))))
+                                                        .addComponent(txtHorasPracticas, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))))
                                         .addGap(53, 53, 53)
                                         .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(pn1Layout.createSequentialGroup()
-                                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                                .addComponent(lblDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jTextField9)
+                                                .addComponent(txtDuracion)
                                                 .addGap(19, 19, 19))
                                             .addGroup(pn1Layout.createSequentialGroup()
-                                                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(pn1Layout.createSequentialGroup()
-                                                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addComponent(lblFechaFinal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(lblFechaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(txtFechaInicio)
+                                                    .addComponent(txtFechaFinal)))))
                                     .addGroup(pn1Layout.createSequentialGroup()
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                        .addComponent(lblPrerrequistos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                         .addGap(18, 18, 18)
                                         .addComponent(jScrollPane2))
                                     .addGroup(pn1Layout.createSequentialGroup()
@@ -329,25 +344,25 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                                             .addGroup(pn1Layout.createSequentialGroup()
                                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jComboBox1, 0, 1, Short.MAX_VALUE)
-                                                .addGap(44, 44, 44))
+                                                .addComponent(cmbCiclos, 0, 1, Short.MAX_VALUE)
+                                                .addGap(80, 80, 80))
                                             .addGroup(pn1Layout.createSequentialGroup()
-                                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lblCodigoCurso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextField4)))
+                                                .addComponent(txtCodigoCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(pn1Layout.createSequentialGroup()
-                                                .addGap(17, 17, 17)
-                                                .addComponent(jLabel23)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(30, 30, 30)
-                                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGap(11, 11, 11)
+                                                .addComponent(lblSemestreAcademico)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(txtSemestreAcademico, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lblCreditos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtCreditos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(pn1Layout.createSequentialGroup()
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addComponent(cmbCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(pn1Layout.createSequentialGroup()
                                         .addComponent(lblFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))
@@ -395,48 +410,48 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmbCiclos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbCursos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(37, 37, 37)
                         .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel23)
-                            .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblCreditos)
+                            .addComponent(txtCreditos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCodigoCurso)
+                            .addComponent(txtCodigoCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSemestreAcademico)
+                            .addComponent(txtSemestreAcademico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pn1Layout.createSequentialGroup()
                                 .addGap(13, 13, 13)
-                                .addComponent(jLabel7)))
+                                .addComponent(lblPrerrequistos)))
                         .addGap(31, 31, 31)
                         .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(pn1Layout.createSequentialGroup()
                                 .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel10)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtHorasSemanales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblHorasTeoricas)
+                                    .addComponent(txtHorasTeoricas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12)))
+                                    .addComponent(txtHorasPracticas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblHorasPracticas)))
                             .addGroup(pn1Layout.createSequentialGroup()
                                 .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblDuracion)
+                                    .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblFechaInicio)
+                                    .addComponent(txtFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(lblFechaFinal)
+                                    .addComponent(txtFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                         .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
@@ -461,9 +476,9 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
         pn2.setBorder(javax.swing.BorderFactory.createTitledBorder("II. SUMILLA"));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
+        atxSumilla.setColumns(20);
+        atxSumilla.setRows(5);
+        jScrollPane3.setViewportView(atxSumilla);
 
         btnSiguiente2.setText("Siguiente");
         btnSiguiente2.addActionListener(new java.awt.event.ActionListener() {
@@ -524,9 +539,9 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("III. COMPETENCIA PROFESIONAL"));
 
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jScrollPane4.setViewportView(jTextArea4);
+        atxCompetenciaProfesional.setColumns(20);
+        atxCompetenciaProfesional.setRows(5);
+        jScrollPane4.setViewportView(atxCompetenciaProfesional);
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -543,9 +558,9 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("IV. CAPACIDAD DEL CURSO"));
 
-        jTextArea6.setColumns(20);
-        jTextArea6.setRows(5);
-        jScrollPane6.setViewportView(jTextArea6);
+        atxCapacidadCurso.setColumns(20);
+        atxCapacidadCurso.setRows(5);
+        jScrollPane6.setViewportView(atxCapacidadCurso);
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -1219,11 +1234,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSiguiente2ActionPerformed
 
     private void bntSiguiente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntSiguiente1ActionPerformed
-        //        silabo.setUniversidad(jTextField1.getText());
-        //        silabo.setEscuela(jTextField2.getText());
-        //        silabo.setCiclo(jComboBox1.getSelectedItem().toString());
-        //        silabo.setCreditos(Integer.parseInt(jTextField3.getText()));
-
         this.pn8.setSelectedIndex(1);
     }//GEN-LAST:event_bntSiguiente1ActionPerformed
 
@@ -1267,9 +1277,29 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         this.pn8.setSelectedIndex(6);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void cmbCiclosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCiclosActionPerformed
+        int pos = this.cmbCiclos.getSelectedIndex();
+        if (pos > -1) {
+            this.cicloSeleccionado = this.ciclosVigentes.get(pos);
+            cargarCusos();
+        }
+    }//GEN-LAST:event_cmbCiclosActionPerformed
+
+    private void cmbCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCursosActionPerformed
+        int pos = this.cmbCursos.getSelectedIndex();
+        if (pos > -1) {
+            this.cursoSeleccionado = this.cursosVigentes.get(pos);
+            cargarDatosDeCurso();
+        }
+    }//GEN-LAST:event_cmbCursosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ADS;
+    private javax.swing.JTextArea atxCapacidadCurso;
+    private javax.swing.JTextArea atxCompetenciaProfesional;
+    private javax.swing.JTextArea atxSumilla;
+    private javax.swing.JTextArea axtPrerrequisitos;
     private javax.swing.JButton bntAtras3;
     private javax.swing.JButton bntSiguiente1;
     private javax.swing.JButton btnAnterior4;
@@ -1283,21 +1313,16 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnSiguiente5;
     private javax.swing.JButton btnSiguiente6;
     private javax.swing.JButton btnSiguiente7;
+    private javax.swing.JComboBox<String> cmbCiclos;
+    private javax.swing.JComboBox<String> cmbCursos;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -1305,12 +1330,8 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -1342,33 +1363,29 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea10;
     private javax.swing.JTextArea jTextArea11;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextArea5;
-    private javax.swing.JTextArea jTextArea6;
     private javax.swing.JTextArea jTextArea7;
     private javax.swing.JTextArea jTextArea8;
     private javax.swing.JTextArea jTextArea9;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblBienvenida;
     private javax.swing.JLabel lblBienvenida1;
+    private javax.swing.JLabel lblCodigoCurso;
+    private javax.swing.JLabel lblCreditos;
     private javax.swing.JLabel lblDepartamento;
+    private javax.swing.JLabel lblDuracion;
     private javax.swing.JLabel lblEscuela;
     private javax.swing.JLabel lblFacultad;
+    private javax.swing.JLabel lblFechaFinal;
+    private javax.swing.JLabel lblFechaInicio;
+    private javax.swing.JLabel lblHorasPracticas;
+    private javax.swing.JLabel lblHorasTeoricas;
+    private javax.swing.JLabel lblPrerrequistos;
+    private javax.swing.JLabel lblSemestreAcademico;
     private javax.swing.JLabel lblUniversidad;
     private javax.swing.JPanel panVisualizacion;
     private javax.swing.JPanel pn1;
@@ -1380,20 +1397,68 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pn7;
     private javax.swing.JTabbedPane pn8;
     private javax.swing.JPanel pnFirma;
+    private javax.swing.JTextField txtCodigoCurso;
+    private javax.swing.JTextField txtCreditos;
     private javax.swing.JTextField txtDepartamento;
+    private javax.swing.JTextField txtDuracion;
     private javax.swing.JTextField txtEscuela;
     private javax.swing.JTextField txtFacultad;
+    private javax.swing.JTextField txtFechaFinal;
+    private javax.swing.JTextField txtFechaInicio;
+    private javax.swing.JTextField txtHorasPracticas;
+    private javax.swing.JTextField txtHorasSemanales;
+    private javax.swing.JTextField txtHorasTeoricas;
+    private javax.swing.JTextField txtSemestreAcademico;
     private javax.swing.JTextField txtUniversidad;
     // End of variables declaration//GEN-END:variables
 
     public void cargarDatosASilabo() {
-       this.txtUniversidad.setText("Universidad Nacional Pedro Ruiz Gallo");
-       this.txtFacultad.setText(this.facultad.getNombre());
-       this.txtDepartamento.setText(this.departamento.getNombre());
-       this.txtEscuela.setText(this.escuela.getNombre());
+        this.txtUniversidad.setText("Universidad Nacional Pedro Ruiz Gallo");
+        this.txtFacultad.setText(this.facultad.getNombre());
+        this.txtDepartamento.setText(this.departamento.getNombre());
+        this.txtEscuela.setText(this.escuela.getNombre());
     }
 
-//    private void cargarCiclosDeSilabo() {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
+    private void cargarCiclosDeSilabo() {
+        this.ciclosVigentes = new ArrayList<>();
+        for (Ciclo ciclo1 : this.escuela.getCiclo()) {
+            if (ciclo1.isVigente() == true) {
+                this.ciclosVigentes.add(ciclo1);
+            }
+        }
+        this.modeloCiclos.setCiclo(ciclosVigentes);
+        this.cmbCiclos.setSelectedIndex(-1);
+    }
+
+    private void cargarCusos() {
+        if (this.cicloSeleccionado != null) {
+            this.cursosVigentes = new ArrayList<>();
+            for (Curso curo : this.cicloSeleccionado.getCuros()) {
+                if (curo.isVigente() == true) {
+                    this.cursosVigentes.add(curo);
+                }
+            }
+            this.modeloCursos.setCurso(this.cursosVigentes);
+            this.cmbCursos.setSelectedIndex(-1);
+        }
+    }
+
+    private void cargarDatosDeCurso() {
+        if (this.cursoSeleccionado != null) {
+            int horasTeoricas= this.cursoSeleccionado.getHorasTeoricaSemanales();
+            int horasPracticas= this.cursoSeleccionado.getHorasTeoricaSemanales();
+            
+            this.txtCodigoCurso.setText(cursoSeleccionado.getCodigoCurso());
+            this.txtCreditos.setText(String.valueOf(cursoSeleccionado.getCreditos()));
+            this.txtHorasSemanales.setText(String.valueOf(horasTeoricas + horasPracticas));
+            this.txtHorasTeoricas.setText(String.valueOf(horasTeoricas));
+            this.txtHorasPracticas.setText(String.valueOf(horasTeoricas));
+            this.txtCodigoCurso.setText(cursoSeleccionado.getCodigoCurso());
+            this.axtPrerrequisitos.setText(this.cursoSeleccionado.getPrerrequisitos());
+            this.atxSumilla.setText(this.cursoSeleccionado.getSumilla());
+            this.atxCompetenciaProfesional.setText(this.cursoSeleccionado.getCompetenciaProfesional());
+            this.atxCapacidadCurso.setText(this.cursoSeleccionado.getCapacidadDelCurso());
+        }
+
+    }
 }
