@@ -12,11 +12,10 @@ public class JFSilabo extends javax.swing.JFrame {
     private Escuela escuela;
     private Facultad facultad;
     private DepartamentoAcademico depa;
-    
-    
 
     public JFSilabo() {
         initComponents();
+        mostrarBienvenida();
 
     }
 
@@ -24,6 +23,7 @@ public class JFSilabo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dpSilabo = new javax.swing.JDesktopPane();
         pnLateral = new javax.swing.JPanel();
         btnInicio = new javax.swing.JButton();
         btnCrear = new javax.swing.JButton();
@@ -32,34 +32,64 @@ public class JFSilabo extends javax.swing.JFrame {
         btnExportar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblBienvenida = new javax.swing.JLabel();
-        dpSilabo = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
+        dpSilabo.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout dpSilaboLayout = new javax.swing.GroupLayout(dpSilabo);
+        dpSilabo.setLayout(dpSilaboLayout);
+        dpSilaboLayout.setHorizontalGroup(
+            dpSilaboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 929, Short.MAX_VALUE)
+        );
+        dpSilaboLayout.setVerticalGroup(
+            dpSilaboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        pnLateral.setBackground(new java.awt.Color(0, 86, 163));
+
+        btnInicio.setBackground(new java.awt.Color(25, 118, 210));
         btnInicio.setText("Inicio");
+        btnInicio.setBorderPainted(false);
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInicioActionPerformed(evt);
             }
         });
 
+        btnCrear.setBackground(new java.awt.Color(25, 118, 210));
         btnCrear.setText("Crear");
+        btnCrear.setBorderPainted(false);
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearActionPerformed(evt);
             }
         });
 
+        btnImportar.setBackground(new java.awt.Color(25, 118, 210));
         btnImportar.setText("Abrir");
+        btnImportar.setBorderPainted(false);
+        btnImportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImportarActionPerformed(evt);
+            }
+        });
 
+        jButton1.setBackground(new java.awt.Color(25, 118, 210));
         jButton1.setText("Cuenta");
+        jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        btnExportar.setBackground(new java.awt.Color(25, 118, 210));
         btnExportar.setText("Exportar");
+        btnExportar.setBorderPainted(false);
         btnExportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExportarActionPerformed(evt);
@@ -78,70 +108,56 @@ public class JFSilabo extends javax.swing.JFrame {
         );
 
         lblBienvenida.setBackground(new java.awt.Color(255, 255, 255));
+        lblBienvenida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblBienvenida.setText("Bienvenido {grade} {fullname}");
 
         javax.swing.GroupLayout pnLateralLayout = new javax.swing.GroupLayout(pnLateral);
         pnLateral.setLayout(pnLateralLayout);
         pnLateralLayout.setHorizontalGroup(
             pnLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnImportar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnExportar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(pnLateralLayout.createSequentialGroup()
-                .addGroup(pnLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnLateralLayout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnLateralLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(lblBienvenida)))
-                .addContainerGap(31, Short.MAX_VALUE))
-            .addComponent(btnInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblBienvenida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnLateralLayout.createSequentialGroup()
+                .addContainerGap(80, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75))
         );
         pnLateralLayout.setVerticalGroup(
             pnLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnLateralLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(31, 31, 31)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblBienvenida)
-                .addGap(40, 40, 40)
+                .addGap(37, 37, 37)
                 .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(btnImportar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(btnExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 284, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        javax.swing.GroupLayout dpSilaboLayout = new javax.swing.GroupLayout(dpSilabo);
-        dpSilabo.setLayout(dpSilaboLayout);
-        dpSilaboLayout.setHorizontalGroup(
-            dpSilaboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 980, Short.MAX_VALUE)
-        );
-        dpSilaboLayout.setVerticalGroup(
-            dpSilaboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(pnLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(dpSilabo))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(dpSilabo)
+            .addComponent(pnLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -162,13 +178,13 @@ public class JFSilabo extends javax.swing.JFrame {
         Silabo silabo;
         silabo = frm.agregar();
         if (silabo.getEscuela() != null) {
-            JICrearSilabo frmCrear = JICrearSilabo.crear(dpSilabo,silabo);
+            JICrearSilabo frmCrear = JICrearSilabo.crear(dpSilabo, silabo);
             frmCrear.setVisible(true);
             try {
                 frmCrear.setMaximum(true);
             } catch (Exception e) {
             }
-            
+
         }
 
     }//GEN-LAST:event_btnCrearActionPerformed
@@ -190,6 +206,10 @@ public class JFSilabo extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnImportarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,4 +258,15 @@ public class JFSilabo extends javax.swing.JFrame {
     private javax.swing.JLabel lblBienvenida;
     private javax.swing.JPanel pnLateral;
     // End of variables declaration//GEN-END:variables
+
+    private void mostrarBienvenida() {
+//        if (usuarioActivo != null && usuarioActivo.getDocente() != null) {
+//            Docente d = usuarioActivo.getDocente();
+//            String saludo = "Bienvenido " + d.getGradoAcademico() + " " + d.getFullName();
+//            lblBienvenida.setText(saludo);
+//        } else {
+//            lblBienvenida.setText("Bienvenido usuario");
+//        }
+    }
+
 }

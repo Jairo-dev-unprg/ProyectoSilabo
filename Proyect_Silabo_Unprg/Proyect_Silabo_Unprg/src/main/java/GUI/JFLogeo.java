@@ -141,19 +141,19 @@ public class JFLogeo extends javax.swing.JFrame {
 
         lblCuenta.setForeground(new java.awt.Color(51, 51, 51));
         lblCuenta.setText("No tienes una cuenta?");
-        background.add(lblCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, -1, -1));
+        background.add(lblCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, -1, -1));
 
         lblCrearCuenta.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCrearCuenta.setForeground(new java.awt.Color(0, 102, 204));
         lblCrearCuenta.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblCrearCuenta.setText("CREA UNA");
+        lblCrearCuenta.setText(" CREA UNA");
         lblCrearCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblCrearCuenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblCrearCuentaMousePressed(evt);
             }
         });
-        background.add(lblCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 60, -1));
+        background.add(lblCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 70, -1));
 
         btnEntrar.setBackground(new java.awt.Color(232, 201, 42));
         btnEntrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
