@@ -43,7 +43,9 @@ public class Proyect_Silabo_Unprg {
     private static String sumillaEpici2 = null;
     private static String sumillaMedicina1 = null;
     private static String sumillaMedicina2 = null;
-
+    
+    public static List<Silabo> silabos = new ArrayList<>();
+    
     public static List<Facultad> facultad = new ArrayList<>();
 
     public static List<DepartamentoAcademico> dpFAG = new ArrayList<>();
@@ -81,7 +83,7 @@ public class Proyect_Silabo_Unprg {
     public static List<Usuario> usuarios = new ArrayList<>();
     public static List<Docente> docentes = new ArrayList<>();
 
-    public static List<Silabo> silabos = new ArrayList<>();
+    
 
     public static void main(String[] args) {
         FlatMonokaiProIJTheme.setup();

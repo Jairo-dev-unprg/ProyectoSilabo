@@ -1,5 +1,6 @@
 package GUI;
 
+import com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg;
 import entidades.DepartamentoAcademico;
 import entidades.Escuela;
 import entidades.Facultad;
@@ -11,6 +12,8 @@ public class JFSilabo extends javax.swing.JFrame {
     private Escuela escuela;
     private Facultad facultad;
     private DepartamentoAcademico depa;
+    
+    
 
     public JFSilabo() {
         initComponents();
@@ -159,12 +162,13 @@ public class JFSilabo extends javax.swing.JFrame {
         Silabo silabo;
         silabo = frm.agregar();
         if (silabo.getEscuela() != null) {
-            JICrearSilabo frmCrear = JICrearSilabo.crear(dpSilabo);
+            JICrearSilabo frmCrear = JICrearSilabo.crear(dpSilabo,silabo);
             frmCrear.setVisible(true);
             try {
                 frmCrear.setMaximum(true);
             } catch (Exception e) {
             }
+            
         }
 
     }//GEN-LAST:event_btnCrearActionPerformed
