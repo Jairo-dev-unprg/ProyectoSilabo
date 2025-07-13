@@ -13,7 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Proyect_Silabo_Unprg {
-
+    
+    // hola 
+    
+    
     private static void cargarCompetenciaGenerales() {
         competenciaProfesionalGenerales[0] = "Fortalece su desarrollo personal y cultural basado en la reflexión,autoestima, creatividad e Identidad nacional y con la UNPRG.";
         competenciaProfesionalGenerales[1] = "Propone soluciones a situaciones de su contexto, sobre la base de ciudadanía, democracia y desarrollo";
