@@ -6,7 +6,6 @@ import entidades.Facultad;
 import entidades.Silabo;
 import java.util.List;
 
-
 public class JFSilabo extends javax.swing.JFrame {
 
     private Escuela escuela;
@@ -159,24 +158,24 @@ public class JFSilabo extends javax.swing.JFrame {
         JDCrearSilabo frm = new JDCrearSilabo(null, true);
         Silabo silabo;
         silabo = frm.agregar();
-        //if (silabo != null) {
-           JICrearSilabo frmCrear = JICrearSilabo.crear(dpSilabo);
+        if (silabo.getEscuela() != null) {
+            JICrearSilabo frmCrear = JICrearSilabo.crear(dpSilabo);
             frmCrear.setVisible(true);
             try {
                 frmCrear.setMaximum(true);
             } catch (Exception e) {
-            } 
-        //}
-        
+            }
+        }
+
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void btnExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarActionPerformed
-               JIExportar frm = JIExportar.crear(this.dpSilabo);
+        JIExportar frm = JIExportar.crear(this.dpSilabo);
         frm.setVisible(true);
         try {
             frm.setMaximum(true);
         } catch (Exception e) {
-        } 
+        }
     }//GEN-LAST:event_btnExportarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -185,7 +184,7 @@ public class JFSilabo extends javax.swing.JFrame {
         try {
             frm.setMaximum(true);
         } catch (Exception e) {
-        } 
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

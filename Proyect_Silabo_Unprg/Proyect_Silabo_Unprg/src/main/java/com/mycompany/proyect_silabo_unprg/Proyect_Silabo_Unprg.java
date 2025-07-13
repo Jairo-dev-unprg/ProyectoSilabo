@@ -1,6 +1,7 @@
 package com.mycompany.proyect_silabo_unprg;
 
 import GUI.JFLogeo;
+import entidades.Ciclo;
 import entidades.Competencia;
 import entidades.Curso;
 import entidades.DepartamentoAcademico;
@@ -13,8 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Proyect_Silabo_Unprg {
-    
-    // hola 
     
     
     private static void cargarCompetenciaGenerales() {
@@ -61,8 +60,13 @@ public class Proyect_Silabo_Unprg {
     public static List<DepartamentoAcademico> dpFIQIA = new ArrayList<>();
     public static List<DepartamentoAcademico> dpFIZ = new ArrayList<>();
 
-    public static List<Escuela> escuelasDepartamento = new ArrayList<>();
+    public static List<Escuela> escuelasEpici = new ArrayList<>();
+    public static List<Escuela> escuelasElectronica = new ArrayList<>();
     public static List<Escuela> escuelaMedicina = new ArrayList<>();
+    
+    public static List<Ciclo> ciclos4Epici = new ArrayList<>();
+    public static List<Ciclo> ciclos4Electronica = new ArrayList<>();
+    public static List<Ciclo> ciclos4Medicina = new ArrayList<>();
 
     public static List<Curso> cursoEpici = new ArrayList<>();
     public static List<Curso> cursosElectronica = new ArrayList<>();
@@ -80,9 +84,6 @@ public class Proyect_Silabo_Unprg {
 
     public static void main(String[] args) {
         JFLogeo logeo = new JFLogeo();
-        logeo.setVisible(true);
-        cargarDatos();
-
     }
 
     public static void cargarDatos() {
@@ -91,6 +92,7 @@ public class Proyect_Silabo_Unprg {
         datosFacultades();
         datosDepatamentoAcademico();
         datosEscuela();
+        datosCiclo();
         datosCurso();
         cargarSumilla();
         cargaCompetencia();
@@ -125,15 +127,23 @@ public class Proyect_Silabo_Unprg {
     }
 
     private static void datosDepatamentoAcademico() {
-        dpFACFYM.add(new DepartamentoAcademico(escuelasDepartamento, "Computacion y electronica", true));
+        dpFACFYM.add(new DepartamentoAcademico(escuelasEpici, "Computacion y electronica", true));
         dpFMH.add(new DepartamentoAcademico(escuelaMedicina, "Docente", true));
     }
 
+    
+    
     private static void datosEscuela() {
-        escuelasDepartamento.add(new Escuela(cursoEpici, "Computación e informática", true));
-        escuelasDepartamento.add(new Escuela(cursosElectronica, "Electronica", true));
+        escuelasEpici.add(new Escuela(ciclos4Epici, "Computación e informática", true));
+        escuelasElectronica.add(new Escuela(ciclos4Electronica, "Electronica", true));
 
-        escuelaMedicina.add(new Escuela(cursoMediciona, "Escuela de medicina", true));
+        escuelaMedicina.add(new Escuela(ciclos4Medicina, "Escuela de medicina", true));
+    }
+    
+    
+    private static void datosCiclo() {
+        ciclos4Epici.add(new Ciclo(cursoEpici,"IV", true));
+        ciclos4Medicina.add(new Ciclo(cursoMediciona,"IV", true));
     }
 
     private static void datosCurso() {
@@ -258,5 +268,6 @@ public class Proyect_Silabo_Unprg {
                 + "disponible, principios éticos, política y normativa vigente";
         competenciaprofesionalMedicina[1] = "Evalúa situaciones, problemas y razonamientos usando principios elementales de la filosofía práctica y del pensamiento crítico asumiendo una postura ética que permita solución de problemas y toma de decisiones.";
     }
+
 
 }

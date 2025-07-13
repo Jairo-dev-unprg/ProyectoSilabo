@@ -9,15 +9,15 @@ import javax.swing.ComboBoxModel;
 
 public class DepartamentoComboModel extends AbstractListModel<String> implements ComboBoxModel<String> {
     
-    private List<DepartamentoAcademico> depa;
-    private DepartamentoAcademico seleccionado= null;
+ private List<DepartamentoAcademico> departamento;
+    private DepartamentoAcademico seleccionado;
 
-    public List<DepartamentoAcademico> getDepa() {
-        return depa;
+    public List<DepartamentoAcademico> getDepartamento() {
+        return departamento;
     }
 
-    public void setDepa(List<DepartamentoAcademico> depa) {
-        this.depa = depa;
+    public void setDepartamento(List<DepartamentoAcademico> departamento) {
+        this.departamento = departamento;
     }
 
     public DepartamentoAcademico getSeleccionado() {
@@ -29,19 +29,19 @@ public class DepartamentoComboModel extends AbstractListModel<String> implements
     }
 
 
-
+    
     @Override
     public int getSize() {
         int cantidad = 0;
-        if (this.depa != null) {
-            cantidad = this.depa.size();
+        if (this.departamento != null) {
+            cantidad = this.departamento.size();
         }
         return cantidad;
     }
 
     @Override
     public String getElementAt(int index) {
-        return this.depa.get(index).getNombre();
+        return this.departamento.get(index).getNombre();
     }
 
     @Override
@@ -49,9 +49,9 @@ public class DepartamentoComboModel extends AbstractListModel<String> implements
         this.seleccionado = null;
         if (anItem != null) {
 
-            for (DepartamentoAcademico Departa : this.depa) {
-                if (Departa.getNombre().equals(anItem.toString()) == true) {
-                    this.seleccionado = Departa;
+            for (DepartamentoAcademico facul : this.departamento) {
+                if (facul.getNombre().equals(anItem.toString()) == true) {
+                    this.seleccionado = facul;
                     return;
                 }
             }

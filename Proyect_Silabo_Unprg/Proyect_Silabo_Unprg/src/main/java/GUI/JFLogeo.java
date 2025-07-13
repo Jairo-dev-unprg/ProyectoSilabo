@@ -1,5 +1,6 @@
 package GUI;
 
+import com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg;
 import java.awt.Dialog;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -13,7 +14,9 @@ public class JFLogeo extends javax.swing.JFrame {
     public JFLogeo() {
         setUndecorated(true); // eliminamos la barra del titulo 
         initComponents();
+        Proyect_Silabo_Unprg.cargarDatos();
         setLocationRelativeTo(null); // posicion a nada
+        setVisible(true);
      
         // para el evento para mover la ventana desde cualquier parte visible del JFrame
         this.addMouseListener(new MouseAdapter() {

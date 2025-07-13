@@ -6,25 +6,25 @@ import java.util.List;
 
 
 public class Escuela {
-    private List<Curso> cursos;
+    private List<Ciclo> ciclo;
     private String nombre;
     private boolean vigente;
 
     public Escuela() {
     }
 
-    public Escuela(List<Curso> cursos, String nombre, boolean vigete) {
-        this.cursos = cursos;
+    public Escuela(List<Ciclo> ciclo, String nombre, boolean vigente) {
+        this.ciclo = ciclo;
         this.nombre = nombre;
-        this.vigente = vigete;
+        this.vigente = vigente;
     }
 
-    public List<Curso> getCursos() {
-        return cursos;
+    public List<Ciclo> getCiclo() {
+        return ciclo;
     }
 
-    public void setCursos(List<Curso> cursos) {
-        this.cursos = cursos;
+    public void setCiclo(List<Ciclo> ciclo) {
+        this.ciclo = ciclo;
     }
 
     public String getNombre() {
@@ -35,14 +35,14 @@ public class Escuela {
         this.nombre = nombre;
     }
 
-    public boolean isVigete() {
+    public boolean isVigente() {
         return vigente;
     }
 
-    public void setVigete(boolean vigete) {
-        this.vigente = vigete;
+    public void setVigente(boolean vigente) {
+        this.vigente = vigente;
     }
 
- 
+
     
 }
