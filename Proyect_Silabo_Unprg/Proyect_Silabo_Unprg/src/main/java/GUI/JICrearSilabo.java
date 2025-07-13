@@ -32,7 +32,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         this.departamento = silabo.getDepatamento();
         this.escuela = silabo.getEscuela();
         cargarDatosASilabo();
-        cargarCiclosDeSilabo();
+//        cargarCiclosDeSilabo();
 
     }
 
@@ -1393,7 +1393,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
        this.txtEscuela.setText(this.escuela.getNombre());
     }
 
-    private void cargarCiclosDeSilabo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+//    private void cargarCiclosDeSilabo() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
 }

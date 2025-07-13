@@ -215,7 +215,6 @@ public class JDCrearSilabo extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-
         if (validarDatos() == true) {
             this.setVisible(false);
         }
