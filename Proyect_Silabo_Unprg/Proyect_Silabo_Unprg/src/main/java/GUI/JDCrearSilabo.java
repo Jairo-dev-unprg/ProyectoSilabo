@@ -10,6 +10,7 @@ import entidades.Facultad;
 import entidades.Silabo;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class JDCrearSilabo extends javax.swing.JDialog {
 
@@ -229,19 +230,23 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         if (pos > -1) {
             this.facultadSeleccionada = this.facultadesVigentes.get(pos);
             cargarDepartamento();
+            this.cmbDepartamento.setSelectedIndex(-1);
+            this.cmbEscuela.setSelectedIndex(-1);
+
         }
 
     }//GEN-LAST:event_cmbFacultadActionPerformed
 
     private void cmbDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDepartamentoActionPerformed
+
         this.escuelaSelecionada = null;
         this.escuelaVigente = null;
         int pos = this.cmbDepartamento.getSelectedIndex();
         if (pos > -1) {
             this.departamentoSeleccionado = this.departamentosVigentes.get(pos);
+            this.cmbEscuela.setSelectedIndex(-1);
             cargarEscuelas();
         }
-
     }//GEN-LAST:event_cmbDepartamentoActionPerformed
 
     private void cmbEscuelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEscuelaActionPerformed
@@ -337,11 +342,7 @@ public class JDCrearSilabo extends javax.swing.JDialog {
                     this.departamentosVigentes.add(depa);
                 }
             }
-
             this.modeloDepartemento.setDepartamento(this.departamentosVigentes);
-
-            this.modeloDepartemento.setDepartamento(this.departamentosVigentes);
-
             this.cmbDepartamento.setSelectedIndex(-1);
             this.cmbEscuela.setSelectedIndex(-1);
         }
@@ -351,14 +352,8 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         if (this.departamentoSeleccionado != null) {
             this.escuelaVigente = new ArrayList<>();
             for (Escuela escuelas : this.departamentoSeleccionado.getEscuelas()) {
-
                 if (escuelas.isVigente() == true) {
                     this.escuelaVigente.add(escuelas);
-
-                    if (escuelas.isVigente() == true) {
-                        this.escuelaVigente.add(escuelas);
-
-                    }
                 }
                 this.modeloEscuela.setEscuela(this.escuelaVigente);
                 this.cmbEscuela.setSelectedIndex(-1);
@@ -369,6 +364,24 @@ public class JDCrearSilabo extends javax.swing.JDialog {
     }
 
     private boolean validarDatos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String mensaje = "Selecione";
+        if (this.facultadSeleccionada == null) {
+            mensaje += " la facultad";
+            JOptionPane.showMessageDialog(null, mensaje);           
+        } else {           
+            if (this.departamentoSeleccionado == null) {
+                mensaje += " el departamento";
+                JOptionPane.showMessageDialog(null, mensaje);
+            } else {
+                if (this.escuelaSelecionada == null) {
+                    mensaje += " la escuela";
+                    JOptionPane.showMessageDialog(null, mensaje);
+
+                } else {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
