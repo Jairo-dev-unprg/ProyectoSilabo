@@ -10,6 +10,9 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 public class JICrearSilabo extends javax.swing.JInternalFrame {
 
+    //xD
+    
+    
     private static JICrearSilabo frm;
     private static Silabo silabo;
     private static Escuela escuela;
@@ -157,7 +160,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jScrollPane18 = new javax.swing.JScrollPane();
-        jPanel2 = new javax.swing.JPanel();
+        panVisualizacion = new javax.swing.JPanel();
 
         pn1.setBorder(javax.swing.BorderFactory.createTitledBorder("I. INFORMACIÓN GENERAL"));
 
@@ -1139,18 +1142,18 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
         jSplitPane1.setLeftComponent(pn8);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panVisualizacionLayout = new javax.swing.GroupLayout(panVisualizacion);
+        panVisualizacion.setLayout(panVisualizacionLayout);
+        panVisualizacionLayout.setHorizontalGroup(
+            panVisualizacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 678, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panVisualizacionLayout.setVerticalGroup(
+            panVisualizacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 712, Short.MAX_VALUE)
         );
 
-        jScrollPane18.setViewportView(jPanel2);
+        jScrollPane18.setViewportView(panVisualizacion);
 
         jScrollPane1.setViewportView(jScrollPane18);
 
@@ -1171,7 +1174,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1)))
         );
 
         pack();
@@ -1290,7 +1293,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel8;
@@ -1344,6 +1346,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblBienvenida;
     private javax.swing.JLabel lblBienvenida1;
+    private javax.swing.JPanel panVisualizacion;
     private javax.swing.JPanel pn1;
     private javax.swing.JPanel pn2;
     private javax.swing.JPanel pn3;

@@ -4,7 +4,7 @@ package entidades;
 
 public class Usuario {
     
-    private String usario;
+    private String nombreUsuario;
     private String contraseña;
     private Docente docente;
 
@@ -15,17 +15,17 @@ public class Usuario {
     }
 
     public Usuario(String usario, String contraseña, Docente docente) {
-        this.usario = usario;
+        this.nombreUsuario = usario;
         this.contraseña = contraseña;
         this.docente = docente;
     }
 
     public String getUsario() {
-        return usario;
+        return nombreUsuario;
     }
 
     public void setUsario(String usario) {
-        this.usario = usario;
+        this.nombreUsuario = usario;
     }
 
     public String getContraseña() {
@@ -46,7 +46,7 @@ public class Usuario {
     
     @Override
     public String toString() {
-        return "Usuario: " + usario + ", Contraseña: " + contraseña + "\n" + docente.toString();
+        return "Usuario: " + nombreUsuario + ", Contraseña: " + contraseña + "\n" + docente.toString();
     }
     
 }
