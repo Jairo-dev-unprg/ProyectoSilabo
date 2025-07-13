@@ -337,7 +337,11 @@ public class JDCrearSilabo extends javax.swing.JDialog {
                     this.departamentosVigentes.add(depa);
                 }
             }
+
             this.modeloDepartemento.setDepartamento(this.departamentosVigentes);
+
+            this.modeloDepartemento.setDepartamento(this.departamentosVigentes);
+
             this.cmbDepartamento.setSelectedIndex(-1);
             this.cmbEscuela.setSelectedIndex(-1);
         }
@@ -347,17 +351,24 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         if (this.departamentoSeleccionado != null) {
             this.escuelaVigente = new ArrayList<>();
             for (Escuela escuelas : this.departamentoSeleccionado.getEscuelas()) {
+
                 if (escuelas.isVigente() == true) {
                     this.escuelaVigente.add(escuelas);
+
+                    if (escuelas.isVigente() == true) {
+                        this.escuelaVigente.add(escuelas);
+
+                    }
                 }
+                this.modeloEscuela.setEscuela(this.escuelaVigente);
+                this.cmbEscuela.setSelectedIndex(-1);
             }
-            this.modeloEscuela.setEscuela(this.escuelaVigente);
-            this.cmbEscuela.setSelectedIndex(-1);
+
         }
 
     }
 
     private boolean validarDatos() {
-        return true;
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

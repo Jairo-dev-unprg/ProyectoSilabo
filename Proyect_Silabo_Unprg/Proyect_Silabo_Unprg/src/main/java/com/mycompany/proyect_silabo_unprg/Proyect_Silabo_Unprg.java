@@ -1,6 +1,7 @@
 package com.mycompany.proyect_silabo_unprg;
 
 import GUI.JFLogeo;
+import com.formdev.flatlaf.intellijthemes.FlatMonokaiProIJTheme;
 import entidades.Ciclo;
 import entidades.Competencia;
 import entidades.Curso;
@@ -83,6 +84,7 @@ public class Proyect_Silabo_Unprg {
     public static List<Silabo> silabos = new ArrayList<>();
 
     public static void main(String[] args) {
+        FlatMonokaiProIJTheme.setup();
         JFLogeo logeo = new JFLogeo();
     }
 
