@@ -1,5 +1,5 @@
 package com.mycompany.proyect_silabo_unprg;
-
+//dfasfdafdafdadafdadafda
 import GUI.JFLogeo;
 import entidades.Ciclo;
 import entidades.Competencia;
