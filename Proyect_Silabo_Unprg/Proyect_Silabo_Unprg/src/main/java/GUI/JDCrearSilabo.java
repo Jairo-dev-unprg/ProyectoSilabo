@@ -9,21 +9,20 @@ import entidades.Escuela;
 import entidades.Facultad;
 import entidades.Silabo;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 public class JDCrearSilabo extends javax.swing.JDialog {
 
     private Facultad facultadSeleccionada;
-    private List<Facultad> facultadesVigentes = new ArrayList<>();
+    private List<Facultad> facultadesVigentes;
     private FacultadComboModel modeloFacultad = new FacultadComboModel();
 
     private DepartamentoAcademico departamentoSeleccionado;
-    private List<DepartamentoAcademico> departamentosVigentesFacultad = new ArrayList<>();
+    private List<DepartamentoAcademico> departamentosVigentes;
     private DepartamentoComboModel modeloDepartemento = new DepartamentoComboModel();
 
     private Escuela escuelaSelecionada;
-    private List<Escuela> escuelaVigenteDepartamento = new ArrayList<>();
+    private List<Escuela> escuelaVigente;
     private EscuelaComboModel modeloEscuela = new EscuelaComboModel();
 
     private static Silabo silabo;
@@ -50,8 +49,8 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         cmbFacultad = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        cmbDepartamento = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
+        cmbDepartamento = new javax.swing.JComboBox<>();
         cmbEscuela = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -93,7 +92,6 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         jLabel2.setText("Facultad: ");
 
         cmbFacultad.setModel(this.modeloFacultad);
-        cmbFacultad.setSelectedIndex(-1);
         cmbFacultad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbFacultadActionPerformed(evt);
@@ -102,18 +100,16 @@ public class JDCrearSilabo extends javax.swing.JDialog {
 
         jLabel3.setText("Departamento : ");
 
+        jLabel4.setText("Escuela: ");
+
         cmbDepartamento.setModel(this.modeloDepartemento);
-        cmbDepartamento.setSelectedIndex(-1);
         cmbDepartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbDepartamentoActionPerformed(evt);
             }
         });
 
-        jLabel4.setText("Escuela: ");
-
         cmbEscuela.setModel(this.modeloEscuela);
-        cmbEscuela.setSelectedIndex(-1);
         cmbEscuela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbEscuelaActionPerformed(evt);
@@ -128,17 +124,17 @@ public class JDCrearSilabo extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cmbEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbDepartamento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbFacultad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(cmbFacultad, 0, 551, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbDepartamento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmbEscuela, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -152,7 +148,7 @@ public class JDCrearSilabo extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(cmbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(cmbEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -168,22 +164,21 @@ public class JDCrearSilabo extends javax.swing.JDialog {
                 .addComponent(lblFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(364, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnSiguiente)
-                        .addGap(54, 54, 54)
-                        .addComponent(btnCerrar)))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnSiguiente)
+                .addGap(54, 54, 54)
+                .addComponent(btnCerrar)
                 .addGap(42, 42, 42))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,17 +187,14 @@ public class JDCrearSilabo extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblFiltrar))
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
                         .addComponent(jLabel1)
                         .addGap(4, 4, 4)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCerrar)
                     .addComponent(btnSiguiente))
@@ -213,7 +205,7 @@ public class JDCrearSilabo extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFiltrarActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtFiltrarActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
@@ -222,32 +214,40 @@ public class JDCrearSilabo extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        this.setVisible(false);
+
+        if (validarDatos() == true) {
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private void cmbFacultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFacultadActionPerformed
+        this.departamentoSeleccionado = null;
         this.escuelaSelecionada = null;
+        this.departamentosVigentes = null;
+        this.escuelaVigente = null;
         int pos = this.cmbFacultad.getSelectedIndex();
         if (pos > -1) {
             this.facultadSeleccionada = this.facultadesVigentes.get(pos);
+            cargarDepartamento();
         }
-        cargarDepartamento();
+
     }//GEN-LAST:event_cmbFacultadActionPerformed
 
     private void cmbDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDepartamentoActionPerformed
+        this.escuelaSelecionada = null;
+        this.escuelaVigente = null;
         int pos = this.cmbDepartamento.getSelectedIndex();
         if (pos > -1) {
-            this.departamentoSeleccionado = this.departamentosVigentesFacultad.get(pos);
+            this.departamentoSeleccionado = this.departamentosVigentes.get(pos);
+            cargarEscuelas();
         }
-
-        cargarEscuelas();
 
     }//GEN-LAST:event_cmbDepartamentoActionPerformed
 
     private void cmbEscuelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEscuelaActionPerformed
         int pos = this.cmbEscuela.getSelectedIndex();
         if (pos > -1) {
-            this.escuelaSelecionada = this.escuelaVigenteDepartamento.get(pos);
+            this.escuelaSelecionada = this.escuelaVigente.get(pos);
         }
     }//GEN-LAST:event_cmbEscuelaActionPerformed
 
@@ -292,7 +292,6 @@ public class JDCrearSilabo extends javax.swing.JDialog {
     public Silabo agregar() {
         //this.cargarDatos();// aqui vamos a cargar los datos de las universidades Facultades, departamentos y escuelas comela justto
         this.setVisible(true);
-
         Silabo sil = new Silabo();
         sil.setFacultad(this.facultadSeleccionada);
         sil.setDepartamento(this.departamentoSeleccionado);
@@ -320,40 +319,56 @@ public class JDCrearSilabo extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void cargarFacultades() {
+        this.facultadesVigentes = new ArrayList<>();
         for (Facultad facultad : Proyect_Silabo_Unprg.facultad) {
             if (facultad.isVigente() == true) {
                 this.facultadesVigentes.add(facultad);
             }
         }
-        this.modeloFacultad.setFacul(this.facultadesVigentes);
+        this.modeloFacultad.setFacultad(this.facultadesVigentes);
         this.cmbFacultad.setSelectedIndex(-1);
     }
 
     private void cargarDepartamento() {
-
         if (this.facultadSeleccionada != null) {
-            for (DepartamentoAcademico Departamento : this.facultadSeleccionada.getDepartamentosAcademicos()) {
-                if (Departamento.isVigente() == true) {
-                    this.departamentosVigentesFacultad.add(Departamento);
+            this.departamentosVigentes = new ArrayList<>();
+            for (DepartamentoAcademico depa : this.facultadSeleccionada.getDepartamentosAcademicos()) {
+                if (depa.isVigente() == true) {
+                    this.departamentosVigentes.add(depa);
                 }
             }
-            this.modeloDepartemento.setDepartamento(this.departamentosVigentesFacultad);
+
+            this.modeloDepartemento.setDepartamento(this.departamentosVigentes);
+
+            this.modeloDepartemento.setDepartamento(this.departamentosVigentes);
+
             this.cmbDepartamento.setSelectedIndex(-1);
+            this.cmbEscuela.setSelectedIndex(-1);
+        }
+    }
+
+    private void cargarEscuelas() {
+        if (this.departamentoSeleccionado != null) {
+            this.escuelaVigente = new ArrayList<>();
+            for (Escuela escuelas : this.departamentoSeleccionado.getEscuelas()) {
+
+                if (escuelas.isVigente() == true) {
+                    this.escuelaVigente.add(escuelas);
+
+                    if (escuelas.isVigente() == true) {
+                        this.escuelaVigente.add(escuelas);
+
+                    }
+                }
+                this.modeloEscuela.setEscuela(this.escuelaVigente);
+                this.cmbEscuela.setSelectedIndex(-1);
+            }
+
         }
 
     }
 
-    private void cargarEscuelas() {
-
-        if (this.departamentoSeleccionado != null) {
-            for (Escuela escuelas : this.departamentoSeleccionado.getEscuelas()) {
-                if (escuelas.isVigente()== true) {
-                    this.escuelaVigenteDepartamento.add(escuelas);
-                }
-            }
-            this.modeloEscuela.setEscuela(this.escuelaVigenteDepartamento);
-            this.cmbEscuela.setSelectedIndex(-1);
-        }
-
+    private boolean validarDatos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

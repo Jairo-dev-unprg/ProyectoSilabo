@@ -42,8 +42,6 @@ public class DepartamentoAcademico {
     public void setVigente(boolean vigente) {
         this.vigente = vigente;
     }
-
-    
     
     
 }
