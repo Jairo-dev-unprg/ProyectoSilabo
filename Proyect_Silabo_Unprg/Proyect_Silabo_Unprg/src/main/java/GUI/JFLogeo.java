@@ -18,7 +18,7 @@ public class JFLogeo extends javax.swing.JFrame {
         Proyect_Silabo_Unprg.cargarDatos();
         setLocationRelativeTo(null); // posicion a nada
         setVisible(true);
-     
+
         // para el evento para mover la ventana desde cualquier parte visible del JFrame
         this.addMouseListener(new MouseAdapter() {
             @Override
@@ -44,92 +44,72 @@ public class JFLogeo extends javax.swing.JFrame {
     private void initComponents() {
 
         background = new javax.swing.JPanel();
-        pnImagen2 = new javax.swing.JPanel();
-        lblLogoLargo2 = new javax.swing.JLabel();
-        lblIniciarSesion2 = new javax.swing.JLabel();
-        lblTextto1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        lblUsuario2 = new javax.swing.JLabel();
-        lblUsuario3 = new javax.swing.JLabel();
-        btnIniciar = new javax.swing.JButton();
-        txtUsuario1 = new javax.swing.JTextField();
-        separatorCrear = new javax.swing.JSeparator();
-        chkVerPassword = new javax.swing.JCheckBox();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        separatorCrear3 = new javax.swing.JSeparator();
-        separatorCrear4 = new javax.swing.JSeparator();
         lblLogoUnprg = new javax.swing.JLabel();
         lblTitulo = new javax.swing.JLabel();
+        lblIniciarSesion = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        separadorUsuario = new javax.swing.JSeparator();
+        lblPass = new javax.swing.JLabel();
+        chkVerPassword = new javax.swing.JCheckBox();
+        txtPass = new javax.swing.JPasswordField();
+        separadorPass = new javax.swing.JSeparator();
+        separatorCrear = new javax.swing.JSeparator();
+        lblCuenta = new javax.swing.JLabel();
+        lblCrearCuenta = new javax.swing.JLabel();
+        btnEntrar = new javax.swing.JButton();
         lblBaner = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        header = new javax.swing.JPanel();
         lblX = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        background.setBackground(new java.awt.Color(204, 204, 204));
+        background.setBackground(new java.awt.Color(255, 255, 255));
+        background.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pnImagen2.setBackground(new java.awt.Color(255, 255, 255));
-        pnImagen2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        lblLogoUnprg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo_unprg.png"))); // NOI18N
+        background.add(lblLogoUnprg, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
 
-        lblLogoLargo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/isotipo_unprg(2).png"))); // NOI18N
-        pnImagen2.add(lblLogoLargo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        lblTitulo.setBackground(new java.awt.Color(204, 204, 204));
+        lblTitulo.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo.setText("PLANIFICA UNPRG");
+        background.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 320, -1));
 
-        lblIniciarSesion2.setFont(new java.awt.Font("Roboto ExtraBold", 1, 30)); // NOI18N
-        lblIniciarSesion2.setForeground(new java.awt.Color(0, 0, 0));
-        lblIniciarSesion2.setText("INICIAR SESION");
-        pnImagen2.add(lblIniciarSesion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        lblIniciarSesion.setFont(new java.awt.Font("Roboto ExtraBold", 1, 24)); // NOI18N
+        lblIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
+        lblIniciarSesion.setText("INICIAR SESION");
+        background.add(lblIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, -1, -1));
 
-        lblTextto1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblTextto1.setForeground(new java.awt.Color(0, 0, 0));
-        lblTextto1.setText("No tienes cuenta?");
-        pnImagen2.add(lblTextto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, -1, -1));
+        lblUsuario.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 18)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(51, 51, 51));
+        lblUsuario.setText("USUARIO");
+        background.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 102, 255));
-        jLabel2.setText("CREA UNA");
-        pnImagen2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, 70, -1));
-
-        lblUsuario2.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 18)); // NOI18N
-        lblUsuario2.setForeground(new java.awt.Color(51, 51, 51));
-        lblUsuario2.setText("USUARIO");
-        pnImagen2.add(lblUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
-
-        lblUsuario3.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 18)); // NOI18N
-        lblUsuario3.setForeground(new java.awt.Color(51, 51, 51));
-        lblUsuario3.setText("CONTRASEÑA");
-        pnImagen2.add(lblUsuario3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
-
-        btnIniciar.setBackground(new java.awt.Color(232, 201, 42));
-        btnIniciar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnIniciar.setForeground(new java.awt.Color(0, 0, 0));
-        btnIniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login.png"))); // NOI18N
-        btnIniciar.setText("ENTRAR");
-        btnIniciar.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(210, 184, 35), new java.awt.Color(170, 170, 170)));
-        btnIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnIniciar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIniciarActionPerformed(evt);
-            }
-        });
-        pnImagen2.add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 90, 30));
-
-        txtUsuario1.setBackground(new java.awt.Color(255, 255, 255));
-        txtUsuario1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtUsuario1.setForeground(new java.awt.Color(153, 153, 153));
-        txtUsuario1.setBorder(null);
-        txtUsuario1.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtUsuario1.setDisabledTextColor(new java.awt.Color(232, 201, 42));
-        txtUsuario1.setSelectedTextColor(new java.awt.Color(0, 0, 0));
-        txtUsuario1.setSelectionColor(new java.awt.Color(232, 201, 42));
-        txtUsuario1.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        txtUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(153, 153, 153));
+        txtUsuario.setBorder(null);
+        txtUsuario.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtUsuario.setDisabledTextColor(new java.awt.Color(232, 201, 42));
+        txtUsuario.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        txtUsuario.setSelectionColor(new java.awt.Color(232, 201, 42));
+        txtUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtUsuario1FocusGained(evt);
+                txtUsuarioFocusGained(evt);
             }
         });
-        pnImagen2.add(txtUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 430, 30));
+        background.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 370, 30));
 
-        separatorCrear.setBorder(new javax.swing.border.MatteBorder(null));
-        pnImagen2.add(separatorCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 430, 10));
+        separadorUsuario.setBorder(new javax.swing.border.MatteBorder(null));
+        background.add(separadorUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 370, 10));
+
+        lblPass.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 18)); // NOI18N
+        lblPass.setForeground(new java.awt.Color(51, 51, 51));
+        lblPass.setText("CONTRASEÑA");
+        background.add(lblPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, -1, -1));
 
         chkVerPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ver_contrasenia.png"))); // NOI18N
         chkVerPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -137,48 +117,79 @@ public class JFLogeo extends javax.swing.JFrame {
                 chkVerPasswordActionPerformed(evt);
             }
         });
-        pnImagen2.add(chkVerPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, -1, -1));
+        background.add(chkVerPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 250, -1, -1));
 
-        jPasswordField2.setBackground(new java.awt.Color(255, 255, 255));
-        jPasswordField2.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jPasswordField2.setForeground(new java.awt.Color(153, 153, 153));
-        jPasswordField2.setBorder(null);
-        jPasswordField2.setDisabledTextColor(new java.awt.Color(232, 201, 42));
-        jPasswordField2.setSelectedTextColor(new java.awt.Color(0, 0, 0));
-        jPasswordField2.setSelectionColor(new java.awt.Color(232, 201, 42));
-        jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
+        txtPass.setBackground(new java.awt.Color(255, 255, 255));
+        txtPass.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtPass.setForeground(new java.awt.Color(153, 153, 153));
+        txtPass.setBorder(null);
+        txtPass.setDisabledTextColor(new java.awt.Color(232, 201, 42));
+        txtPass.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        txtPass.setSelectionColor(new java.awt.Color(232, 201, 42));
+        txtPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField2ActionPerformed(evt);
+                txtPassActionPerformed(evt);
             }
         });
-        pnImagen2.add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 430, 30));
+        background.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 370, 30));
 
-        separatorCrear3.setBorder(new javax.swing.border.MatteBorder(null));
-        pnImagen2.add(separatorCrear3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 430, 10));
+        separadorPass.setBorder(new javax.swing.border.MatteBorder(null));
+        background.add(separadorPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 370, 10));
 
-        separatorCrear4.setBorder(new javax.swing.border.MatteBorder(null));
-        pnImagen2.add(separatorCrear4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 430, 10));
+        separatorCrear.setBorder(new javax.swing.border.MatteBorder(null));
+        background.add(separatorCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, 370, 10));
 
-        lblLogoUnprg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo_unprg_g(3)_Photoroom.png"))); // NOI18N
-        pnImagen2.add(lblLogoUnprg, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, -1, -1));
+        lblCuenta.setForeground(new java.awt.Color(51, 51, 51));
+        lblCuenta.setText("No tienes una cuenta?");
+        background.add(lblCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, -1, -1));
 
-        lblTitulo.setBackground(new java.awt.Color(204, 204, 204));
-        lblTitulo.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitulo.setText("PLANIFICA UNPRG");
-        pnImagen2.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, -1, -1));
+        lblCrearCuenta.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblCrearCuenta.setForeground(new java.awt.Color(0, 102, 204));
+        lblCrearCuenta.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblCrearCuenta.setText("CREA UNA");
+        lblCrearCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCrearCuenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblCrearCuentaMousePressed(evt);
+            }
+        });
+        background.add(lblCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 60, -1));
+
+        btnEntrar.setBackground(new java.awt.Color(232, 201, 42));
+        btnEntrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnEntrar.setForeground(new java.awt.Color(0, 0, 0));
+        btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login.png"))); // NOI18N
+        btnEntrar.setText("ENTRAR");
+        btnEntrar.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(210, 184, 35), new java.awt.Color(170, 170, 170)));
+        btnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
+        background.add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 310, 90, 30));
 
         lblBaner.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBaner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panel_unprg.png"))); // NOI18N
+        lblBaner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/baner_unprg.png"))); // NOI18N
         lblBaner.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblBaner.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        pnImagen2.add(lblBaner, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 250, 540));
+        background.add(lblBaner, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 460));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        header.setBackground(new java.awt.Color(255, 255, 255));
+        header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                headerMouseDragged(evt);
+            }
+        });
+        header.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                headerMousePressed(evt);
+            }
+        });
 
         lblX.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
         lblX.setForeground(new java.awt.Color(0, 0, 0));
-        lblX.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblX.setText("X");
         lblX.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblX.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -188,77 +199,84 @@ public class JFLogeo extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
+        header.setLayout(headerLayout);
+        headerLayout.setHorizontalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
+                .addContainerGap(705, Short.MAX_VALUE)
                 .addComponent(lblX)
-                .addContainerGap(789, Short.MAX_VALUE))
+                .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 14, Short.MAX_VALUE)
+        headerLayout.setVerticalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblX, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        pnImagen2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 30));
-
-        javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
-        background.setLayout(backgroundLayout);
-        backgroundLayout.setHorizontalGroup(
-            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundLayout.createSequentialGroup()
-                .addComponent(pnImagen2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        backgroundLayout.setVerticalGroup(
-            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnImagen2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        background.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 720, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
+    private void txtUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuarioFocusGained
+        this.txtUsuario.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txtUsuarioFocusGained
+
+    private void chkVerPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkVerPasswordActionPerformed
+        if (chkVerPassword.isSelected()) {
+            txtPass.setEchoChar((char) 0); // Muestra texto plano
+        } else {
+            txtPass.setEchoChar('\u2022'); // Vuelve a ocultar la contraseña
+        }
+    }//GEN-LAST:event_chkVerPasswordActionPerformed
+
+    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPassActionPerformed
+
+    private void lblCrearCuentaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCrearCuentaMousePressed
+//        Registro reg = new Registro();
+//        reg.setVisible(true);
+//        this.dispose();
+    }//GEN-LAST:event_lblCrearCuentaMousePressed
+
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         JFSilabo frm = new JFSilabo();
         frm.setVisible(true);
         frm.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.dispose();
-    }//GEN-LAST:event_btnIniciarActionPerformed
-
-    private void txtUsuario1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuario1FocusGained
-        this.txtUsuario1.setForeground(Color.BLACK);
-    }//GEN-LAST:event_txtUsuario1FocusGained
-
-    private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField2ActionPerformed
-
-    private void chkVerPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkVerPasswordActionPerformed
-        if (chkVerPassword.isSelected()) {
-            jPasswordField2.setEchoChar((char) 0); // Muestra texto plano
-        } else {
-            jPasswordField2.setEchoChar('\u2022'); // Vuelve a ocultar la contraseña
-        }
-    }//GEN-LAST:event_chkVerPasswordActionPerformed
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void lblXMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblXMousePressed
         this.dispose();
     }//GEN-LAST:event_lblXMousePressed
+
+    private void headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMouseDragged
+        int X = evt.getXOnScreen();
+        int Y = evt.getYOnScreen();
+        this.setLocation(X - mouseX, Y - mouseY);
+    }//GEN-LAST:event_headerMouseDragged
+
+    private void headerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMousePressed
+        mouseX = evt.getX();
+        mouseY = evt.getY();
+    }//GEN-LAST:event_headerMousePressed
 
     /**
      * @param args the command line arguments
@@ -299,25 +317,23 @@ public class JFLogeo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
-    private javax.swing.JButton btnIniciar;
+    private javax.swing.JButton btnEntrar;
     private javax.swing.JCheckBox chkVerPassword;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField2;
+    private javax.swing.JPanel header;
     private javax.swing.JLabel lblBaner;
-    private javax.swing.JLabel lblIniciarSesion2;
-    private javax.swing.JLabel lblLogoLargo2;
+    private javax.swing.JLabel lblCrearCuenta;
+    private javax.swing.JLabel lblCuenta;
+    private javax.swing.JLabel lblIniciarSesion;
     private javax.swing.JLabel lblLogoUnprg;
-    private javax.swing.JLabel lblTextto1;
+    private javax.swing.JLabel lblPass;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JLabel lblUsuario2;
-    private javax.swing.JLabel lblUsuario3;
+    private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblX;
-    private javax.swing.JPanel pnImagen2;
+    private javax.swing.JSeparator separadorPass;
+    private javax.swing.JSeparator separadorUsuario;
     private javax.swing.JSeparator separatorCrear;
-    private javax.swing.JSeparator separatorCrear3;
-    private javax.swing.JSeparator separatorCrear4;
-    private javax.swing.JTextField txtUsuario1;
+    private javax.swing.JPasswordField txtPass;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 
 }
