@@ -99,10 +99,10 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         lblFacultad = new javax.swing.JLabel();
         txtFacultad = new javax.swing.JTextField();
         pn2 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        atxSumilla = new javax.swing.JTextArea();
         btnSiguiente2 = new javax.swing.JButton();
         btnAtras2 = new javax.swing.JButton();
+        jScrollPane19 = new javax.swing.JScrollPane();
+        axtSumilla = new javax.swing.JTextArea();
         pn3 = new javax.swing.JPanel();
         btnSiguiente3 = new javax.swing.JButton();
         bntAtras3 = new javax.swing.JButton();
@@ -189,7 +189,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         jLabel5.setText("Ciclo:");
 
         cmbCiclos.setModel(this.modeloCiclos);
-        cmbCiclos.setSelectedIndex(-1);
         cmbCiclos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbCiclosActionPerformed(evt);
@@ -476,10 +475,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
         pn2.setBorder(javax.swing.BorderFactory.createTitledBorder("II. SUMILLA"));
 
-        atxSumilla.setColumns(20);
-        atxSumilla.setRows(5);
-        jScrollPane3.setViewportView(atxSumilla);
-
         btnSiguiente2.setText("Siguiente");
         btnSiguiente2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -494,27 +489,32 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             }
         });
 
+        axtSumilla.setEditable(false);
+        axtSumilla.setColumns(20);
+        axtSumilla.setRows(5);
+        jScrollPane19.setViewportView(axtSumilla);
+
         javax.swing.GroupLayout pn2Layout = new javax.swing.GroupLayout(pn2);
         pn2.setLayout(pn2Layout);
         pn2Layout.setHorizontalGroup(
             pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAtras2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSiguiente2)
+                .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn2Layout.createSequentialGroup()
+                        .addGap(0, 443, Short.MAX_VALUE)
+                        .addComponent(btnAtras2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnSiguiente2))
+                    .addComponent(jScrollPane19))
                 .addContainerGap())
         );
         pn2Layout.setVerticalGroup(
             pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSiguiente2)
                     .addComponent(btnAtras2))
@@ -1298,8 +1298,8 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JPanel ADS;
     private javax.swing.JTextArea atxCapacidadCurso;
     private javax.swing.JTextArea atxCompetenciaProfesional;
-    private javax.swing.JTextArea atxSumilla;
     private javax.swing.JTextArea axtPrerrequisitos;
+    private javax.swing.JTextArea axtSumilla;
     private javax.swing.JButton bntAtras3;
     private javax.swing.JButton bntSiguiente1;
     private javax.swing.JButton btnAnterior4;
@@ -1350,8 +1350,8 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane18;
+    private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
@@ -1445,9 +1445,9 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
     private void cargarDatosDeCurso() {
         if (this.cursoSeleccionado != null) {
-            int horasTeoricas= this.cursoSeleccionado.getHorasTeoricaSemanales();
-            int horasPracticas= this.cursoSeleccionado.getHorasTeoricaSemanales();
-            
+            int horasTeoricas = this.cursoSeleccionado.getHorasTeoricaSemanales();
+            int horasPracticas = this.cursoSeleccionado.getHorasTeoricaSemanales();
+
             this.txtCodigoCurso.setText(cursoSeleccionado.getCodigoCurso());
             this.txtCreditos.setText(String.valueOf(cursoSeleccionado.getCreditos()));
             this.txtHorasSemanales.setText(String.valueOf(horasTeoricas + horasPracticas));
@@ -1455,8 +1455,15 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             this.txtHorasPracticas.setText(String.valueOf(horasTeoricas));
             this.txtCodigoCurso.setText(cursoSeleccionado.getCodigoCurso());
             this.axtPrerrequisitos.setText(this.cursoSeleccionado.getPrerrequisitos());
-            this.atxSumilla.setText(this.cursoSeleccionado.getSumilla());
+
+            this.axtSumilla.setLineWrap(true);
+            this.axtSumilla.setWrapStyleWord(true);
+            this.axtSumilla.setText(this.cursoSeleccionado.getSumilla());
+            this.atxCompetenciaProfesional.setLineWrap(true);
+            this.atxCompetenciaProfesional.setWrapStyleWord(true);
             this.atxCompetenciaProfesional.setText(this.cursoSeleccionado.getCompetenciaProfesional());
+            this.atxCapacidadCurso.setLineWrap(true);
+            this.atxCapacidadCurso.setWrapStyleWord(true);
             this.atxCapacidadCurso.setText(this.cursoSeleccionado.getCapacidadDelCurso());
         }
 
