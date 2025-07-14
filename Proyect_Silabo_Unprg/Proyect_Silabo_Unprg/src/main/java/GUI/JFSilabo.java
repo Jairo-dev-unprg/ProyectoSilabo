@@ -10,16 +10,20 @@ import java.util.List;
 
 public class JFSilabo extends javax.swing.JFrame {
 
-    private Escuela escuela;
-    private Facultad facultad;
-    private DepartamentoAcademico depa;
+    private Escuela escuela = null;
+    private Facultad facultad = null;
+    private DepartamentoAcademico depa = null;
+
     private static Usuario userLogged;
+    private static JICrearSilabo frmCrear;
+    private static JDCrearSilabo frm1;
+
+    Usuario usuario;
 
     public JFSilabo(Usuario usuario) {
-        this.userLogged=usuario;
+        this.userLogged = usuario;
         initComponents();
         mostrarBienvenida();
-
 
     }
 
@@ -178,20 +182,25 @@ public class JFSilabo extends javax.swing.JFrame {
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
 
-        JDCrearSilabo frm = new JDCrearSilabo(null, true);
-        Silabo silabo;
-        Usuario usuario;
-        silabo = frm.agregar();
-        if (silabo.getEscuela() != null) {
-            JICrearSilabo frmCrear = JICrearSilabo.crear(dpSilabo, silabo,userLogged);
+        if (this.frm1 == null) {
+            this.frm1 = new JDCrearSilabo(null, true);
+            Silabo silabo = frm1.agregar();
+            if (silabo.getEscuela() != null) {
+                this.frmCrear = JICrearSilabo.crear(dpSilabo, silabo, userLogged);
+                frmCrear.setVisible(true);
+                try {
+                    frmCrear.setMaximum(true);
+                } catch (Exception e) {
+                }
+
+            }
+        } else {
             frmCrear.setVisible(true);
             try {
                 frmCrear.setMaximum(true);
             } catch (Exception e) {
             }
-
         }
-
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void btnExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarActionPerformed
@@ -247,7 +256,7 @@ public class JFSilabo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
                 new JFSilabo(userLogged).setVisible(true);
             }
         });
