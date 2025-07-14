@@ -38,8 +38,8 @@ public class JFSilabo extends javax.swing.JFrame {
         btnImportar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         btnExportar = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
         lblBienvenida = new javax.swing.JLabel();
+        lblLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -50,11 +50,11 @@ public class JFSilabo extends javax.swing.JFrame {
         dpSilabo.setLayout(dpSilaboLayout);
         dpSilaboLayout.setHorizontalGroup(
             dpSilaboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 929, Short.MAX_VALUE)
+            .addGap(0, 905, Short.MAX_VALUE)
         );
         dpSilaboLayout.setVerticalGroup(
             dpSilaboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 700, Short.MAX_VALUE)
         );
 
         pnLateral.setBackground(new java.awt.Color(0, 86, 163));
@@ -104,20 +104,11 @@ public class JFSilabo extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 112, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
         lblBienvenida.setBackground(new java.awt.Color(255, 255, 255));
         lblBienvenida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblBienvenida.setText("Bienvenido {grade} {fullname}");
+
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenUsuario.png"))); // NOI18N
 
         javax.swing.GroupLayout pnLateralLayout = new javax.swing.GroupLayout(pnLateral);
         pnLateral.setLayout(pnLateralLayout);
@@ -128,18 +119,18 @@ public class JFSilabo extends javax.swing.JFrame {
             .addComponent(btnImportar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnExportar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(lblBienvenida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnLateralLayout.createSequentialGroup()
-                .addContainerGap(80, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
+            .addComponent(lblBienvenida, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+            .addGroup(pnLateralLayout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(lblLogo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnLateralLayout.setVerticalGroup(
             pnLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnLateralLayout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addComponent(lblLogo)
                 .addGap(31, 31, 31)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblBienvenida)
                 .addGap(37, 37, 37)
                 .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,7 +140,7 @@ public class JFSilabo extends javax.swing.JFrame {
                 .addComponent(btnImportar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
                 .addComponent(btnExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -159,8 +150,9 @@ public class JFSilabo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(dpSilabo))
+                .addGap(18, 18, 18)
+                .addComponent(dpSilabo)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,8 +261,8 @@ public class JFSilabo extends javax.swing.JFrame {
     private javax.swing.JButton btnInicio;
     private javax.swing.JDesktopPane dpSilabo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblBienvenida;
+    private javax.swing.JLabel lblLogo;
     private javax.swing.JPanel pnLateral;
     // End of variables declaration//GEN-END:variables
 
