@@ -2,6 +2,8 @@ package GUI;
 
 import GUI.modelos.CiclosComboModel;
 import GUI.modelos.CursoComboModel;
+import GUI.modelos.DesempeñosTableModelo;
+import GUI.modelos.UnidadComboModel;
 import entidades.Ciclo;
 import entidades.Curso;
 import entidades.DepartamentoAcademico;
@@ -10,6 +12,7 @@ import entidades.Docente;
 import entidades.Escuela;
 import entidades.Facultad;
 import entidades.Silabo;
+import entidades.Unidad;
 import entidades.Usuario;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -17,6 +20,7 @@ import java.util.List;
 import javax.swing.ImageIcon;
 
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.table.DefaultTableModel;
 
 public class JICrearSilabo extends javax.swing.JInternalFrame {
 
@@ -32,8 +36,11 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
     private List<Ciclo> ciclosVigentes;
     private List<Curso> cursosVigentes;
+    private List<Unidad> unidadesLis;
     private CiclosComboModel modeloCiclos = new CiclosComboModel();
     private CursoComboModel modeloCursos = new CursoComboModel();
+    private DesempeñosTableModelo modeloDesempeño = new DesempeñosTableModelo();
+    private UnidadComboModel modeloComboUnidad = new UnidadComboModel();
 
     public JICrearSilabo(Silabo silabo, Usuario user) {
         initComponents();
@@ -129,12 +136,12 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblDesempeñosUnidades = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        tblUnidades = new javax.swing.JTable();
         jLabel19 = new javax.swing.JLabel();
+        cmbUnidades = new javax.swing.JComboBox<>();
         btnAnterior4 = new javax.swing.JButton();
         btnSiguiente4 = new javax.swing.JButton();
         pn5 = new javax.swing.JPanel();
@@ -663,33 +670,8 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Unidades"));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Desempeños", "Nombre Unidad"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                true, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane8.setViewportView(jTable1);
+        tblDesempeñosUnidades.setModel(this.modeloDesempeño);
+        jScrollPane8.setViewportView(tblDesempeñosUnidades);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -705,7 +687,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 .addGap(44, 44, 44))
         );
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblUnidades.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -740,22 +722,22 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane9.setViewportView(jTable2);
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jScrollPane9.setViewportView(tblUnidades);
 
         jLabel19.setText("Unidad:");
+
+        cmbUnidades.setModel(this.modeloComboUnidad);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane9)
+            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -764,8 +746,8 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 .addGap(25, 25, 25)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmbUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1320,12 +1302,12 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnSiguiente7;
     private javax.swing.JComboBox<String> cmbCiclos;
     private javax.swing.JComboBox<String> cmbCursos;
+    private javax.swing.JComboBox<String> cmbUnidades;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel16;
@@ -1363,8 +1345,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextArea jTextArea10;
@@ -1399,6 +1379,8 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pn6;
     private javax.swing.JPanel pn7;
     private javax.swing.JTabbedPane pn8;
+    private javax.swing.JTable tblDesempeñosUnidades;
+    private javax.swing.JTable tblUnidades;
     private javax.swing.JTextField txtCodigoCurso;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtCreditos;
@@ -1476,6 +1458,16 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             this.axtDesempeños.setLineWrap(true);
             this.axtDesempeños.setWrapStyleWord(true);
             this.axtDesempeños.setText(desemp);
+
+            this.modeloDesempeño.setDesempeño(cursoSeleccionado.getDesempeños());
+            
+            
+            for (Desempeño desempeño : cursoSeleccionado.getDesempeños()) {
+                unidadesLis.add(desempeño.getUnidad());
+            }
+            this.modeloComboUnidad.setUnidad(unidadesLis);
+            this.cmbUnidades.setSelectedIndex(-1);
+
         }
 
     }
