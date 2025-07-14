@@ -129,6 +129,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         jLabel19 = new javax.swing.JLabel();
         btnAnterior4 = new javax.swing.JButton();
         btnSiguiente4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         pn5 = new javax.swing.JPanel();
         ADS = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
@@ -732,11 +733,13 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable2.setEnabled(false);
         jScrollPane9.setViewportView(jTable2);
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel19.setText("Unidad:");
+        jLabel19.setEnabled(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -776,6 +779,8 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton5.setText("Gestioanr Unidad");
+
         javax.swing.GroupLayout pn4Layout = new javax.swing.GroupLayout(pn4);
         pn4.setLayout(pn4Layout);
         pn4Layout.setHorizontalGroup(
@@ -784,15 +789,17 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pn4Layout.createSequentialGroup()
-                        .addGroup(pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(884, 884, 884))
-                    .addGroup(pn4Layout.createSequentialGroup()
                         .addComponent(btnAnterior4)
                         .addGap(43, 43, 43)
                         .addComponent(btnSiguiente4)
-                        .addGap(859, 859, 859)))
+                        .addGap(859, 859, 859))
+                    .addGroup(pn4Layout.createSequentialGroup()
+                        .addGroup(pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton5)
+                            .addGroup(pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(884, 884, 884)))
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 16, Short.MAX_VALUE)
                 .addGap(412, 412, 412))
         );
@@ -801,7 +808,9 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             .addGroup(pn4Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
+                .addGap(24, 24, 24)
+                .addComponent(jButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pn4Layout.createSequentialGroup()
@@ -1321,6 +1330,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
