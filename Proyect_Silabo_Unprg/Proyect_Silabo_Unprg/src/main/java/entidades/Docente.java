@@ -1,6 +1,8 @@
 
 package entidades;
 
+import java.awt.image.BufferedImage;
+
 
 public class Docente {
     
@@ -8,18 +10,29 @@ public class Docente {
     private String Apellidos;
     private String gradoAcademico;
     private String DNI;
+    private BufferedImage firma;
     private String correo;
 
     public Docente() {
     }
 
-    public Docente(String nombres, String Apellidos, String gradoAcademico, String DNI, String correo) {
+    public Docente(String nombres, String Apellidos, String gradoAcademico, String DNI, String correo, BufferedImage firma) {
         this.nombres = nombres;
         this.Apellidos = Apellidos;
         this.gradoAcademico = gradoAcademico;
         this.DNI = DNI;
         this.correo = correo;
+        this.firma=firma;
     }
+
+    public BufferedImage getFirma() {
+        return firma;
+    }
+
+    public void setFirma(BufferedImage firma) {
+        this.firma = firma;
+    }
+    
     
     public String getFullName(){
         return Apellidos + ", " + nombres;

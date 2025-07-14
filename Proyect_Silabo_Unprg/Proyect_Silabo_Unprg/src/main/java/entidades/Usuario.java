@@ -14,19 +14,21 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String usario, String contraseña, Docente docente) {
-        this.nombreUsuario = usario;
+    public Usuario(String nombreUsuario, String contraseña, Docente docente) {
+        this.nombreUsuario = nombreUsuario;
         this.contraseña = contraseña;
         this.docente = docente;
     }
 
-    public String getUsario() {
+    public String getNombreUsuario() {
         return nombreUsuario;
     }
 
-    public void setUsario(String usario) {
-        this.nombreUsuario = usario;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
+
+
 
     public String getContraseña() {
         return contraseña;

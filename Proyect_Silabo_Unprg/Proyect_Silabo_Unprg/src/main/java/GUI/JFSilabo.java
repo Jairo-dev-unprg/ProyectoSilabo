@@ -5,6 +5,7 @@ import entidades.DepartamentoAcademico;
 import entidades.Escuela;
 import entidades.Facultad;
 import entidades.Silabo;
+import entidades.Usuario;
 import java.util.List;
 
 public class JFSilabo extends javax.swing.JFrame {
@@ -12,10 +13,13 @@ public class JFSilabo extends javax.swing.JFrame {
     private Escuela escuela;
     private Facultad facultad;
     private DepartamentoAcademico depa;
+    private static Usuario userLogged;
 
-    public JFSilabo() {
+    public JFSilabo(Usuario usuario) {
+        this.userLogged=usuario;
         initComponents();
         mostrarBienvenida();
+
 
     }
 
@@ -176,9 +180,10 @@ public class JFSilabo extends javax.swing.JFrame {
 
         JDCrearSilabo frm = new JDCrearSilabo(null, true);
         Silabo silabo;
+        Usuario usuario;
         silabo = frm.agregar();
         if (silabo.getEscuela() != null) {
-            JICrearSilabo frmCrear = JICrearSilabo.crear(dpSilabo, silabo);
+            JICrearSilabo frmCrear = JICrearSilabo.crear(dpSilabo, silabo,userLogged);
             frmCrear.setVisible(true);
             try {
                 frmCrear.setMaximum(true);
@@ -242,7 +247,8 @@ public class JFSilabo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFSilabo().setVisible(true);
+                
+                new JFSilabo(userLogged).setVisible(true);
             }
         });
     }

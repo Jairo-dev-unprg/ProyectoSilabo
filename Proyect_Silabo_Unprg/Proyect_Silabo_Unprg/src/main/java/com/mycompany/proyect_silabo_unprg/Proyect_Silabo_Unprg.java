@@ -12,8 +12,12 @@ import entidades.Facultad;
 import entidades.Silabo;
 import entidades.Unidad;
 import entidades.Usuario;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import javax.imageio.ImageIO;
 
 public class Proyect_Silabo_Unprg {
 
@@ -117,11 +121,23 @@ public class Proyect_Silabo_Unprg {
         usuarios.add(new Usuario("pedro", "123", docentes.get(1)));
     }
 
+
     private static void datosDocente() {
-        docentes.add(new Docente("Jairo Kariny", "Aranda Gomez", "Ingeniero", "60775041", "jaranda@unprg.edu.pe"));
-        docentes.add(new Docente("Pedro Jose", "Perez Gomez", "Doctor", "60775041", "pejomez@unprg.edu.pe"));
+    BufferedImage firmaJairo = null;
+    BufferedImage firmaPedro = null;
+
+    try {
+        firmaJairo = ImageIO.read(Docente.class.getResourceAsStream("/firma_jairo.jpg"));
+        firmaPedro = ImageIO.read(Docente.class.getResourceAsStream("/firma_pedro.jpg"));
+    } catch (IOException e) {
+        e.printStackTrace();
     }
 
+    docentes.add(new Docente("Jairo Kariny", "Aranda Gomez", "Ingeniero", "60775041", "jaranda@unprg.edu.pe", firmaJairo));
+    docentes.add(new Docente("Pedro Jose", "Perez Gomez", "Doctor", "60775042", "pejomez@unprg.edu.pe", firmaPedro));
+}
+    
+    
     private static void datosFacultades() {
         facultad.add(new Facultad(dpFAG, "Facultad de Agronomía", "FAG", true));
         facultad.add(new Facultad(dpFCCBB, "Facultad de Ciencias Biológicas", "FCCBB", true));

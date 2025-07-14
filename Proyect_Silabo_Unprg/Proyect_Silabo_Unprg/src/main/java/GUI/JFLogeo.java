@@ -1,16 +1,20 @@
 package GUI;
 
 import com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg;
+import entidades.Usuario;
 import java.awt.Color;
 import java.awt.Dialog;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class JFLogeo extends javax.swing.JFrame {
 
     private int mouseX, mouseY;
+    private int cantidadIntentos=4;
+    private Usuario usuarioLogeado;
 
     public JFLogeo() {
         setUndecorated(true); // eliminamos la barra del titulo 
@@ -257,10 +261,20 @@ public class JFLogeo extends javax.swing.JFrame {
     }//GEN-LAST:event_lblCrearCuentaMousePressed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        JFSilabo frm = new JFSilabo();
+        if(this.validarlogeo()==true){
+        JFSilabo frm = new JFSilabo(this.usuarioLogeado);
         frm.setVisible(true);
         frm.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.dispose();
+        }else {
+            this.cantidadIntentos--;
+            JOptionPane.showMessageDialog(this, "Credenciales Incorrectas le quedan: "+ this.cantidadIntentos);
+
+        }
+        
+        if (this.cantidadIntentos== 0) {
+            this.dispose();
+        }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void lblXMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblXMousePressed
@@ -335,5 +349,15 @@ public class JFLogeo extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+
+    private boolean validarlogeo() {
+        for (Usuario usuario : Proyect_Silabo_Unprg.usuarios) {
+            if (this.txtUsuario.getText().equals(usuario.getNombreUsuario())==true && this.txtPass.getText().equals(usuario.getContraseña())==true) {
+                this.usuarioLogeado=usuario;
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

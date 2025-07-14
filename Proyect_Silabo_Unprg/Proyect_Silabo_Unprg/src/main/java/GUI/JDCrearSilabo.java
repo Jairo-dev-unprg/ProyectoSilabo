@@ -8,6 +8,7 @@ import entidades.DepartamentoAcademico;
 import entidades.Escuela;
 import entidades.Facultad;
 import entidades.Silabo;
+import entidades.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -27,7 +28,7 @@ public class JDCrearSilabo extends javax.swing.JDialog {
     private EscuelaComboModel modeloEscuela = new EscuelaComboModel();
 
     private static Silabo silabo;
-
+    
     public JDCrearSilabo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -333,6 +334,7 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         sil.setFacultad(this.facultadSeleccionada);
         sil.setDepartamento(this.departamentoSeleccionado);
         sil.setEscuela(this.escuelaSelecionada);
+
 
         this.silabo = sil;
         return this.silabo;
