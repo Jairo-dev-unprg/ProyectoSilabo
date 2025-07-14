@@ -137,22 +137,22 @@
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="102" attributes="0">
                                                           <Component id="lblDuracion" pref="0" max="32767" attributes="0"/>
-                                                          <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="txtDuracion" max="32767" attributes="0"/>
-                                                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
                                                       </Group>
-                                                      <Group type="102" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
                                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                                               <Component id="lblFechaFinal" max="32767" attributes="0"/>
                                                               <Component id="lblFechaInicio" pref="77" max="32767" attributes="0"/>
                                                           </Group>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="txtFechaInicio" max="32767" attributes="0"/>
-                                                              <Component id="txtFechaFinal" max="32767" attributes="0"/>
-                                                          </Group>
+                                                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="txtFechaFinal" max="32767" attributes="0"/>
+                                                      <Component id="txtDuracion" max="32767" attributes="0"/>
+                                                      <Component id="jdcFechaInicio" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="lblPrerrequistos" pref="0" max="32767" attributes="0"/>
@@ -250,7 +250,7 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblEscuela" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -299,39 +299,40 @@
                                               <Component id="txtDuracion" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="lblFechaInicio" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtFechaInicio" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="lblFechaFinal" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtFechaFinal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="lblFechaInicio" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="lblFechaFinal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="txtFechaFinal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Component id="jdcFechaInicio" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="70" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtDocente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jComboBox3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblCorreo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtCorreo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                  <Component id="bntSiguiente1" min="-2" pref="23" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <Component id="txtEscuela" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace pref="76" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDocente" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBox3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblCorreo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCorreo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="bntSiguiente1" min="-2" pref="23" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -497,13 +498,6 @@
                     <Property name="text" type="java.lang.String" value="Fecha Final:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtFechaFinal">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtFechaInicio">
-                </Component>
                 <Component class="javax.swing.JLabel" name="jLabel16">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Docente: "/>
@@ -566,6 +560,17 @@
                 <Component class="javax.swing.JTextField" name="txtFacultad">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="com.toedter.calendar.JDateChooser" name="jdcFechaInicio">
+                  <Events>
+                    <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jdcFechaInicioPropertyChange"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtFechaFinal">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
               </SubComponents>

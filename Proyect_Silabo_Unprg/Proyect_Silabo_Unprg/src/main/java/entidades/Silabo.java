@@ -1,30 +1,54 @@
 package entidades;
 
+import java.util.Date;
 
 public class Silabo {
 
- private Facultad facultad;
-private DepartamentoAcademico departamento;
-private Escuela escuela;
- private Curso curso;
- private Docente docente;
- private String Semanas;
- private String FechaInicio;
- private String MetodologiaEnseñanza;
- private String actividadesAuditorias;
- private String fuentesReferenciales;
+    private Facultad facultad;
+    private DepartamentoAcademico departamento;
+    private Escuela escuela;
+    private Curso curso;
+    private Docente docente;
+    private String Semanas;
+    private Date FechaInicio;
+    private Date FechaFin;
+    private String MetodologiaEnseñanza;
+    private String actividadesAuditorias;
+    private String fuentesReferenciales;
 
     public Silabo() {
     }
 
-    public Silabo(Curso curso, Docente docente, String Semanas, String FechaInicio, String MetodologiaEnseñanza, String actividadesAuditorias, String fuentesReferenciales) {
+    public Silabo(Facultad facultad, DepartamentoAcademico departamento, Escuela escuela, Curso curso, Docente docente, String Semanas, Date FechaInicio, Date FechaFin, String MetodologiaEnseñanza, String actividadesAuditorias, String fuentesReferenciales) {
+        this.facultad = facultad;
+        this.departamento = departamento;
+        this.escuela = escuela;
         this.curso = curso;
         this.docente = docente;
         this.Semanas = Semanas;
         this.FechaInicio = FechaInicio;
+        this.FechaFin = FechaFin;
         this.MetodologiaEnseñanza = MetodologiaEnseñanza;
         this.actividadesAuditorias = actividadesAuditorias;
         this.fuentesReferenciales = fuentesReferenciales;
+    }
+    
+    
+
+    public Date getFechaFin() {
+        return FechaFin;
+    }
+
+    public void setFechaFin(Date FechaFin) {
+        this.FechaFin = FechaFin;
+    }
+
+    public Date getFechaInicio() {
+        return FechaInicio;
+    }
+
+    public void setFechaInicio(Date FechaInicio) {
+        this.FechaInicio = FechaInicio;
     }
 
     public Curso getCurso() {
@@ -49,14 +73,6 @@ private Escuela escuela;
 
     public void setSemanas(String Semanas) {
         this.Semanas = Semanas;
-    }
-
-    public String getFechaInicio() {
-        return FechaInicio;
-    }
-
-    public void setFechaInicio(String FechaInicio) {
-        this.FechaInicio = FechaInicio;
     }
 
     public String getMetodologiaEnseñanza() {
@@ -95,8 +111,6 @@ private Escuela escuela;
         return departamento;
     }
 
-   
-
     public void setDepartamento(DepartamentoAcademico departamento) {
         this.departamento = departamento;
     }
@@ -108,10 +122,5 @@ private Escuela escuela;
     public void setEscuela(Escuela escuela) {
         this.escuela = escuela;
     }
- 
-    
- 
- 
 
-    
 }
