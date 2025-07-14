@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
 
+//RECARGA PA KEVIN 
+
 public class Proyect_Silabo_Unprg {
 
     private static void cargarCompetenciaGenerales() {
