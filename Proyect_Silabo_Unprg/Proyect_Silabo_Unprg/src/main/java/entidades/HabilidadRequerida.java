@@ -4,26 +4,25 @@ import java.util.List;
 
 public class HabilidadRequerida {
 
-    private String nombre;
+    private String habilidad;
     private List<Conocimiento> conocimientos;
-    private List<EvidenciaAprendizaje> evidenciasAprendizaje;
+    private EvidenciaAprendizaje evidenciasAprendizaje;
 
     public HabilidadRequerida() {
     }
 
-    public HabilidadRequerida(String nombre, List<Conocimiento> conocimientos, List<EvidenciaAprendizaje> evidenciasAprendizaje) {
-        this.nombre = nombre;
+    public HabilidadRequerida(String habilidad, List<Conocimiento> conocimientos, EvidenciaAprendizaje evidenciasAprendizaje) {
+        this.habilidad = habilidad;
         this.conocimientos = conocimientos;
         this.evidenciasAprendizaje = evidenciasAprendizaje;
     }
 
-    
-    public String getNombre() {
-        return nombre;
+    public String getHabilidad() {
+        return habilidad;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setHabilidad(String habilidad) {
+        this.habilidad = habilidad;
     }
 
     public List<Conocimiento> getConocimientos() {
@@ -34,12 +33,13 @@ public class HabilidadRequerida {
         this.conocimientos = conocimientos;
     }
 
-    public List<EvidenciaAprendizaje> getEvidenciasAprendizaje() {
+    public EvidenciaAprendizaje getEvidenciasAprendizaje() {
         return evidenciasAprendizaje;
     }
 
-    public void setEvidenciasAprendizaje(List<EvidenciaAprendizaje> evidenciasAprendizaje) {
+    public void setEvidenciasAprendizaje(EvidenciaAprendizaje evidenciasAprendizaje) {
         this.evidenciasAprendizaje = evidenciasAprendizaje;
     }
+
     
 }

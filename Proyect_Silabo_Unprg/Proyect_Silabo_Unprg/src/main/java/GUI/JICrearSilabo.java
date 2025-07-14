@@ -5,6 +5,7 @@ import GUI.modelos.CursoComboModel;
 import entidades.Ciclo;
 import entidades.Curso;
 import entidades.DepartamentoAcademico;
+import entidades.Desempeño;
 import entidades.Escuela;
 import entidades.Facultad;
 import entidades.Silabo;
@@ -115,7 +116,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         jPanel12 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTextArea7 = new javax.swing.JTextArea();
+        axtDesempeños = new javax.swing.JTextArea();
         pn4 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
@@ -588,9 +589,9 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("V. DESEMPEÑOS DE LAS UNIDADES DIDÁCTICAS"));
 
-        jTextArea7.setColumns(20);
-        jTextArea7.setRows(5);
-        jScrollPane7.setViewportView(jTextArea7);
+        axtDesempeños.setColumns(20);
+        axtDesempeños.setRows(5);
+        jScrollPane7.setViewportView(axtDesempeños);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1298,6 +1299,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JPanel ADS;
     private javax.swing.JTextArea atxCapacidadCurso;
     private javax.swing.JTextArea atxCompetenciaProfesional;
+    private javax.swing.JTextArea axtDesempeños;
     private javax.swing.JTextArea axtPrerrequisitos;
     private javax.swing.JTextArea axtSumilla;
     private javax.swing.JButton bntAtras3;
@@ -1366,7 +1368,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea jTextArea10;
     private javax.swing.JTextArea jTextArea11;
     private javax.swing.JTextArea jTextArea5;
-    private javax.swing.JTextArea jTextArea7;
     private javax.swing.JTextArea jTextArea8;
     private javax.swing.JTextArea jTextArea9;
     private javax.swing.JTextField jTextField12;
@@ -1465,6 +1466,13 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             this.atxCapacidadCurso.setLineWrap(true);
             this.atxCapacidadCurso.setWrapStyleWord(true);
             this.atxCapacidadCurso.setText(this.cursoSeleccionado.getCapacidadDelCurso());
+            String desemp = "";
+            for (Desempeño cur : this.cursoSeleccionado.getDesempeños()) {
+                desemp += cur.getNombre() + ": " + cur.getDesempeño() + "\n";
+            }
+            this.axtDesempeños.setLineWrap(true);
+            this.axtDesempeños.setWrapStyleWord(true);
+            this.axtDesempeños.setText(desemp);
         }
 
     }

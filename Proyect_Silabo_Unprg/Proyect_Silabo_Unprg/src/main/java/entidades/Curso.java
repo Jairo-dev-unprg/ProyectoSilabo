@@ -16,7 +16,10 @@ public class Curso {
     private String sumilla;
     private String competenciaProfesional;
     private String capacidadDelCurso;
-    private List<Competencia>competencias;
+    private List<Desempeño> desempeños;
+    private String metologiaEnsanza;
+    private String actividadTutoria;
+    private String referencias;
     private boolean vigente;
 
     public boolean isVigente() {
@@ -30,7 +33,7 @@ public class Curso {
     public Curso() {
     }
 
-    public Curso(String nombre, String tipo, String codigoCurso, String prerrequisitos, int cicloEstudio, int creditos, int HorasTeoricaSemanales, int HorasPracticasSemanales, String sumilla,String competenciaProfesional,String capacidaddelCurso, List<Competencia> competencias) {
+    public Curso(String nombre, String tipo, String codigoCurso, String prerrequisitos, int cicloEstudio, int creditos, int HorasTeoricaSemanales, int HorasPracticasSemanales, String sumilla,String competenciaProfesional,String capacidaddelCurso, List<Desempeño> desempeños) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.codigoCurso = codigoCurso;
@@ -42,18 +45,9 @@ public class Curso {
         this.sumilla = sumilla;
         this.capacidadDelCurso = capacidaddelCurso;
         this.competenciaProfesional = competenciaProfesional;
-        this.competencias = competencias;
+        this.desempeños = desempeños;
         this.vigente=true;
     }
-
-    public String getCapacidadDelCurso() {
-        return capacidadDelCurso;
-    }
-
-    public void setCapacidadDelCurso(String capacidadDelCurso) {
-        this.capacidadDelCurso = capacidadDelCurso;
-    }
-    
 
     public String getNombre() {
         return nombre;
@@ -127,14 +121,6 @@ public class Curso {
         this.sumilla = sumilla;
     }
 
-    public List<Competencia> getCompetencias() {
-        return competencias;
-    }
-
-    public void setCompetencias(List<Competencia> competencias) {
-        this.competencias = competencias;
-    }
-
     public String getCompetenciaProfesional() {
         return competenciaProfesional;
     }
@@ -142,7 +128,47 @@ public class Curso {
     public void setCompetenciaProfesional(String competenciaProfesional) {
         this.competenciaProfesional = competenciaProfesional;
     }
-    
-    
+
+    public String getCapacidadDelCurso() {
+        return capacidadDelCurso;
+    }
+
+    public void setCapacidadDelCurso(String capacidadDelCurso) {
+        this.capacidadDelCurso = capacidadDelCurso;
+    }
+
+    public List<Desempeño> getDesempeños() {
+        return desempeños;
+    }
+
+    public void setDesempeños(List<Desempeño> desempeños) {
+        this.desempeños = desempeños;
+    }
+
+    public String getMetologiaEnsanza() {
+        return metologiaEnsanza;
+    }
+
+    public void setMetologiaEnsanza(String metologiaEnsanza) {
+        this.metologiaEnsanza = metologiaEnsanza;
+    }
+
+    public String getActividadTutoria() {
+        return actividadTutoria;
+    }
+
+    public void setActividadTutoria(String actividadTutoria) {
+        this.actividadTutoria = actividadTutoria;
+    }
+
+    public String getReferencias() {
+        return referencias;
+    }
+
+    public void setReferencias(String referencias) {
+        this.referencias = referencias;
+    }
+
+   
 
 }

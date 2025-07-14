@@ -3,13 +3,14 @@ package com.mycompany.proyect_silabo_unprg;
 import GUI.JFLogeo;
 import com.formdev.flatlaf.intellijthemes.FlatMonokaiProIJTheme;
 import entidades.Ciclo;
-import entidades.Competencia;
+import entidades.Desempeño;
 import entidades.Curso;
 import entidades.DepartamentoAcademico;
 import entidades.Docente;
 import entidades.Escuela;
 import entidades.Facultad;
 import entidades.Silabo;
+import entidades.Unidad;
 import entidades.Usuario;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,8 @@ public class Proyect_Silabo_Unprg {
     }
 
     private static void cargarCompetenciaEspecifica() {
+        // COMPETENCIA PROFESIONAL
+        
         competenciaProfesionalEspecifica[0] = "Gestiona bases de datos de acuerdo a las estrategias y continuidad operativa organizacional, considerando los estándares y buenas prácticas de ingeniería del software.";
         competenciaProfesionalEspecifica[1] = "Construye software multiplataforma que genere valor al negocio y satisfagan las necesidades de las organizaciones y sociedad en general, aplicando procesos de desarrollo.";
         competenciaProfesionalEspecifica[2] = "Desarrolla aplicaciones de inteligencia artificial que simulan las destrezas, razonamiento y el comportamiento humano, basados en metodologías, estándares vigentes y principios éticos.";
@@ -35,6 +38,7 @@ public class Proyect_Silabo_Unprg {
     }
 
     private static void capacidadCurso() {
+         //CAPACIDADES PROFESIONALES
         capacidadCursoEpici[0] = "Examina el funcionamiento de los diversos módulos de un sistema operativo, teniendo en cuenta la administración de los recursos de un sistema computacional.";
         capacidadCursoEpici[1] = "Implementa sistemas analógicos, teniendo en cuenta los fundamentos de la electrónica.";
 
@@ -80,10 +84,10 @@ public class Proyect_Silabo_Unprg {
     public static List<Curso> cursosElectronica = new ArrayList<>();
     public static List<Curso> cursoMediciona = new ArrayList<>();
 
-    public static List<Competencia> competenciaFDSO = new ArrayList<>();
-    public static List<Competencia> competenciaEA = new ArrayList<>();
-    public static List<Competencia> competenciaMPM = new ArrayList<>();
-    public static List<Competencia> competenciaPF = new ArrayList<>();
+    public static List<Desempeño> desempeñosFDSO = new ArrayList<>();
+    public static List<Desempeño> desempeñosEA = new ArrayList<>();
+    public static List<Desempeño> desempeñosMPM = new ArrayList<>();
+    public static List<Desempeño> desempeñosPF = new ArrayList<>();
 
     public static List<Usuario> usuarios = new ArrayList<>();
     public static List<Docente> docentes = new ArrayList<>();
@@ -103,6 +107,7 @@ public class Proyect_Silabo_Unprg {
         cargarSumilla();
         cargaCompetencia();
         capacidadCurso();
+        cargarDesepeños();
         datosCurso();
 
     }
@@ -153,10 +158,10 @@ public class Proyect_Silabo_Unprg {
 
     private static void datosCurso() {
 
-        cursoEpici.add(new Curso("Fundamentos de Sistemas Operativos", "Específico", "CYEE1022", "Lógica Matemática", 4, 4, 3, 2, SumillasEpici[0], capacidadCursoEpici[0], competenciaProfesionalEspecifica[3], competenciaFDSO));
-        cursoEpici.add(new Curso("Electrónica Analógica", "Específico", "CYEE1021", "Fundamentos de física,Lógica Matemática", 4, 5, 2, 4, SumillasEpici[1], capacidadCursoEpici[1], competenciaProfesionalEspecifica[2], competenciaEA));
-        cursoMediciona.add(new Curso("Microbiología y Parasitología Médica", "Obligatorio", "CBAE1016", "Biología Celular, Histología, Bioquímica", 4, 5, 2, 6, SumillasEpici[1], capacidadCursoEpici[0], competenciaprofesionalMedicina[0], competenciaMPM));
-        cursoMediciona.add(new Curso("Pensamiento Filosófico", "Estudios generales.", "HUMG1032", "No Aplica", 4, 2, 1, 2, SumillasEpici[1], capacidadCursoEpici[1], competenciaprofesionalMedicina[1], competenciaPF));
+        cursoEpici.add(new Curso("Fundamentos de Sistemas Operativos", "Específico", "CYEE1022", "Lógica Matemática", 4, 4, 3, 2, SumillasEpici[0], competenciaProfesionalEspecifica[3], capacidadCursoEpici[0], desempeñosFDSO));
+        cursoEpici.add(new Curso("Electrónica Analógica", "Específico", "CYEE1021", "Fundamentos de física,Lógica Matemática", 4, 5, 2, 4, SumillasEpici[1],  competenciaProfesionalEspecifica[2],capacidadCursoEpici[1], desempeñosEA));
+        cursoMediciona.add(new Curso("Microbiología y Parasitología Médica", "Obligatorio", "CBAE1016", "Biología Celular, Histología, Bioquímica", 4, 5, 2, 6, SumillasEpici[1],competenciaprofesionalMedicina[0] , capacidadCursoEpici[0], desempeñosMPM));
+        cursoMediciona.add(new Curso("Pensamiento Filosófico", "Estudios generales.", "HUMG1032", "No Aplica", 4, 2, 1, 2, SumillasEpici[1], competenciaprofesionalMedicina[1] ,capacidadCursoEpici[1], desempeñosPF));
 
     }
 
@@ -222,6 +227,16 @@ public class Proyect_Silabo_Unprg {
         competenciaprofesionalMedicina[0] = "Desarrolla intervenciones preventivo-promocionales de salud pública, basándose en sólidos fundamentos de la medicina, evidencia científica\n"
                 + "disponible, principios éticos, política y normativa vigente";
         competenciaprofesionalMedicina[1] = "Evalúa situaciones, problemas y razonamientos usando principios elementales de la filosofía práctica y del pensamiento crítico asumiendo una postura ética que permita solución de problemas y toma de decisiones.";
+    }
+
+    private static void cargarDesepeños() {
+        Unidad unidad1EA = new Unidad();
+        Unidad unidad2EA = new Unidad();
+        Unidad unidad3EA = new Unidad();
+        
+        desempeñosEA.add(new Desempeño("D1","Realiza mediciones de los parámetros eléctricos en un circuito con diodos, teniendo en cuenta los procesos de polarización y rectificación de señales eléctricas.", unidad1EA));
+        desempeñosEA.add(new Desempeño("D2","Realiza circuitos con transistores teniendo en cuenta las leyes de conmutación de las señales eléctricas.", unidad2EA));
+        desempeñosEA.add(new Desempeño("D3","Realiza circuitos con amplificadores operacionales y fuentes de alimentación reguladas y estabilizadas, teniendo en cuenta la entrada y salida de voltajes..", unidad3EA));
     }
 
 }
