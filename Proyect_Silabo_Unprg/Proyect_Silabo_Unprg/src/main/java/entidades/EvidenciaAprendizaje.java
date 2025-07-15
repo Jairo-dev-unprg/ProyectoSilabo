@@ -14,8 +14,8 @@ class EvidenciaAprendizaje {
         this.tipoEvidencia = tipoEvidencia;
         this.instrumentoEvaluacion = instrumentoEvaluacion;
     }
-    
 
+    
     public String getNombre() {
         return nombre;
     }
