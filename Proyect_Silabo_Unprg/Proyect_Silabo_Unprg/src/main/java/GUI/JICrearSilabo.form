@@ -148,7 +148,7 @@
                                                       </Group>
                                                   </Group>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="txtFechaFinal" max="32767" attributes="0"/>
+                                                      <Component id="jTextField1" max="32767" attributes="0"/>
                                                       <Component id="txtDuracion" max="32767" attributes="0"/>
                                                       <Component id="jdcFechaInicio" max="32767" attributes="0"/>
                                                   </Group>
@@ -305,7 +305,7 @@
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
                                                       <Component id="lblFechaFinal" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="txtFechaFinal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <Component id="jdcFechaInicio" min="-2" max="-2" attributes="0"/>
@@ -567,10 +567,9 @@
                     <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jdcFechaInicioPropertyChange"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtFechaFinal">
+                <Component class="javax.swing.JTextField" name="jTextField1">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -598,7 +597,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="443" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="444" max="32767" attributes="0"/>
                                   <Component id="btnAtras2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="btnSiguiente2" min="-2" max="-2" attributes="0"/>
@@ -1103,15 +1102,24 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace pref="17" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="ADS" min="-2" pref="585" max="-2" attributes="0"/>
+                          <EmptySpace pref="17" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jTextField14" min="-2" pref="430" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="ADS" min="-2" pref="585" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="btnAgregarEvaluacion" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnModificarEvaluacionCalificada" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace pref="17" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1120,12 +1128,17 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                           <Component id="ADS" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField14" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnAgregarEvaluacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnModificarEvaluacionCalificada" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="179" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextField14" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="122" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnSiguiente5" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnAnterior5" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1169,15 +1182,10 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTable" name="jTable3">
+                        <Component class="javax.swing.JTable" name="tblEvaluaciones">
                           <Properties>
-                            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="4" rowCount="4">
-                                <Column editable="false" title="Evidencia de apredizaje" type="java.lang.String"/>
-                                <Column editable="false" title="Siglas" type="java.lang.String"/>
-                                <Column editable="true" title="Peso" type="java.lang.Integer"/>
-                                <Column editable="true" title="Cronograma" type="java.lang.String"/>
-                              </Table>
+                            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                              <Connection code="this.modelo" type="code"/>
                             </Property>
                           </Properties>
                         </Component>
@@ -1210,6 +1218,19 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAnterior5ActionPerformed"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnAgregarEvaluacion">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Agregar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarEvaluacionActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnModificarEvaluacionCalificada">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Modificar"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
