@@ -24,6 +24,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
@@ -38,7 +39,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private static DepartamentoAcademico departamento;
     private Ciclo cicloSeleccionado;
     private Curso cursoSeleccionado;
-
 
     private static Docente usuarioCreador;
     private static List<EvaluacionesCalificadas> evaluaciones = new ArrayList<EvaluacionesCalificadas>();
@@ -536,7 +536,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn2Layout.createSequentialGroup()
-                        .addGap(0, 414, Short.MAX_VALUE)
+                        .addGap(0, 415, Short.MAX_VALUE)
                         .addComponent(btnAtras2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnSiguiente2))
@@ -864,48 +864,55 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         });
 
         btnModificarEvaluacionCalificada.setText("Modificar");
+        btnModificarEvaluacionCalificada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarEvaluacionCalificadaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pn5Layout = new javax.swing.GroupLayout(pn5);
         pn5.setLayout(pn5Layout);
         pn5Layout.setHorizontalGroup(
             pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAnterior5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSiguiente5)
-                .addContainerGap())
             .addGroup(pn5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ADS, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pn5Layout.createSequentialGroup()
+                        .addComponent(ADS, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn5Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnAnterior5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSiguiente5)
+                        .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pn5Layout.createSequentialGroup()
                         .addComponent(jLabel20)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pn5Layout.createSequentialGroup()
                         .addComponent(btnAgregarEvaluacion)
                         .addGap(18, 18, 18)
                         .addComponent(btnModificarEvaluacionCalificada)))
-                .addGap(61, 61, 61))
+                .addGap(64, 64, 64))
         );
         pn5Layout.setVerticalGroup(
             pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn5Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(14, 14, 14)
                 .addComponent(ADS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(29, 29, 29)
                 .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregarEvaluacion)
                     .addComponent(btnModificarEvaluacionCalificada))
-                .addGap(39, 39, 39)
+                .addGap(50, 50, 50)
                 .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
                 .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSiguiente5)
                     .addComponent(btnAnterior5))
@@ -1191,14 +1198,14 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pn8, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE))
+                .addComponent(jScrollPane1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1)
-                    .addComponent(pn8, javax.swing.GroupLayout.PREFERRED_SIZE, 771, Short.MAX_VALUE))
+                    .addComponent(pn8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1295,13 +1302,14 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
     private void btnAgregarEvaluacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEvaluacionActionPerformed
         JDAgregarEvaluacion frmEval = new JDAgregarEvaluacion(null, true);
-        frmEval.setVisible(true);
-        EvaluacionesCalificadas eval = null;
+        EvaluacionesCalificadas eval;
+
         eval = frmEval.agregar();
         if (eval != null) {
             this.evaluaciones.add(eval);
+
+            this.modelo.setCalificaciones((List<EvaluacionesCalificadas>) evaluaciones);
         }
-        this.listarEvaluaciones();
         frmEval.dispose();
         frmEval = null;
     }//GEN-LAST:event_btnAgregarEvaluacionActionPerformed
@@ -1338,6 +1346,21 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             this.tblUnidades.setModel(modeloUnidad);
         });
     }//GEN-LAST:event_cmbUnidadesActionPerformed
+
+    private void btnModificarEvaluacionCalificadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarEvaluacionCalificadaActionPerformed
+        EvaluacionesCalificadas evalu;
+        int filaSeleccionada = this.tblEvaluaciones.getSelectedRow();
+        if (filaSeleccionada == -1) {
+            JOptionPane.showMessageDialog(null, "Por favor selecciona una fila");
+            return;
+        }
+
+        evalu = modelo.getCalificaciones().get(filaSeleccionada);
+
+        JDAgregarEvaluacion dialogo = new JDAgregarEvaluacion(null, true);
+        dialogo.cargarDatos(evalu);
+        d
+    }//GEN-LAST:event_btnModificarEvaluacionCalificadaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1537,14 +1560,10 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         this.txtCorreo.setText(usuarioCreador.getCorreo());
     }
 
-    private void listarEvaluaciones() {
-        this.modelo.setCalificaciones(this.evaluaciones);
-    }
-
     public void mostrarDatosDeUnidadSeleccionada() {
         int index = cmbUnidades.getSelectedIndex();
         if (index > -1 && modeloComboUnidad.getUnidad() != null) {
-            Unidad seleccionada = modeloComboUnidad.getUnidad().get(index);         
+            Unidad seleccionada = modeloComboUnidad.getUnidad().get(index);
             boolean tieneDatos = seleccionada.getNombre() != null && !seleccionada.getNombre().trim().isEmpty();
             if (tieneDatos) {
                 List<Unidad> lista = new ArrayList<>();
@@ -1557,8 +1576,5 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             modeloUnidad.setUnidades(new ArrayList<>());
         }
     }
-
-        
-       
 
 }
