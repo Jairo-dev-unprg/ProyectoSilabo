@@ -12,12 +12,15 @@ import entidades.Facultad;
 import entidades.Silabo;
 import entidades.Unidad;
 import entidades.Usuario;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -257,6 +260,68 @@ public class Proyect_Silabo_Unprg {
         desempeñosEA.add(new Desempeño("D1","Realiza mediciones de los parámetros eléctricos en un circuito con diodos, teniendo en cuenta los procesos de polarización y rectificación de señales eléctricas.", unidad1EA));
         desempeñosEA.add(new Desempeño("D2","Realiza circuitos con transistores teniendo en cuenta las leyes de conmutación de las señales eléctricas.", unidad2EA));
         desempeñosEA.add(new Desempeño("D3","Realiza circuitos con amplificadores operacionales y fuentes de alimentación reguladas y estabilizadas, teniendo en cuenta la entrada y salida de voltajes..", unidad3EA));
+    }
+    
+    public static void configurarCampoConPlaceholder(JTextField campo, String placeholder) {
+        campo.setText(placeholder);
+        campo.setForeground(Color.GRAY);
+        campo.putClientProperty("placeholder", placeholder);
+
+        if (campo instanceof JPasswordField) {
+            ((JPasswordField) campo).setEchoChar((char) 0);
+        }
+        campo.addFocusListener(new java.awt.event.FocusAdapter() {
+
+            @Override
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                if (campo.getText().equals(placeholder)) {
+                    campo.setText("");
+                    campo.setForeground(Color.BLACK);
+
+                    if (campo instanceof JPasswordField) {
+                        ((JPasswordField) campo).setEchoChar('•');
+                    }
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                if (campo.getText().isEmpty()) {
+                    campo.setText(placeholder);
+                    campo.setForeground(Color.GRAY);
+
+                    if (campo instanceof JPasswordField) {
+                        ((JPasswordField) campo).setEchoChar((char) 0);
+                    }
+                }
+            }
+        });
+    }
+    
+    public static boolean validarCamposSinPlaceholder(JTextField... campos) {
+        for (JTextField campo : campos) {
+
+            String texto = campo.getText().trim();
+            String placeholder = (String) campo.getClientProperty("placeholder");
+
+            if (texto.isEmpty() || (placeholder != null && texto.equals(placeholder))) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public static boolean validarPasswordDoble(JPasswordField pass1, JPasswordField pass2) {
+        String texto1 = new String(pass1.getPassword()).trim();
+        String texto2 = new String(pass2.getPassword()).trim();
+
+        String placeholder1 = (String) pass1.getClientProperty("placeholder");
+        String placeholder2 = (String) pass2.getClientProperty("placeholder");
+
+        boolean valido1 = !texto1.isEmpty() && (placeholder1 == null || !texto1.equals(placeholder1));
+        boolean valido2 = !texto2.isEmpty() && (placeholder2 == null || !texto2.equals(placeholder2));
+
+        return valido1 && valido2 && texto1.equals(texto2);
     }
 
 }
