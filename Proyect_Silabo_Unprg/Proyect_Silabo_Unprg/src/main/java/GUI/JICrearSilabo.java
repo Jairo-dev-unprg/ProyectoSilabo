@@ -222,7 +222,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Ciclo:");
 
-        cmbCiclos.setBackground(new java.awt.Color(25, 118, 210));
         cmbCiclos.setModel(this.modeloCiclos);
         cmbCiclos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -5,9 +5,6 @@
 package GUI;
 
 import entidades.EvaluacionesCalificadas;
-import entidades.SistemaCalificacion;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
@@ -145,7 +142,7 @@ public class JDAgregarEvaluacion extends javax.swing.JDialog {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         EvaluacionesCalificadas evaluacion;
         if (this.validardatos()==true) {
-            evaluacion=this.crearEvaluacion();
+            this.evaluacion=this.crearEvaluacion();
             this.setVisible(false);
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
@@ -267,8 +264,15 @@ public class JDAgregarEvaluacion extends javax.swing.JDialog {
     }
 
    public  EvaluacionesCalificadas agregar() {
-        return this.evaluacion;
+       this.setVisible(true);
+       return this.evaluacion;
     }
     
-    
+    public void cargarDatos(EvaluacionesCalificadas evaluacion) {
+    this.txtNombreDeEvaluacion.setText(evaluacion.getNombreEvaluacion());
+    this.txtSiglas.setText(evaluacion.getSiglasEvaluacion());
+    this.spPeso.setValue(evaluacion.getPeso());
+    this.txtCronograma.setText(evaluacion.getCronograma());
+    this.setVisible(true);
+}
 }
