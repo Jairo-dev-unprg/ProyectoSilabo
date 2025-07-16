@@ -24,9 +24,13 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class JICrearSilabo extends javax.swing.JInternalFrame {
 
@@ -161,12 +165,13 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         ADS = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
         tblEvaluaciones = new javax.swing.JTable();
-        jTextField14 = new javax.swing.JTextField();
+        txtPromedioFinal = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         btnSiguiente5 = new javax.swing.JButton();
         btnAnterior5 = new javax.swing.JButton();
         btnAgregarEvaluacion = new javax.swing.JButton();
-        btnModificarEvaluacionCalificada = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnGenerarFormula = new javax.swing.JButton();
         pn6 = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
         jTextArea5 = new javax.swing.JTextArea();
@@ -861,10 +866,10 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         );
         ADSLayout.setVerticalGroup(
             ADSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
+            .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
         );
 
-        jTextField14.setEditable(false);
+        txtPromedioFinal.setEditable(false);
 
         jLabel20.setText("Promedio final =");
 
@@ -889,7 +894,19 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             }
         });
 
-        btnModificarEvaluacionCalificada.setText("Modificar");
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+
+        btnGenerarFormula.setText("Generar Formula");
+        btnGenerarFormula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarFormulaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pn5Layout = new javax.swing.GroupLayout(pn5);
         pn5.setLayout(pn5Layout);
@@ -899,8 +916,10 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel20)
                 .addGap(29, 29, 29)
-                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addComponent(txtPromedioFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnGenerarFormula)
+                .addContainerGap(8, Short.MAX_VALUE))
             .addGroup(pn5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -915,7 +934,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn5Layout.createSequentialGroup()
                                 .addComponent(btnAgregarEvaluacion)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnModificarEvaluacionCalificada)))))
+                                .addComponent(btnModificar)))))
                 .addContainerGap())
         );
         pn5Layout.setVerticalGroup(
@@ -925,13 +944,14 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 .addComponent(ADS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnModificarEvaluacionCalificada)
+                    .addComponent(btnModificar)
                     .addComponent(btnAgregarEvaluacion))
                 .addGap(51, 51, 51)
                 .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20))
-                .addGap(204, 204, 204)
+                    .addComponent(txtPromedioFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20)
+                    .addComponent(btnGenerarFormula))
+                .addGap(203, 203, 203)
                 .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSiguiente5)
                     .addComponent(btnAnterior5))
@@ -1415,6 +1435,30 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        EvaluacionesCalificadas eval;
+        int fila = this.tblEvaluaciones.getSelectedRow();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(null, "Selecciona una fila para modificar");
+            return;
+        }
+        EvaluacionesCalificadas seleccionada = modelo.getCalificaciones().get(fila);
+
+        JDAgregarEvaluacion dialogo = new JDAgregarEvaluacion(null, true);
+        dialogo.cargarDatos(seleccionada);
+        eval = dialogo.agregar();
+        this.evaluaciones.set(fila, eval);
+        this.listarEvaluaciones();
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnGenerarFormulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarFormulaActionPerformed
+        if (this.validarSumaGlobalPesos(this.tblEvaluaciones) == true) {
+            actualizarFormulaPromedio(this.tblEvaluaciones, this.txtPromedioFinal);
+        } else {
+            this.btnModificar.requestFocusInWindow();
+        }
+    }//GEN-LAST:event_btnGenerarFormulaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ADS;
@@ -1435,7 +1479,8 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnAtras2;
     private javax.swing.JButton btnAtras6;
     private javax.swing.JButton btnDetallado;
-    private javax.swing.JButton btnModificarEvaluacionCalificada;
+    private javax.swing.JButton btnGenerarFormula;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnSiguiente2;
     private javax.swing.JButton btnSiguiente3;
     private javax.swing.JButton btnSiguiente4;
@@ -1480,7 +1525,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea jTextArea11;
     private javax.swing.JTextArea jTextArea5;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField14;
     private com.toedter.calendar.JDateChooser jdcFechaInicio;
     private javax.swing.JScrollPane jscUnidad;
     private javax.swing.JLabel lbl11;
@@ -1531,6 +1575,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtHorasPracticas;
     private javax.swing.JTextField txtHorasSemanales;
     private javax.swing.JTextField txtHorasTeoricas;
+    private javax.swing.JTextField txtPromedioFinal;
     private javax.swing.JTextField txtSemestreAcademico;
     private javax.swing.JTextField txtTipo;
     private javax.swing.JTextField txtUniversidad;
@@ -1634,5 +1679,45 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             modeloUnidad.setUnidades(new ArrayList<>());
         }
     }
+
+    public boolean validarSumaGlobalPesos(JTable tabla) {
+        String mensaje="";
+    TableModel modelo = this.tblEvaluaciones.getModel();
+    double sumaPesos = 0;
+
+    for (int i = 0; i < modelo.getRowCount(); i++) {
+        Object pesoObj = modelo.getValueAt(i, 2); // Columna 2: Peso
+        if (pesoObj != null) {
+            sumaPesos += Double.parseDouble(pesoObj.toString());
+        }
+    }
+
+    if (sumaPesos > 100) {
+        mensaje+=  "La suma de los pesos es " + sumaPesos + "%. Debes modificarlos para que sumen exactamente 100%";
+        JOptionPane.showMessageDialog(null,mensaje);
+        return false;
+    }
+    return true;
+}
+    
+ public void actualizarFormulaPromedio(JTable tabla, JTextField campoFormula) {
+    StringBuilder formula = new StringBuilder();
+    TableModel modelo = this.tblEvaluaciones.getModel();
+
+    for (int i = 0; i < modelo.getRowCount(); i++) {
+        String sigla = modelo.getValueAt(i, 1).toString(); // Asumiendo columna 1 = Siglas
+        String peso = modelo.getValueAt(i, 2).toString();  // Asumiendo columna 2 = Peso
+
+        formula.append(peso)
+               .append("%*")
+               .append(sigla);
+
+        if (i < modelo.getRowCount() - 1) {
+            formula.append(" + ");
+        }
+    }
+
+    campoFormula.setText(formula.toString());
+}
 
 }
