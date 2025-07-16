@@ -38,7 +38,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private static DepartamentoAcademico departamento;
     private Ciclo cicloSeleccionado;
     private Curso cursoSeleccionado;
-    private boolean bloqueandoEvento = false;
+
 
     private static Docente usuarioCreador;
     private static List<EvaluacionesCalificadas> evaluaciones = new ArrayList<EvaluacionesCalificadas>();
@@ -65,7 +65,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         cargarDatosASilabo();
         cargarDatosDocenteLoggeado();
         cargarCiclosDeSilabo();
-        detectarClickEnUltimaFila();
     }
 
     public static JICrearSilabo crear(javax.swing.JDesktopPane contenedor, Silabo silabo, Usuario usuarioDocente) {
@@ -1560,28 +1559,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     }
 
         
-        private void detectarClickEnUltimaFila() {
-    this.tblUnidades.getSelectionModel().addListSelectionListener(e -> {
-        if (!e.getValueIsAdjusting() && !bloqueandoEvento) {
-            int filaSeleccionada = this.tblUnidades.getSelectedRow();
-            int ultimaFila = modeloUnidad.getRowCount() - 1;
-            if (filaSeleccionada == ultimaFila) {
-                bloqueandoEvento = true;
-                Unidad nuevaUnidad = new Unidad();
-                nuevaUnidad.setDesempeño(""); 
-                nuevaUnidad.setHabilidadesRequeridas("");
-                nuevaUnidad.setSemanas("");
-                nuevaUnidad.setConocimientos("");
-                nuevaUnidad.setActividades("");
-                nuevaUnidad.setEvidenciaAprendizaje("");
-                modeloUnidad.getUnidades().add(nuevaUnidad);
-                modeloUnidad.fireTableDataChanged();
-                int nuevaFila = modeloUnidad.getRowCount() - 1;
-                this.tblUnidades.setRowSelectionInterval(nuevaFila, nuevaFila);
-                bloqueandoEvento = false;
-            }
-        }
-    });
-}
+       
 
 }
