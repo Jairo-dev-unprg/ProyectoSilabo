@@ -198,24 +198,31 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
 
+        pn8.setBackground(new java.awt.Color(25, 118, 210));
+
+        pn1.setBackground(new java.awt.Color(255, 255, 255));
         pn1.setBorder(javax.swing.BorderFactory.createTitledBorder("I. INFORMACIÓN GENERAL"));
 
         lblUniversidad.setText("Universidad: ");
 
         txtUniversidad.setEditable(false);
+        txtUniversidad.setBackground(new java.awt.Color(255, 255, 255));
         txtUniversidad.setEnabled(false);
 
         lblDepartamento.setText("Departamento academico:");
 
         txtDepartamento.setEditable(false);
+        txtDepartamento.setBackground(new java.awt.Color(255, 255, 255));
         txtDepartamento.setEnabled(false);
 
         lblEscuela.setText("Escuela:");
 
         txtEscuela.setEditable(false);
+        txtEscuela.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel5.setText("Ciclo:");
 
+        cmbCiclos.setBackground(new java.awt.Color(25, 118, 210));
         cmbCiclos.setModel(this.modeloCiclos);
         cmbCiclos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,6 +242,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         lblPrerrequistos.setText("Prerrequisitos:");
 
         axtPrerrequisitos.setEditable(false);
+        axtPrerrequisitos.setBackground(new java.awt.Color(255, 255, 255));
         axtPrerrequisitos.setColumns(20);
         axtPrerrequisitos.setRows(5);
         jScrollPane2.setViewportView(axtPrerrequisitos);
@@ -242,26 +250,32 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         lblCodigoCurso.setText("Codigo del curso:");
 
         txtCodigoCurso.setEditable(false);
+        txtCodigoCurso.setBackground(new java.awt.Color(255, 255, 255));
 
         lblCreditos.setText("Creditos: ");
 
         txtCreditos.setEditable(false);
+        txtCreditos.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel10.setText("Horas semanales:");
 
         txtHorasSemanales.setEditable(false);
+        txtHorasSemanales.setBackground(new java.awt.Color(255, 255, 255));
 
         lblHorasTeoricas.setText("Teoricas:");
 
         lblHorasPracticas.setText("Practicas:");
 
         txtHorasTeoricas.setEditable(false);
+        txtHorasTeoricas.setBackground(new java.awt.Color(255, 255, 255));
 
         txtHorasPracticas.setEditable(false);
+        txtHorasPracticas.setBackground(new java.awt.Color(255, 255, 255));
 
         lblDuracion.setText("Duración: ");
 
         txtDuracion.setEditable(false);
+        txtDuracion.setBackground(new java.awt.Color(255, 255, 255));
         txtDuracion.setText("16 semanas");
 
         lblFechaInicio.setText("Fecha Inicio: ");
@@ -278,6 +292,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
         lblCorreo.setText("Correo:");
 
+        bntSiguiente1.setBackground(new java.awt.Color(25, 118, 210));
         bntSiguiente1.setText("Siguiente");
         bntSiguiente1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,6 +305,12 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         lblFacultad.setText("Facultad: ");
 
         txtFacultad.setEditable(false);
+        txtFacultad.setBackground(new java.awt.Color(255, 255, 255));
+        txtFacultad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFacultadActionPerformed(evt);
+            }
+        });
 
         jdcFechaInicio.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -298,6 +319,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         });
 
         jTextField1.setEditable(false);
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout pn1Layout = new javax.swing.GroupLayout(pn1);
         pn1.setLayout(pn1Layout);
@@ -536,7 +558,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn2Layout.createSequentialGroup()
-                        .addGap(0, 414, Short.MAX_VALUE)
+                        .addGap(0, 1711, Short.MAX_VALUE)
                         .addComponent(btnAtras2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnSiguiente2))
@@ -547,7 +569,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE)
+                .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 1146, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSiguiente2)
@@ -657,7 +679,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(1308, Short.MAX_VALUE))
         );
         pn3Layout.setVerticalGroup(
             pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -674,7 +696,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 .addGroup(pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bntAtras3)
                     .addComponent(btnSiguiente3))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(572, Short.MAX_VALUE))
         );
 
         pn8.addTab("Pagina 3", pn3);
@@ -1171,6 +1193,8 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
         pn8.addTab("Pagina 8", jPanel13);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -1191,14 +1215,14 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pn8, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE))
+                .addComponent(jScrollPane1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1)
-                    .addComponent(pn8, javax.swing.GroupLayout.PREFERRED_SIZE, 771, Short.MAX_VALUE))
+                    .addComponent(pn8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1338,6 +1362,10 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             this.tblUnidades.setModel(modeloUnidad);
         });
     }//GEN-LAST:event_cmbUnidadesActionPerformed
+
+    private void txtFacultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFacultadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFacultadActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

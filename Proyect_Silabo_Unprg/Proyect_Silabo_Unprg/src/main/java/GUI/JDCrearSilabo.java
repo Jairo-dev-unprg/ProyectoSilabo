@@ -40,6 +40,7 @@ public class JDCrearSilabo extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSpinner1 = new javax.swing.JSpinner();
         jPanel7 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lblFiltrar = new javax.swing.JLabel();
@@ -61,6 +62,8 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         setTitle("Nuevo Silabo");
         setBackground(new java.awt.Color(255, 255, 255));
 
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Universidad:");
 
@@ -68,12 +71,13 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         lblFiltrar.setText("Filtrar");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Escuela", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto Condensed Medium", 0, 14), new java.awt.Color(0, 0, 0))); // NOI18N
-        jPanel2.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Escuela", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto Condensed Medium", 0, 14))); // NOI18N
 
         jLabel17.setForeground(new java.awt.Color(102, 102, 102));
         jLabel17.setText("Facultad: ");
 
+        cmbFacultad.setBackground(new java.awt.Color(255, 255, 255));
+        cmbFacultad.setForeground(new java.awt.Color(0, 0, 0));
         cmbFacultad.setModel(this.modeloFacultad);
         cmbFacultad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +91,8 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         jLabel19.setForeground(new java.awt.Color(102, 102, 102));
         jLabel19.setText("Escuela: ");
 
+        cmbDepartamento.setBackground(new java.awt.Color(255, 255, 255));
+        cmbDepartamento.setForeground(new java.awt.Color(0, 0, 0));
         cmbDepartamento.setModel(this.modeloDepartemento);
         cmbDepartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +100,8 @@ public class JDCrearSilabo extends javax.swing.JDialog {
             }
         });
 
+        cmbEscuela.setBackground(new java.awt.Color(255, 255, 255));
+        cmbEscuela.setForeground(new java.awt.Color(0, 0, 0));
         cmbEscuela.setModel(this.modeloEscuela);
         cmbEscuela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,12 +148,15 @@ public class JDCrearSilabo extends javax.swing.JDialog {
                 .addGap(35, 35, 35))
         );
 
+        txtFiltrar.setBackground(new java.awt.Color(255, 255, 255));
         txtFiltrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFiltrarActionPerformed(evt);
             }
         });
 
+        lisUniversidad.setBackground(new java.awt.Color(255, 255, 255));
+        lisUniversidad.setForeground(new java.awt.Color(255, 255, 255));
         lisUniversidad.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Pedro Ruiz Gallo", "...", "..", ".." };
             public int getSize() { return strings.length; }
@@ -169,6 +180,7 @@ public class JDCrearSilabo extends javax.swing.JDialog {
             }
         });
 
+        separadorUsuario.setBackground(new java.awt.Color(255, 255, 255));
         separadorUsuario.setBorder(new javax.swing.border.MatteBorder(null));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -353,6 +365,7 @@ public class JDCrearSilabo extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel lblFiltrar;
     private javax.swing.JList<String> lisUniversidad;
     private javax.swing.JSeparator separadorUsuario;

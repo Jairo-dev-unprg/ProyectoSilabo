@@ -83,7 +83,6 @@ public class JFLogeo extends javax.swing.JFrame {
         background.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 320, -1));
 
         lblIniciarSesion.setFont(new java.awt.Font("Roboto ExtraBold", 1, 24)); // NOI18N
-        lblIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
         lblIniciarSesion.setText("INICIAR SESION");
         background.add(lblIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, -1, -1));
 
@@ -151,7 +150,7 @@ public class JFLogeo extends javax.swing.JFrame {
         lblCrearCuenta.setForeground(new java.awt.Color(0, 102, 204));
         lblCrearCuenta.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblCrearCuenta.setText(" CREA UNA");
-        lblCrearCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCrearCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblCrearCuenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblCrearCuentaMousePressed(evt);
@@ -161,11 +160,10 @@ public class JFLogeo extends javax.swing.JFrame {
 
         btnEntrar.setBackground(new java.awt.Color(232, 201, 42));
         btnEntrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnEntrar.setForeground(new java.awt.Color(0, 0, 0));
         btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login.png"))); // NOI18N
         btnEntrar.setText("ENTRAR");
         btnEntrar.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(210, 184, 35), new java.awt.Color(170, 170, 170)));
-        btnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEntrarActionPerformed(evt);
@@ -192,10 +190,9 @@ public class JFLogeo extends javax.swing.JFrame {
         });
 
         lblX.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
-        lblX.setForeground(new java.awt.Color(0, 0, 0));
         lblX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblX.setText("X");
-        lblX.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblX.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblX.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblX.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
