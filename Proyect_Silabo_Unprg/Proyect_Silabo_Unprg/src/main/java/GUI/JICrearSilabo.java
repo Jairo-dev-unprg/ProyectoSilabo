@@ -1359,7 +1359,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
         JDAgregarEvaluacion dialogo = new JDAgregarEvaluacion(null, true);
         dialogo.cargarDatos(evalu);
-        d
     }//GEN-LAST:event_btnModificarEvaluacionCalificadaActionPerformed
 
 
