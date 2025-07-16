@@ -76,14 +76,19 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
         lblCorreo = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
         separatorCorreo1 = new javax.swing.JSeparator();
+        lblX = new javax.swing.JLabel();
+        lblX1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(0, 86, 163));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel4.add(lblLogoPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 35, -1, -1));
 
         btnFinalizar1.setBackground(new java.awt.Color(25, 118, 210));
         btnFinalizar1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -96,12 +101,14 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
                 btnFinalizar1ActionPerformed(evt);
             }
         });
+        jPanel4.add(btnFinalizar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 598, 192, 41));
 
         btnCuentaStyle.setBackground(new java.awt.Color(25, 118, 210));
         btnCuentaStyle.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
         btnCuentaStyle.setText("CUENTA");
         btnCuentaStyle.setBorder(null);
         btnCuentaStyle.setBorderPainted(false);
+        jPanel4.add(btnCuentaStyle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 53, 192, 41));
 
         btnSubirFirma.setBackground(new java.awt.Color(25, 118, 210));
         btnSubirFirma.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -114,47 +121,29 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
                 btnSubirFirmaActionPerformed(evt);
             }
         });
+        jPanel4.add(btnSubirFirma, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 551, 192, 41));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(lblLogoPanel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(btnFinalizar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
-            .addComponent(btnCuentaStyle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnSubirFirma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(lblLogoPanel1)
-                .addGap(18, 18, 18)
-                .addComponent(btnCuentaStyle, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSubirFirma, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnFinalizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
-        );
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 658));
 
         barraProgreso.setStringPainted(true);
+        jPanel3.add(barraProgreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 638, 393, -1));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblLogoG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/isotipo_unprg(2).png"))); // NOI18N
+        jPanel5.add(lblLogoG, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 14, -1, -1));
 
         lblTittle.setFont(new java.awt.Font("Roboto ExtraBold", 1, 30)); // NOI18N
         lblTittle.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblTittle.setText("DATOS PERSONALES");
+        jPanel5.add(lblTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 103, -1, -1));
 
         lblNombres.setFont(new java.awt.Font("Roboto Condensed Medium", 1, 18)); // NOI18N
         lblNombres.setForeground(new java.awt.Color(51, 51, 51));
         lblNombres.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblNombres.setText("NOMBRES");
+        jPanel5.add(lblNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 254, 337, -1));
 
         txtNombres.setBackground(new java.awt.Color(242, 240, 240));
         txtNombres.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -169,20 +158,25 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
                 txtNombresKeyReleased(evt);
             }
         });
+        jPanel5.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 288, 337, 30));
 
         separador.setBorder(new javax.swing.border.MatteBorder(null));
+        jPanel5.add(separador, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 320, 337, 10));
 
         lblApellidos.setFont(new java.awt.Font("Roboto Condensed Medium", 1, 18)); // NOI18N
         lblApellidos.setForeground(new java.awt.Color(51, 51, 51));
         lblApellidos.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblApellidos.setText("APELLIDOS");
+        jPanel5.add(lblApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 348, 337, -1));
 
         separadorPass.setBorder(new javax.swing.border.MatteBorder(null));
+        jPanel5.add(separadorPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 418, 337, 10));
 
         lblGrado.setFont(new java.awt.Font("Roboto Condensed Medium", 1, 18)); // NOI18N
         lblGrado.setForeground(new java.awt.Color(51, 51, 51));
         lblGrado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblGrado.setText("GRADO ACADEMICO");
+        jPanel5.add(lblGrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 446, 337, -1));
 
         txtGrado.setBackground(new java.awt.Color(242, 240, 240));
         txtGrado.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -197,8 +191,10 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
                 txtGradoKeyReleased(evt);
             }
         });
+        jPanel5.add(txtGrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 476, 337, 30));
 
         separatorCorreo.setBorder(new javax.swing.border.MatteBorder(null));
+        jPanel5.add(separatorCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 506, 337, 10));
 
         txtApellidos.setBackground(new java.awt.Color(242, 240, 240));
         txtApellidos.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -213,11 +209,13 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
                 txtApellidosKeyReleased(evt);
             }
         });
+        jPanel5.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 382, 337, 30));
 
         lblDni.setFont(new java.awt.Font("Roboto Condensed Medium", 1, 18)); // NOI18N
         lblDni.setForeground(new java.awt.Color(51, 51, 51));
         lblDni.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblDni.setText("DNI");
+        jPanel5.add(lblDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 166, 337, -1));
 
         txtDni.setBackground(new java.awt.Color(242, 240, 240));
         txtDni.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -237,13 +235,16 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
                 txtDniKeyReleased(evt);
             }
         });
+        jPanel5.add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 196, 337, 30));
 
         separadorUsuario1.setBorder(new javax.swing.border.MatteBorder(null));
+        jPanel5.add(separadorUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 226, 337, 10));
 
         lblCorreo.setFont(new java.awt.Font("Roboto Condensed Medium", 1, 18)); // NOI18N
         lblCorreo.setForeground(new java.awt.Color(51, 51, 51));
         lblCorreo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCorreo.setText("CORREO INSTITUCIONAL");
+        jPanel5.add(lblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 534, 337, -1));
 
         txtCorreo.setBackground(new java.awt.Color(242, 240, 240));
         txtCorreo.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -258,108 +259,44 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
                 txtCorreoKeyReleased(evt);
             }
         });
+        jPanel5.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 564, 337, 30));
 
         separatorCorreo1.setBorder(new javax.swing.border.MatteBorder(null));
+        jPanel5.add(separatorCorreo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 594, 337, 10));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblTittle)
-                    .addComponent(lblLogoG)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCorreo)
-                            .addComponent(lblCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(separatorCorreo1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblDni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(separadorUsuario1)
-                            .addComponent(txtDni)
-                            .addComponent(txtGrado)
-                            .addComponent(lblGrado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(separadorPass)
-                            .addComponent(txtApellidos)
-                            .addComponent(lblNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtNombres)
-                            .addComponent(separador)
-                            .addComponent(separatorCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(25, 25, 25))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(lblLogoG)
-                .addGap(27, 27, 27)
-                .addComponent(lblTittle)
-                .addGap(27, 27, 27)
-                .addComponent(lblDni)
-                .addGap(8, 8, 8)
-                .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(separadorUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblNombres)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(separador, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblApellidos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(separadorPass, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblGrado)
-                .addGap(8, 8, 8)
-                .addComponent(txtGrado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(separatorCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblCorreo)
-                .addGap(8, 8, 8)
-                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(separatorCorreo1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
-        );
+        lblX.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        lblX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblX.setText("X");
+        lblX.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblX.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblX.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblXMousePressed(evt);
+            }
+        });
+        jPanel5.add(lblX, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 299, -1, 16));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(barraProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(barraProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        lblX1.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        lblX1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblX1.setText("X");
+        lblX1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblX1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblX1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblX1MousePressed(evt);
+            }
+        });
+        jPanel5.add(lblX1, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 14, -1, -1));
+
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 6, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -394,15 +331,15 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
 
         // Crear objeto Docente y asociarlo al Usuario
         Docente d = new Docente(nombres, apellidos, grado, dni, correo, firma);
-        //usuarioRecibido.setDocente(d);
+        usuarioRecibido.setDocente(d);
 
         // Guardar en la lista principal
-        //Proyect_Silabo_Unprg.usuarios.add(usuarioRecibido);
+        Proyect_Silabo_Unprg.usuarios.add(usuarioRecibido);
         Proyect_Silabo_Unprg.docentes.add(d);
 
         // Mostrar en consola
         System.out.println("==== REGISTRO COMPLETADO ====");
-        //System.out.println(usuarioRecibido);
+        System.out.println(usuarioRecibido);
         System.out.println("================================");
 
         // Mensaje de éxito y volver al login
@@ -451,6 +388,16 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSubirFirmaActionPerformed
 
+    private void lblXMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblXMousePressed
+        this.dispose();
+    }//GEN-LAST:event_lblXMousePressed
+
+    private void lblX1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblX1MousePressed
+        JFCrearCuenta prim = new JFCrearCuenta();
+        prim.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblX1MousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -476,7 +423,7 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new JFDatosCompletarRegistro(Proyect_Silabo_Unprg.usuarios.get(0)).setVisible(true);
-                
+
             }
         });
     }
@@ -484,11 +431,8 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar barraProgreso;
     private javax.swing.JButton btnCuentaStyle;
-    private javax.swing.JButton btnFinalizar;
     private javax.swing.JButton btnFinalizar1;
     private javax.swing.JButton btnSubirFirma;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -497,10 +441,11 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
     private javax.swing.JLabel lblDni;
     private javax.swing.JLabel lblGrado;
     private javax.swing.JLabel lblLogoG;
-    private javax.swing.JLabel lblLogoPanel;
     private javax.swing.JLabel lblLogoPanel1;
     private javax.swing.JLabel lblNombres;
     private javax.swing.JLabel lblTittle;
+    private javax.swing.JLabel lblX;
+    private javax.swing.JLabel lblX1;
     private javax.swing.JSeparator separador;
     private javax.swing.JSeparator separadorPass;
     private javax.swing.JSeparator separadorUsuario1;

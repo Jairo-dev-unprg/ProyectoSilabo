@@ -280,10 +280,6 @@ public class JFCrearCuenta extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void lblXMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblXMousePressed
-        this.dispose();
-    }//GEN-LAST:event_lblXMousePressed
-
     private void headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMouseDragged
         int X = evt.getXOnScreen();
         int Y = evt.getYOnScreen();
@@ -343,6 +339,10 @@ public class JFCrearCuenta extends javax.swing.JFrame {
         new JFDatosCompletarRegistro(nuevoUsuario).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void lblXMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblXMousePressed
+        this.dispose();
+    }//GEN-LAST:event_lblXMousePressed
 
     /**
      * @param args the command line arguments
