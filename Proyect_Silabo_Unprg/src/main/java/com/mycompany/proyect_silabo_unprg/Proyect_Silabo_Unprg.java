@@ -1,8 +1,8 @@
 package com.mycompany.proyect_silabo_unprg;
 
 import GUI.JFLogeo;
-import com.formdev.flatlaf.intellijthemes.FlatMonokaiProIJTheme;
 import entidades.Ciclo;
+import com.formdev.flatlaf.FlatLightLaf;
 import entidades.Desempeño;
 import entidades.Curso;
 import entidades.DepartamentoAcademico;
@@ -18,6 +18,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 //RECARGA PA KEVIN 
 
@@ -98,8 +100,8 @@ public class Proyect_Silabo_Unprg {
     public static List<Usuario> usuarios = new ArrayList<>();
     public static List<Docente> docentes = new ArrayList<>();
 
-    public static void main(String[] args) {
-        FlatMonokaiProIJTheme.setup();
+    public static void main(String[] args) throws UnsupportedLookAndFeelException {
+        UIManager.setLookAndFeel(new FlatLightLaf());
         JFLogeo logeo = new JFLogeo();
     }
 

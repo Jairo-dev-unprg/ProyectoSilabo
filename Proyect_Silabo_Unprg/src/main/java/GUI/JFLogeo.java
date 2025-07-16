@@ -82,17 +82,19 @@ public class JFLogeo extends javax.swing.JFrame {
         lblTitulo.setText("PLANIFICA UNPRG");
         background.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 320, -1));
 
+        lblIniciarSesion.setBackground(new java.awt.Color(0, 0, 0));
         lblIniciarSesion.setFont(new java.awt.Font("Roboto ExtraBold", 1, 24)); // NOI18N
+        lblIniciarSesion.setForeground(new java.awt.Color(51, 51, 51));
         lblIniciarSesion.setText("INICIAR SESION");
         background.add(lblIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, -1, -1));
 
-        lblUsuario.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 18)); // NOI18N
+        lblUsuario.setFont(new java.awt.Font("Roboto Condensed Medium", 1, 18)); // NOI18N
         lblUsuario.setForeground(new java.awt.Color(51, 51, 51));
         lblUsuario.setText("USUARIO");
         background.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, -1, -1));
 
-        txtUsuario.setBackground(new java.awt.Color(255, 255, 255));
-        txtUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtUsuario.setBackground(new java.awt.Color(242, 240, 240));
+        txtUsuario.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(153, 153, 153));
         txtUsuario.setBorder(null);
         txtUsuario.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -109,10 +111,10 @@ public class JFLogeo extends javax.swing.JFrame {
         separadorUsuario.setBorder(new javax.swing.border.MatteBorder(null));
         background.add(separadorUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 370, 10));
 
-        lblPass.setFont(new java.awt.Font("Roboto Condensed Medium", 0, 18)); // NOI18N
+        lblPass.setFont(new java.awt.Font("Roboto Condensed Medium", 1, 18)); // NOI18N
         lblPass.setForeground(new java.awt.Color(51, 51, 51));
         lblPass.setText("CONTRASEÑA");
-        background.add(lblPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, -1, -1));
+        background.add(lblPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, -1, -1));
 
         chkVerPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ver_contrasenia.png"))); // NOI18N
         chkVerPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -122,8 +124,8 @@ public class JFLogeo extends javax.swing.JFrame {
         });
         background.add(chkVerPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 250, -1, -1));
 
-        txtPass.setBackground(new java.awt.Color(255, 255, 255));
-        txtPass.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtPass.setBackground(new java.awt.Color(242, 240, 240));
+        txtPass.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         txtPass.setForeground(new java.awt.Color(153, 153, 153));
         txtPass.setBorder(null);
         txtPass.setDisabledTextColor(new java.awt.Color(232, 201, 42));
@@ -144,7 +146,7 @@ public class JFLogeo extends javax.swing.JFrame {
 
         lblCuenta.setForeground(new java.awt.Color(51, 51, 51));
         lblCuenta.setText("No tienes una cuenta?");
-        background.add(lblCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, -1, -1));
+        background.add(lblCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, -1, -1));
 
         lblCrearCuenta.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCrearCuenta.setForeground(new java.awt.Color(0, 102, 204));

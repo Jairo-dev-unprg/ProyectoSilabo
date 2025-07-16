@@ -50,7 +50,7 @@ public class JFSilabo extends javax.swing.JFrame {
         dpSilabo.setLayout(dpSilaboLayout);
         dpSilaboLayout.setHorizontalGroup(
             dpSilaboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 950, Short.MAX_VALUE)
+            .addGap(0, 970, Short.MAX_VALUE)
         );
         dpSilaboLayout.setVerticalGroup(
             dpSilaboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -60,8 +60,12 @@ public class JFSilabo extends javax.swing.JFrame {
         pnLateral.setBackground(new java.awt.Color(0, 86, 163));
 
         btnInicio.setBackground(new java.awt.Color(25, 118, 210));
+        btnInicio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_home.png"))); // NOI18N
         btnInicio.setText("Inicio");
         btnInicio.setBorderPainted(false);
+        btnInicio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnInicio.setIconTextGap(12);
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInicioActionPerformed(evt);
@@ -69,8 +73,12 @@ public class JFSilabo extends javax.swing.JFrame {
         });
 
         btnCrear.setBackground(new java.awt.Color(25, 118, 210));
+        btnCrear.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/crear.png"))); // NOI18N
         btnCrear.setText("Crear");
         btnCrear.setBorderPainted(false);
+        btnCrear.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnCrear.setIconTextGap(12);
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearActionPerformed(evt);
@@ -78,8 +86,12 @@ public class JFSilabo extends javax.swing.JFrame {
         });
 
         btnImportar.setBackground(new java.awt.Color(25, 118, 210));
+        btnImportar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnImportar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/file_open.png"))); // NOI18N
         btnImportar.setText("Abrir");
         btnImportar.setBorderPainted(false);
+        btnImportar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnImportar.setIconTextGap(12);
         btnImportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnImportarActionPerformed(evt);
@@ -87,8 +99,12 @@ public class JFSilabo extends javax.swing.JFrame {
         });
 
         jButton1.setBackground(new java.awt.Color(25, 118, 210));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_account.png"))); // NOI18N
         jButton1.setText("Cuenta");
         jButton1.setBorderPainted(false);
+        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton1.setIconTextGap(12);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -96,8 +112,12 @@ public class JFSilabo extends javax.swing.JFrame {
         });
 
         btnExportar.setBackground(new java.awt.Color(25, 118, 210));
+        btnExportar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnExportar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png"))); // NOI18N
         btnExportar.setText("Exportar");
         btnExportar.setBorderPainted(false);
+        btnExportar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnExportar.setIconTextGap(12);
         btnExportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExportarActionPerformed(evt);
@@ -119,29 +139,29 @@ public class JFSilabo extends javax.swing.JFrame {
             .addComponent(btnImportar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnExportar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(lblBienvenida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnLateralLayout.createSequentialGroup()
-                .addGap(82, 82, 82)
+                .addGap(81, 81, 81)
                 .addComponent(lblLogo)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
+            .addComponent(lblBienvenida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnLateralLayout.setVerticalGroup(
             pnLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnLateralLayout.createSequentialGroup()
-                .addGap(96, 96, 96)
+                .addGap(34, 34, 34)
                 .addComponent(lblLogo)
-                .addGap(31, 31, 31)
+                .addGap(28, 28, 28)
                 .addComponent(lblBienvenida)
-                .addGap(37, 37, 37)
-                .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(102, 102, 102)
+                .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
-                .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnImportar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
-                .addComponent(btnImportar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(btnExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -150,15 +170,13 @@ public class JFSilabo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(dpSilabo))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(dpSilabo)
-                .addContainerGap())
+            .addComponent(dpSilabo)
         );
 
         pack();
