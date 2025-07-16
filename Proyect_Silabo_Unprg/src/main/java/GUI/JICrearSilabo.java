@@ -38,7 +38,8 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private static DepartamentoAcademico departamento;
     private Ciclo cicloSeleccionado;
     private Curso cursoSeleccionado;
-
+    private boolean detallado = true;
+    private boolean plan = true;
 
     private static Docente usuarioCreador;
     private static List<EvaluacionesCalificadas> evaluaciones = new ArrayList<EvaluacionesCalificadas>();
@@ -167,15 +168,15 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         btnModificarEvaluacionCalificada = new javax.swing.JButton();
         pn6 = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
-        jTextArea5 = new javax.swing.JTextArea();
-        jPanel8 = new javax.swing.JPanel();
-        jScrollPane12 = new javax.swing.JScrollPane();
-        jTextArea8 = new javax.swing.JTextArea();
+        axtMetodologiaEnseñanza = new javax.swing.JTextArea();
+        panDetallado = new javax.swing.JPanel();
         jScrollPane13 = new javax.swing.JScrollPane();
-        jTextArea9 = new javax.swing.JTextArea();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        axtMetodopro = new javax.swing.JTextArea();
+        lblMetodologiapro = new javax.swing.JLabel();
+        lblMetodologiaInv = new javax.swing.JLabel();
+        jScrollPane18 = new javax.swing.JScrollPane();
+        axtMetodoInves = new javax.swing.JTextArea();
+        btnDetalladoEnseñana = new javax.swing.JButton();
         btnAtras6 = new javax.swing.JButton();
         btnSiguiente6 = new javax.swing.JButton();
         pn7 = new javax.swing.JPanel();
@@ -184,7 +185,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jScrollPane16 = new javax.swing.JScrollPane();
         jScrollPane15 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        tblPlan = new javax.swing.JTable();
         btnSiguiente7 = new javax.swing.JButton();
         btnAnterior7 = new javax.swing.JButton();
         jPanel13 = new javax.swing.JPanel();
@@ -937,57 +938,71 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
         pn6.setBorder(javax.swing.BorderFactory.createTitledBorder("IX. METODOLOGÍA DE ENSEÑANZA – APRENDIZAJE Y ACTIVIDADES DE INVESTIGACIÓN FORMATIVA"));
 
-        jTextArea5.setColumns(20);
-        jTextArea5.setRows(5);
-        jScrollPane11.setViewportView(jTextArea5);
+        axtMetodologiaEnseñanza.setColumns(20);
+        axtMetodologiaEnseñanza.setRows(5);
+        jScrollPane11.setViewportView(axtMetodologiaEnseñanza);
 
-        jPanel8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panDetallado.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panDetallado.setEnabled(false);
 
-        jTextArea8.setColumns(20);
-        jTextArea8.setRows(5);
-        jTextArea8.setText("Metodología para el proceso formativo:\n\n");
-        jScrollPane12.setViewportView(jTextArea8);
+        jScrollPane13.setEnabled(false);
 
-        jTextArea9.setColumns(20);
-        jTextArea9.setRows(5);
-        jTextArea9.setText("Metodología para la investigación formativa:");
-        jScrollPane13.setViewportView(jTextArea9);
+        axtMetodopro.setColumns(20);
+        axtMetodopro.setRows(5);
+        axtMetodopro.setText("Metodología para el proceso formativo:");
+        axtMetodopro.setEnabled(false);
+        jScrollPane13.setViewportView(axtMetodopro);
 
-        jLabel21.setText("Metodología para la investigación formativa");
+        lblMetodologiapro.setText("Metodología para el proceso formativo");
+        lblMetodologiapro.setEnabled(false);
 
-        jLabel22.setText("Metodología para el proceso formativo");
+        lblMetodologiaInv.setText("Metodología para la investigación formativa");
+        lblMetodologiaInv.setEnabled(false);
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        jScrollPane18.setEnabled(false);
+
+        axtMetodoInves.setColumns(20);
+        axtMetodoInves.setRows(5);
+        axtMetodoInves.setText("Metodología para la investigación formativa:");
+        axtMetodoInves.setEnabled(false);
+        jScrollPane18.setViewportView(axtMetodoInves);
+
+        javax.swing.GroupLayout panDetalladoLayout = new javax.swing.GroupLayout(panDetallado);
+        panDetallado.setLayout(panDetalladoLayout);
+        panDetalladoLayout.setHorizontalGroup(
+            panDetalladoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panDetalladoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panDetalladoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane13, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane12)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel21)
-                            .addComponent(jLabel22))
-                        .addGap(0, 284, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane18, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panDetalladoLayout.createSequentialGroup()
+                        .addGroup(panDetalladoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMetodologiapro)
+                            .addComponent(lblMetodologiaInv, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel22)
+        panDetalladoLayout.setVerticalGroup(
+            panDetalladoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panDetalladoLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(lblMetodologiapro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel21)
+                .addComponent(lblMetodologiaInv)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Detallado");
+        btnDetalladoEnseñana.setText("Detallado");
+        btnDetalladoEnseñana.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDetalladoEnseñanaActionPerformed(evt);
+            }
+        });
 
         btnAtras6.setText("Atras");
         btnAtras6.addActionListener(new java.awt.event.ActionListener() {
@@ -1010,10 +1025,10 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             .addGroup(pn6Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1)
-                    .addComponent(jScrollPane11)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnDetalladoEnseñana)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
+                    .addComponent(panDetallado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAtras6)
@@ -1029,9 +1044,9 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn6Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnDetalladoEnseñana)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panDetallado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(82, 82, 82))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn6Layout.createSequentialGroup()
                         .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1049,8 +1064,13 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         jScrollPane14.setViewportView(jTextArea10);
 
         jButton2.setText("PLAN DE DINAMIZACIÓN Y SEGUIMIENTO");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        tblPlan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -1061,7 +1081,8 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 "Etapas", "Actividades"
             }
         ));
-        jScrollPane15.setViewportView(jTable4);
+        tblPlan.setEnabled(false);
+        jScrollPane15.setViewportView(tblPlan);
 
         jScrollPane16.setViewportView(jScrollPane15);
 
@@ -1366,12 +1387,43 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFacultadActionPerformed
 
+    private void btnDetalladoEnseñanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalladoEnseñanaActionPerformed
+        if (detallado == true) {
+            this.panDetallado.setEnabled(true);
+            this.lblMetodologiapro.setEnabled(true);
+            this.axtMetodopro.setEnabled(true);
+            this.lblMetodologiaInv.setEnabled(true);
+            this.axtMetodoInves.setEnabled(true);
+            this.detallado = false;
+        } else {
+            this.panDetallado.setEnabled(false);
+            this.lblMetodologiapro.setEnabled(false);
+            this.axtMetodopro.setEnabled(false);
+            this.lblMetodologiaInv.setEnabled(false);
+            this.axtMetodoInves.setEnabled(false);
+            this.detallado = true;
+        }
+    }//GEN-LAST:event_btnDetalladoEnseñanaActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (plan== true) {
+            this.tblPlan.setEnabled(false);
+            this.plan = false;
+        }  else {
+            this.tblPlan.setEnabled(true);
+            this.plan = true;
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ADS;
     private javax.swing.JTextArea atxCapacidadCurso;
     private javax.swing.JTextArea atxCompetenciaProfesional;
     private javax.swing.JTextArea axtDesempeños;
+    private javax.swing.JTextArea axtMetodoInves;
+    private javax.swing.JTextArea axtMetodologiaEnseñanza;
+    private javax.swing.JTextArea axtMetodopro;
     private javax.swing.JTextArea axtPrerrequisitos;
     private javax.swing.JTextArea axtSumilla;
     private javax.swing.JButton bntAtras3;
@@ -1383,6 +1435,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnAnterior7;
     private javax.swing.JButton btnAtras2;
     private javax.swing.JButton btnAtras6;
+    private javax.swing.JButton btnDetalladoEnseñana;
     private javax.swing.JButton btnModificarEvaluacionCalificada;
     private javax.swing.JButton btnSiguiente2;
     private javax.swing.JButton btnSiguiente3;
@@ -1393,7 +1446,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cmbCiclos;
     private javax.swing.JComboBox<String> cmbCursos;
     private javax.swing.JComboBox<String> cmbUnidades;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1404,8 +1456,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
@@ -1415,16 +1465,15 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;
+    private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1432,12 +1481,8 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTextArea jTextArea10;
     private javax.swing.JTextArea jTextArea11;
-    private javax.swing.JTextArea jTextArea5;
-    private javax.swing.JTextArea jTextArea8;
-    private javax.swing.JTextArea jTextArea9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField14;
     private com.toedter.calendar.JDateChooser jdcFechaInicio;
@@ -1456,10 +1501,13 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblFirma;
     private javax.swing.JLabel lblHorasPracticas;
     private javax.swing.JLabel lblHorasTeoricas;
+    private javax.swing.JLabel lblMetodologiaInv;
+    private javax.swing.JLabel lblMetodologiapro;
     private javax.swing.JLabel lblPrerrequistos;
     private javax.swing.JLabel lblSemestreAcademico;
     private javax.swing.JLabel lblUnidades;
     private javax.swing.JLabel lblUniversidad;
+    private javax.swing.JPanel panDetallado;
     private javax.swing.JPanel panUnidades;
     private javax.swing.JPanel pn1;
     private javax.swing.JPanel pn2;
@@ -1471,6 +1519,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JTabbedPane pn8;
     private javax.swing.JTable tblDesempeñosUnidades;
     private javax.swing.JTable tblEvaluaciones;
+    private javax.swing.JTable tblPlan;
     private javax.swing.JTable tblUnidades;
     private javax.swing.JTextField txtCodigoCurso;
     private javax.swing.JTextField txtCorreo;
@@ -1571,7 +1620,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     public void mostrarDatosDeUnidadSeleccionada() {
         int index = cmbUnidades.getSelectedIndex();
         if (index > -1 && modeloComboUnidad.getUnidad() != null) {
-            Unidad seleccionada = modeloComboUnidad.getUnidad().get(index);         
+            Unidad seleccionada = modeloComboUnidad.getUnidad().get(index);
             boolean tieneDatos = seleccionada.getNombre() != null && !seleccionada.getNombre().trim().isEmpty();
             if (tieneDatos) {
                 List<Unidad> lista = new ArrayList<>();
@@ -1584,8 +1633,5 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             modeloUnidad.setUnidades(new ArrayList<>());
         }
     }
-
-        
-       
 
 }
