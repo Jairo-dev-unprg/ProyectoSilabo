@@ -87,7 +87,7 @@ public class JICuenta extends javax.swing.JInternalFrame {
         lblInfUser.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblInfUser.setText("Informacion de usuario");
 
-        lblDni.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblDni.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         lblDni.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblDni.setText("DNI");
 
@@ -106,7 +106,7 @@ public class JICuenta extends javax.swing.JInternalFrame {
 
         separadorUsuario1.setBorder(new javax.swing.border.MatteBorder(null));
 
-        lblNombres.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblNombres.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         lblNombres.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblNombres.setText("NOMBRES COMPLETOS");
 
@@ -125,7 +125,7 @@ public class JICuenta extends javax.swing.JInternalFrame {
 
         separadorUsuario2.setBorder(new javax.swing.border.MatteBorder(null));
 
-        lblGrado1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblGrado1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         lblGrado1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblGrado1.setText("GRADO ACADEMICO");
 
@@ -144,7 +144,7 @@ public class JICuenta extends javax.swing.JInternalFrame {
 
         separadorUsuario3.setBorder(new javax.swing.border.MatteBorder(null));
 
-        lblCorreo1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCorreo1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         lblCorreo1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblCorreo1.setText("CORREO INSTITUCIONAL");
 
@@ -196,7 +196,7 @@ public class JICuenta extends javax.swing.JInternalFrame {
                     .addComponent(separadorUsuario2)
                     .addComponent(separadorUsuario1)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panInfUserLayout.setVerticalGroup(
             panInfUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,7 +218,7 @@ public class JICuenta extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblGrado1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtGrado1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtGrado1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(separadorUsuario3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -227,7 +227,7 @@ public class JICuenta extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(separadorUsuario4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(389, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btnCerrarSesion1.setBackground(new java.awt.Color(25, 118, 210));
@@ -283,7 +283,7 @@ public class JICuenta extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblEpiciCorp, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblInfProduct))
-                        .addGap(0, 906, Short.MAX_VALUE))))
+                        .addGap(0, 973, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

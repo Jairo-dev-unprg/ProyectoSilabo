@@ -67,7 +67,7 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Universidad:");
 
-        lblFiltrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblFiltrar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         lblFiltrar.setText("Filtrar");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -76,8 +76,6 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         jLabel17.setForeground(new java.awt.Color(102, 102, 102));
         jLabel17.setText("Facultad: ");
 
-        cmbFacultad.setBackground(new java.awt.Color(255, 255, 255));
-        cmbFacultad.setForeground(new java.awt.Color(0, 0, 0));
         cmbFacultad.setModel(this.modeloFacultad);
         cmbFacultad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,8 +89,6 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         jLabel19.setForeground(new java.awt.Color(102, 102, 102));
         jLabel19.setText("Escuela: ");
 
-        cmbDepartamento.setBackground(new java.awt.Color(255, 255, 255));
-        cmbDepartamento.setForeground(new java.awt.Color(0, 0, 0));
         cmbDepartamento.setModel(this.modeloDepartemento);
         cmbDepartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,8 +96,6 @@ public class JDCrearSilabo extends javax.swing.JDialog {
             }
         });
 
-        cmbEscuela.setBackground(new java.awt.Color(255, 255, 255));
-        cmbEscuela.setForeground(new java.awt.Color(0, 0, 0));
         cmbEscuela.setModel(this.modeloEscuela);
         cmbEscuela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,11 +130,11 @@ public class JDCrearSilabo extends javax.swing.JDialog {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(cmbFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
-                    .addComponent(cmbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
@@ -148,14 +142,12 @@ public class JDCrearSilabo extends javax.swing.JDialog {
                 .addGap(35, 35, 35))
         );
 
-        txtFiltrar.setBackground(new java.awt.Color(255, 255, 255));
         txtFiltrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFiltrarActionPerformed(evt);
             }
         });
 
-        lisUniversidad.setBackground(new java.awt.Color(255, 255, 255));
         lisUniversidad.setForeground(new java.awt.Color(255, 255, 255));
         lisUniversidad.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Pedro Ruiz Gallo", "...", "..", ".." };
@@ -207,7 +199,7 @@ public class JDCrearSilabo extends javax.swing.JDialog {
                         .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSiguiente)
+                .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addComponent(btnCerrar)
                 .addGap(33, 33, 33))
@@ -231,7 +223,7 @@ public class JDCrearSilabo extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCerrar)
-                    .addComponent(btnSiguiente))
+                    .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55))
         );
 
