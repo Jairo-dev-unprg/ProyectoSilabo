@@ -52,7 +52,6 @@ public class JIIncio extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
-        btnRecientes = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
         separadorPass = new javax.swing.JSeparator();
 
@@ -143,29 +142,30 @@ public class JIIncio extends javax.swing.JInternalFrame {
         pnNuevoDocumentoLayout.setHorizontalGroup(
             pnNuevoDocumentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnNuevoDocumentoLayout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(jLabel1)
-                .addGap(142, 142, 142)
-                .addComponent(jLabel2)
-                .addGap(142, 142, 142)
-                .addComponent(jLabel3)
-                .addGap(143, 143, 143)
-                .addComponent(jLabel4)
-                .addGap(157, 157, 157)
-                .addComponent(jLabel5)
-                .addGap(53, 53, 53))
-            .addGroup(pnNuevoDocumentoLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(pnTipo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(83, 83, 83)
-                .addComponent(pnTipo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
-                .addComponent(pnTipo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(pnNuevoDocumentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnNuevoDocumentoLayout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(jLabel1)
+                        .addGap(142, 142, 142)
+                        .addComponent(jLabel2)
+                        .addGap(142, 142, 142)
+                        .addComponent(jLabel3)
+                        .addGap(143, 143, 143)
+                        .addComponent(jLabel4)
+                        .addGap(157, 157, 157)
+                        .addComponent(jLabel5))
+                    .addGroup(pnNuevoDocumentoLayout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(pnTipo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(83, 83, 83)
+                        .addComponent(pnTipo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(77, 77, 77)
+                        .addComponent(pnTipo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(77, 77, 77)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(77, 77, 77)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20))
         );
         pnNuevoDocumentoLayout.setVerticalGroup(
             pnNuevoDocumentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,11 +185,12 @@ public class JIIncio extends javax.swing.JInternalFrame {
                     .addGroup(pnNuevoDocumentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
                         .addComponent(jLabel5)))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btnNuevo.setBackground(new java.awt.Color(25, 118, 210));
-        btnNuevo.setText("Nuevo");
+        btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        btnNuevo.setText("Recientes");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoActionPerformed(evt);
@@ -207,15 +208,13 @@ public class JIIncio extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jButton3.setBackground(new java.awt.Color(25, 118, 210));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jButton3.setText("Buscar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-
-        btnRecientes.setBackground(new java.awt.Color(25, 118, 210));
-        btnRecientes.setText("Recientes");
 
         btnCerrar.setBackground(new java.awt.Color(25, 118, 210));
         btnCerrar.setText("Cerrar");
@@ -240,7 +239,6 @@ public class JIIncio extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnNuevo)
-                            .addComponent(btnRecientes)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(separadorPass, javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,15 +261,13 @@ public class JIIncio extends javax.swing.JInternalFrame {
                 .addComponent(pnNuevoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(separadorPass, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnRecientes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(58, 58, 58)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                     .addComponent(btnCerrar))
                 .addGap(30, 30, 30))
         );
@@ -320,7 +316,6 @@ public class JIIncio extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnNuevo;
-    private javax.swing.JButton btnRecientes;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

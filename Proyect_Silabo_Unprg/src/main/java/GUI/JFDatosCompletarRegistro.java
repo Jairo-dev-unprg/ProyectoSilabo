@@ -135,6 +135,7 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
         jPanel5.add(lblLogoG, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 14, -1, -1));
 
         lblTittle.setFont(new java.awt.Font("Roboto ExtraBold", 1, 30)); // NOI18N
+        lblTittle.setForeground(new java.awt.Color(0, 0, 0));
         lblTittle.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblTittle.setText("DATOS PERSONALES");
         jPanel5.add(lblTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 103, -1, -1));
