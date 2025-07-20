@@ -65,19 +65,16 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Universidad:");
 
         lblFiltrar.setBackground(new java.awt.Color(0, 0, 0));
         lblFiltrar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        lblFiltrar.setForeground(new java.awt.Color(0, 0, 0));
         lblFiltrar.setText("Filtrar");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Escuela", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto Condensed Medium", 0, 15), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Escuela", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto Condensed Medium", 0, 15))); // NOI18N
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Facultad: ");
 
         cmbFacultad.setModel(this.modeloFacultad);
@@ -89,11 +86,9 @@ public class JDCrearSilabo extends javax.swing.JDialog {
 
         jLabel18.setBackground(new java.awt.Color(255, 255, 255));
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Departamento : ");
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Escuela: ");
 
         cmbDepartamento.setModel(this.modeloDepartemento);
@@ -163,7 +158,6 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(lisUniversidad);
 
-        btnCerrar.setBackground(new java.awt.Color(25, 118, 210));
         btnCerrar.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         btnCerrar.setText("Cerrar");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -172,7 +166,6 @@ public class JDCrearSilabo extends javax.swing.JDialog {
             }
         });
 
-        btnSiguiente.setBackground(new java.awt.Color(25, 118, 210));
         btnSiguiente.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         btnSiguiente.setText("Siguiente");
         btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
@@ -209,7 +202,7 @@ public class JDCrearSilabo extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCerrar)
                 .addGap(33, 33, 33))
         );
