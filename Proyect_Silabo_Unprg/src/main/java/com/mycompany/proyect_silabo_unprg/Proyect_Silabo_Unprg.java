@@ -106,6 +106,7 @@ public class Proyect_Silabo_Unprg {
     public static void main(String[] args) throws UnsupportedLookAndFeelException {
         UIManager.setLookAndFeel(new FlatLightLaf());
         JFLogeo logeo = new JFLogeo();
+        
     }
 
     public static void cargarDatos() {

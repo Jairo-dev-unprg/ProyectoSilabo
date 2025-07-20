@@ -17,13 +17,19 @@ public class JFLogeo extends javax.swing.JFrame {
     private int mouseX, mouseY;
     private int cantidadIntentos = 4;
     private Usuario usuarioLogeado;
+    private boolean datoscargados = false;
 
     public JFLogeo() {
         setUndecorated(true); // eliminamos la barra del titulo 
         initComponents();
         Proyect_Silabo_Unprg.configurarCampoConPlaceholder(txtUsuario, "Ingresa tu nombre de usuario");
         Proyect_Silabo_Unprg.configurarCampoConPlaceholder(txtPass, "Ingrese su contraseña");
-        Proyect_Silabo_Unprg.cargarDatos();
+
+        if (datoscargados == false) {
+            Proyect_Silabo_Unprg.cargarDatos();
+            datoscargados = true;
+        }
+        
         setLocationRelativeTo(null); // posicion a nada
         setVisible(true);
 

@@ -1700,6 +1700,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         this.txtFacultad.setText(this.facultad.getNombre());
         this.txtDepartamento.setText(this.departamento.getNombre());
         this.txtEscuela.setText(this.escuela.getNombre());
+        
     }
 
     private void cargarCiclosDeSilabo() {
@@ -1771,6 +1772,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         }
         this.txtDocente.setText(usuarioCreador.getFullName());
         this.txtCorreo.setText(usuarioCreador.getCorreo());
+        this.txtGrado.setText(usuarioCreador.getGradoAcademico());
     }
 
     private void listarEvaluaciones() {

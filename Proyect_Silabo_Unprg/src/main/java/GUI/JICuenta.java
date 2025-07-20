@@ -380,7 +380,7 @@ public class JICuenta extends javax.swing.JInternalFrame {
         if (window != null) {
             window.dispose();
         }
-
+        frm = null;
         JFLogeo login = new JFLogeo();
         login.setVisible(true);
     }//GEN-LAST:event_btnCerrarSesion1ActionPerformed

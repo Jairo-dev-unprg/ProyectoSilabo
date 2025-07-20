@@ -1,5 +1,6 @@
 package GUI;
 
+import com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg;
 import entidades.DepartamentoAcademico;
 import entidades.Docente;
 import entidades.Escuela;
@@ -21,8 +22,6 @@ public class JFSilabo extends javax.swing.JFrame {
     private DepartamentoAcademico depa = null;
 
     private static Usuario userLogged;
-    private static JICrearSilabo frmCrear;
-    private static JDCrearSilabo frm1;
 
     Usuario usuario;
 
@@ -30,7 +29,6 @@ public class JFSilabo extends javax.swing.JFrame {
         this.userLogged = usuario;
         initComponents();
         mostrarBienvenida();
-
     }
 
     @SuppressWarnings("unchecked")
@@ -205,23 +203,25 @@ public class JFSilabo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+        JICrearSilabo frmCrear = null;
+        JDCrearSilabo frm1 = null;
         limpiarDesktopPane(dpSilabo);
-        
+        Silabo silabo;
         if (frm1 == null) {
             frm1 = new JDCrearSilabo(null, true);
-        }
-        
-        Silabo silabo = frm1.agregar();
-        if (silabo.getEscuela() != null) {
-            // Crear o reutilizar la ventana del silabo
-            frmCrear = JICrearSilabo.crear(dpSilabo, silabo, userLogged);
-            if (frmCrear != null) {
-                frmCrear.setVisible(true);
-                try {
-                    frmCrear.setMaximum(true);
-                } catch (Exception e) {
+            silabo = frm1.agregar();
+            if (silabo.getEscuela() != null) {
+                // Crear o reutilizar la ventana del silabo
+                frmCrear = JICrearSilabo.crear(dpSilabo, silabo, userLogged);
+                if (frmCrear != null) {
+                    frmCrear.setVisible(true);
+                    try {
+                        frmCrear.setMaximum(true);
+                    } catch (Exception e) {
+                    }
                 }
             }
+            frm1 = null;
         }
     }//GEN-LAST:event_btnCrearActionPerformed
 
@@ -249,32 +249,32 @@ public class JFSilabo extends javax.swing.JFrame {
         // Crear el JFileChooser
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Abrir archivo de sílabo XML");
-        
+
         // Configurar filtro de archivo solo para XML
         FileNameExtensionFilter filtroXml = new FileNameExtensionFilter("Archivos XML (*.xml)", "xml");
-        
+
         // Agregar filtro al fileChooser
         fileChooser.setFileFilter(filtroXml);
-        fileChooser.setAcceptAllFileFilterUsed(false); 
-        
+        fileChooser.setAcceptAllFileFilterUsed(false);
+
         // Configurar directorio inicial 
         fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-        
+
         // Mostrar el diálogo
         int resultado = fileChooser.showOpenDialog(this);
-        
+
         if (resultado == JFileChooser.APPROVE_OPTION) {
             File archivoSeleccionado = fileChooser.getSelectedFile();
-            
+
             /////////////////IMPORTANTE LEAN ESTO DOWNS////////////////////
             // Aquí puedes agregar la lógica para procesar el archivo XML
             try {
                 procesarArchivoImportado(archivoSeleccionado);
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, 
-                    "Error al abrir el archivo XML: " + e.getMessage(), 
-                    "Error", 
-                    JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this,
+                        "Error al abrir el archivo XML: " + e.getMessage(),
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnAbrirActionPerformed
@@ -289,28 +289,27 @@ public class JFSilabo extends javax.swing.JFrame {
         if (archivo == null || !archivo.exists()) {
             throw new Exception("El archivo no existe");
         }
-        
+
         String nombreArchivo = archivo.getName().toLowerCase();
-        
+
         // Verificar que sea un archivo XML
         if (!nombreArchivo.endsWith(".xml")) {
             throw new Exception("Solo se admiten archivos XML");
         }
-        
+
         // Limpiar el desktop pane antes de cargar el nuevo contenido
         limpiarDesktopPane(dpSilabo);
-        
+
         // Procesar el archivo XML
         procesarArchivoXML(archivo);
-        
+
         // Mostrar mensaje de éxito
-        JOptionPane.showMessageDialog(this, 
-            "Archivo XML cargado exitosamente: " + archivo.getName(), 
-            "Éxito", 
-            JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this,
+                "Archivo XML cargado exitosamente: " + archivo.getName(),
+                "Éxito",
+                JOptionPane.INFORMATION_MESSAGE);
     }
-    
-    
+
     /////////////////IMPORTANTE LEAN ESTO DOWNS////////////////////
     /**
      * Procesa archivos XML
@@ -319,7 +318,7 @@ public class JFSilabo extends javax.swing.JFrame {
         // TODO: Implementar lógica para archivos XML
         System.out.println("Procesando archivo XML: " + archivo.getName());
         System.out.println("Ruta del archivo: " + archivo.getAbsolutePath());
-        
+
         // Aquí puedes agregar tu lógica específica para procesar el XML
         // Por ejemplo:
         // - Parsear el XML

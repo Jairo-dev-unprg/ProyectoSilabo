@@ -15,25 +15,26 @@ import javax.swing.JOptionPane;
 
 public class JDCrearSilabo extends javax.swing.JDialog {
 
-    private Facultad facultadSeleccionada;
-    private List<Facultad> facultadesVigentes;
+    private Facultad facultadSeleccionada = null;
+    private List<Facultad> facultadesVigentes = null;
     private FacultadComboModel modeloFacultad = new FacultadComboModel();
 
-    private DepartamentoAcademico departamentoSeleccionado;
-    private List<DepartamentoAcademico> departamentosVigentes;
+    private DepartamentoAcademico departamentoSeleccionado = null;
+    private List<DepartamentoAcademico> departamentosVigentes = null;
     private DepartamentoComboModel modeloDepartemento = new DepartamentoComboModel();
 
-    private Escuela escuelaSelecionada;
-    private List<Escuela> escuelaVigente;
+    private Escuela escuelaSelecionada = null;
+    private List<Escuela> escuelaVigente = null;
     private EscuelaComboModel modeloEscuela = new EscuelaComboModel();
 
     private static Silabo silabo;
-    
+
     public JDCrearSilabo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
         cargarFacultades();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -317,7 +318,6 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         sil.setDepartamento(this.departamentoSeleccionado);
         sil.setEscuela(this.escuelaSelecionada);
 
-
         this.silabo = sil;
         return this.silabo;
     }
@@ -342,7 +342,9 @@ public class JDCrearSilabo extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void cargarFacultades() {
+
         this.facultadesVigentes = new ArrayList<>();
+        this.facultadesVigentes.clear();
         for (Facultad facultad : Proyect_Silabo_Unprg.facultad) {
             if (facultad.isVigente() == true) {
                 this.facultadesVigentes.add(facultad);
@@ -355,6 +357,7 @@ public class JDCrearSilabo extends javax.swing.JDialog {
     private void cargarDepartamento() {
         if (this.facultadSeleccionada != null) {
             this.departamentosVigentes = new ArrayList<>();
+            this.departamentosVigentes.clear();
             for (DepartamentoAcademico depa : this.facultadSeleccionada.getDepartamentosAcademicos()) {
                 if (depa.isVigente() == true) {
                     this.departamentosVigentes.add(depa);
@@ -369,6 +372,7 @@ public class JDCrearSilabo extends javax.swing.JDialog {
     private void cargarEscuelas() {
         if (this.departamentoSeleccionado != null) {
             this.escuelaVigente = new ArrayList<>();
+            this.escuelaVigente.clear();         
             for (Escuela escuelas : this.departamentoSeleccionado.getEscuelas()) {
                 if (escuelas.isVigente() == true) {
                     this.escuelaVigente.add(escuelas);
@@ -385,8 +389,8 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         String mensaje = "Selecione";
         if (this.facultadSeleccionada == null) {
             mensaje += " la facultad";
-            JOptionPane.showMessageDialog(null, mensaje);           
-        } else {           
+            JOptionPane.showMessageDialog(null, mensaje);
+        } else {
             if (this.departamentoSeleccionado == null) {
                 mensaje += " el departamento";
                 JOptionPane.showMessageDialog(null, mensaje);
