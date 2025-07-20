@@ -6,7 +6,9 @@ package GUI;
 
 import GUI.modelos.InicioTableModel;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
-import GUI.JFLogeo;
+import entidades.Usuario;
+import entidades.Docente;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,12 +20,37 @@ public class JICuenta extends javax.swing.JInternalFrame {
 
     public static JICuenta frm = null;
     private InicioTableModel modelo = new InicioTableModel();
+    private Usuario usuarioActual;
 
     public JICuenta() {
         initComponents();
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
         setBorder(null);
+    }
+
+    public JICuenta(Usuario usuario) {
+        initComponents();
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
+        ui.setNorthPane(null);
+        setBorder(null);
+        this.usuarioActual = usuario;
+        cargarDatosUsuario();
+    }
+
+    public static JICuenta crear(javax.swing.JDesktopPane contenedor, Usuario usuario) {
+
+        if (JICuenta.frm == null) {
+            JICuenta.frm = new JICuenta(usuario);
+            JICuenta.frm.setResizable(true);
+            contenedor.add(JICuenta.frm);
+        } else {
+            // Si ya existe la ventana, actualizar con el nuevo usuario
+            JICuenta.frm.usuarioActual = usuario;
+            JICuenta.frm.cargarDatosUsuario();
+        }
+
+        return JICuenta.frm;
     }
 
     public static JICuenta crear(javax.swing.JDesktopPane contenedor) {
@@ -91,11 +118,12 @@ public class JICuenta extends javax.swing.JInternalFrame {
         lblDni.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblDni.setText("DNI");
 
-        txtDni.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtDni.setForeground(new java.awt.Color(153, 153, 153));
+        txtDni.setEditable(false);
+        txtDni.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDni.setBorder(null);
         txtDni.setCaretColor(new java.awt.Color(255, 255, 255));
         txtDni.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        txtDni.setFocusable(false);
         txtDni.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtDni.setSelectionColor(new java.awt.Color(232, 201, 42));
         txtDni.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -110,11 +138,12 @@ public class JICuenta extends javax.swing.JInternalFrame {
         lblNombres.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblNombres.setText("NOMBRES COMPLETOS");
 
-        txtNombres.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtNombres.setForeground(new java.awt.Color(153, 153, 153));
+        txtNombres.setEditable(false);
+        txtNombres.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtNombres.setBorder(null);
         txtNombres.setCaretColor(new java.awt.Color(255, 255, 255));
         txtNombres.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        txtNombres.setFocusable(false);
         txtNombres.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtNombres.setSelectionColor(new java.awt.Color(232, 201, 42));
         txtNombres.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -129,11 +158,12 @@ public class JICuenta extends javax.swing.JInternalFrame {
         lblGrado1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblGrado1.setText("GRADO ACADEMICO");
 
-        txtGrado1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtGrado1.setForeground(new java.awt.Color(153, 153, 153));
+        txtGrado1.setEditable(false);
+        txtGrado1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtGrado1.setBorder(null);
         txtGrado1.setCaretColor(new java.awt.Color(255, 255, 255));
         txtGrado1.setDisabledTextColor(new java.awt.Color(204, 204, 204));
+        txtGrado1.setFocusable(false);
         txtGrado1.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtGrado1.setSelectionColor(new java.awt.Color(232, 201, 42));
         txtGrado1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -150,7 +180,7 @@ public class JICuenta extends javax.swing.JInternalFrame {
 
         separadorUsuario4.setBorder(new javax.swing.border.MatteBorder(null));
 
-        tblCorreos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        tblCorreos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tblCorreos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -174,6 +204,8 @@ public class JICuenta extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblCorreos.setEnabled(false);
+        tblCorreos.setFocusable(false);
         jScrollPane1.setViewportView(tblCorreos);
 
         javax.swing.GroupLayout panInfUserLayout = new javax.swing.GroupLayout(panInfUser);
@@ -206,13 +238,13 @@ public class JICuenta extends javax.swing.JInternalFrame {
                 .addGap(26, 26, 26)
                 .addComponent(lblDni)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(separadorUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblNombres)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(separadorUsuario2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -378,6 +410,25 @@ public class JICuenta extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtGrado1;
     private javax.swing.JTextField txtNombres;
     // End of variables declaration//GEN-END:variables
+
+    private void cargarDatosUsuario() {
+        if (usuarioActual != null && usuarioActual.getDocente() != null) {
+            Docente docente = usuarioActual.getDocente();
+            
+            // Cargar datos en los campos de texto
+            txtDni.setText(docente.getDNI());
+            txtNombres.setText(docente.getNombres() + " " + docente.getApellidos());
+            txtGrado1.setText(docente.getGradoAcademico());
+            
+            // Cargar correo en la tabla
+            DefaultTableModel modeloTabla = (DefaultTableModel) tblCorreos.getModel();
+            modeloTabla.setRowCount(0); // Limpiar tabla
+            
+            if (docente.getCorreo() != null && !docente.getCorreo().trim().isEmpty()) {
+                modeloTabla.addRow(new Object[]{docente.getCorreo()});
+            }
+        }
+    }
 
     private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
         frm = null;

@@ -82,8 +82,8 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="btnSiguiente" min="-2" pref="120" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnCerrar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="btnCerrar" min="-2" pref="120" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -212,19 +212,6 @@
                 <Property name="text" type="java.lang.String" value="Facultad: "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cmbFacultad">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="this.modeloFacultad" type="code"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbFacultadActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel18">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -243,6 +230,19 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Escuela: "/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cmbFacultad">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="this.modeloFacultad" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbFacultadActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JComboBox" name="cmbDepartamento">
               <Properties>
@@ -273,9 +273,6 @@
           </SubComponents>
         </Container>
         <Component class="javax.swing.JTextField" name="txtFiltrar">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFiltrarActionPerformed"/>
-          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
@@ -304,17 +301,6 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="btnCerrar">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="15" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Cerrar"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCerrarActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JButton" name="btnSiguiente">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -324,6 +310,17 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSiguienteActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnCerrar">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="15" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Cerrar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCerrarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="separadorUsuario">

@@ -46,16 +46,16 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         lblFiltrar = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        cmbFacultad = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
+        cmbFacultad = new javax.swing.JComboBox<>();
         cmbDepartamento = new javax.swing.JComboBox<>();
         cmbEscuela = new javax.swing.JComboBox<>();
         txtFiltrar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         lisUniversidad = new javax.swing.JList<>();
-        btnCerrar = new javax.swing.JButton();
         btnSiguiente = new javax.swing.JButton();
+        btnCerrar = new javax.swing.JButton();
         separadorUsuario = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -77,19 +77,19 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel17.setText("Facultad: ");
 
-        cmbFacultad.setModel(this.modeloFacultad);
-        cmbFacultad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbFacultadActionPerformed(evt);
-            }
-        });
-
         jLabel18.setBackground(new java.awt.Color(255, 255, 255));
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel18.setText("Departamento : ");
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel19.setText("Escuela: ");
+
+        cmbFacultad.setModel(this.modeloFacultad);
+        cmbFacultad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbFacultadActionPerformed(evt);
+            }
+        });
 
         cmbDepartamento.setModel(this.modeloDepartemento);
         cmbDepartamento.addActionListener(new java.awt.event.ActionListener() {
@@ -144,12 +144,6 @@ public class JDCrearSilabo extends javax.swing.JDialog {
                 .addGap(35, 35, 35))
         );
 
-        txtFiltrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFiltrarActionPerformed(evt);
-            }
-        });
-
         lisUniversidad.setForeground(new java.awt.Color(255, 255, 255));
         lisUniversidad.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Pedro Ruiz Gallo", "...", "..", ".." };
@@ -158,19 +152,19 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(lisUniversidad);
 
-        btnCerrar.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        btnCerrar.setText("Cerrar");
-        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCerrarActionPerformed(evt);
-            }
-        });
-
         btnSiguiente.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         btnSiguiente.setText("Siguiente");
         btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSiguienteActionPerformed(evt);
+            }
+        });
+
+        btnCerrar.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        btnCerrar.setText("Cerrar");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
             }
         });
 
@@ -203,8 +197,8 @@ public class JDCrearSilabo extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCerrar)
-                .addGap(33, 33, 33))
+                .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,10 +238,6 @@ public class JDCrearSilabo extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFiltrarActionPerformed
-
-    }//GEN-LAST:event_txtFiltrarActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         this.silabo = null;
