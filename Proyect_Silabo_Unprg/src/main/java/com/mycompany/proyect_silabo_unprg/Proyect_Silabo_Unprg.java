@@ -23,9 +23,9 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import org.jdesktop.swingx.prompt.PromptSupport;
 
 //RECARGA PA KEVIN 
-
 public class Proyect_Silabo_Unprg {
 
     private static void cargarCompetenciaGenerales() {
@@ -39,7 +39,7 @@ public class Proyect_Silabo_Unprg {
 
     private static void cargarCompetenciaEspecifica() {
         // COMPETENCIA PROFESIONAL
-        
+
         competenciaProfesionalEspecifica[0] = "Gestiona bases de datos de acuerdo a las estrategias y continuidad operativa organizacional, considerando los estándares y buenas prácticas de ingeniería del software.";
         competenciaProfesionalEspecifica[1] = "Construye software multiplataforma que genere valor al negocio y satisfagan las necesidades de las organizaciones y sociedad en general, aplicando procesos de desarrollo.";
         competenciaProfesionalEspecifica[2] = "Desarrolla aplicaciones de inteligencia artificial que simulan las destrezas, razonamiento y el comportamiento humano, basados en metodologías, estándares vigentes y principios éticos.";
@@ -49,7 +49,7 @@ public class Proyect_Silabo_Unprg {
     }
 
     private static void capacidadCurso() {
-         //CAPACIDADES PROFESIONALES
+        //CAPACIDADES PROFESIONALES
         capacidadCursoEpici[0] = "Examina el funcionamiento de los diversos módulos de un sistema operativo, teniendo en cuenta la administración de los recursos de un sistema computacional.";
         capacidadCursoEpici[1] = "Implementa sistemas analógicos, teniendo en cuenta los fundamentos de la electrónica.";
 
@@ -128,23 +128,21 @@ public class Proyect_Silabo_Unprg {
         usuarios.add(new Usuario("pedro", "123", docentes.get(1)));
     }
 
-
     private static void datosDocente() {
-    BufferedImage firmaJairo = null;
-    BufferedImage firmaPedro = null;
+        BufferedImage firmaJairo = null;
+        BufferedImage firmaPedro = null;
 
-    try {
-        firmaJairo = ImageIO.read(Docente.class.getResourceAsStream("/firma_jairo.jpg"));
-        firmaPedro = ImageIO.read(Docente.class.getResourceAsStream("/firma_pedro.jpg"));
-    } catch (IOException e) {
-        e.printStackTrace();
+        try {
+            firmaJairo = ImageIO.read(Docente.class.getResourceAsStream("/firma_jairo.jpg"));
+            firmaPedro = ImageIO.read(Docente.class.getResourceAsStream("/firma_pedro.jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        docentes.add(new Docente("Jairo Kariny", "Aranda Gomez", "Ingeniero", "60775041", "jaranda@unprg.edu.pe", firmaJairo));
+        docentes.add(new Docente("Pedro Jose", "Perez Gomez", "Doctor", "60775042", "pejomez@unprg.edu.pe", firmaPedro));
     }
 
-    docentes.add(new Docente("Jairo Kariny", "Aranda Gomez", "Ingeniero", "60775041", "jaranda@unprg.edu.pe", firmaJairo));
-    docentes.add(new Docente("Pedro Jose", "Perez Gomez", "Doctor", "60775042", "pejomez@unprg.edu.pe", firmaPedro));
-}
-    
-    
     private static void datosFacultades() {
         facultad.add(new Facultad(dpFAG, "Facultad de Agronomía", "FAG", true));
         facultad.add(new Facultad(dpFCCBB, "Facultad de Ciencias Biológicas", "FCCBB", true));
@@ -182,9 +180,9 @@ public class Proyect_Silabo_Unprg {
     private static void datosCurso() {
 
         cursoEpici.add(new Curso("Fundamentos de Sistemas Operativos", "Específico", "CYEE1022", "Lógica Matemática", 4, 4, 3, 2, SumillasEpici[0], competenciaProfesionalEspecifica[3], capacidadCursoEpici[0], desempeñosFDSO));
-        cursoEpici.add(new Curso("Electrónica Analógica", "Específico", "CYEE1021", "Fundamentos de física,Lógica Matemática", 4, 5, 2, 4, SumillasEpici[1],  competenciaProfesionalEspecifica[2],capacidadCursoEpici[1], desempeñosEA));
-        cursoMediciona.add(new Curso("Microbiología y Parasitología Médica", "Obligatorio", "CBAE1016", "Biología Celular, Histología, Bioquímica", 4, 5, 2, 6, SumillasEpici[1],competenciaprofesionalMedicina[0] , capacidadCursoEpici[0], desempeñosMPM));
-        cursoMediciona.add(new Curso("Pensamiento Filosófico", "Estudios generales.", "HUMG1032", "No Aplica", 4, 2, 1, 2, SumillasEpici[1], competenciaprofesionalMedicina[1] ,capacidadCursoEpici[1], desempeñosPF));
+        cursoEpici.add(new Curso("Electrónica Analógica", "Específico", "CYEE1021", "Fundamentos de física,Lógica Matemática", 4, 5, 2, 4, SumillasEpici[1], competenciaProfesionalEspecifica[2], capacidadCursoEpici[1], desempeñosEA));
+        cursoMediciona.add(new Curso("Microbiología y Parasitología Médica", "Obligatorio", "CBAE1016", "Biología Celular, Histología, Bioquímica", 4, 5, 2, 6, SumillasEpici[1], competenciaprofesionalMedicina[0], capacidadCursoEpici[0], desempeñosMPM));
+        cursoMediciona.add(new Curso("Pensamiento Filosófico", "Estudios generales.", "HUMG1032", "No Aplica", 4, 2, 1, 2, SumillasEpici[1], competenciaprofesionalMedicina[1], capacidadCursoEpici[1], desempeñosPF));
 
     }
 
@@ -256,72 +254,54 @@ public class Proyect_Silabo_Unprg {
         Unidad unidad1EA = new Unidad();
         Unidad unidad2EA = new Unidad();
         Unidad unidad3EA = new Unidad();
-        
-        desempeñosEA.add(new Desempeño("D1","Realiza mediciones de los parámetros eléctricos en un circuito con diodos, teniendo en cuenta los procesos de polarización y rectificación de señales eléctricas.", unidad1EA));
-        desempeñosEA.add(new Desempeño("D2","Realiza circuitos con transistores teniendo en cuenta las leyes de conmutación de las señales eléctricas.", unidad2EA));
-        desempeñosEA.add(new Desempeño("D3","Realiza circuitos con amplificadores operacionales y fuentes de alimentación reguladas y estabilizadas, teniendo en cuenta la entrada y salida de voltajes..", unidad3EA));
+
+        desempeñosEA.add(new Desempeño("D1", "Realiza mediciones de los parámetros eléctricos en un circuito con diodos, teniendo en cuenta los procesos de polarización y rectificación de señales eléctricas.", unidad1EA));
+        desempeñosEA.add(new Desempeño("D2", "Realiza circuitos con transistores teniendo en cuenta las leyes de conmutación de las señales eléctricas.", unidad2EA));
+        desempeñosEA.add(new Desempeño("D3", "Realiza circuitos con amplificadores operacionales y fuentes de alimentación reguladas y estabilizadas, teniendo en cuenta la entrada y salida de voltajes..", unidad3EA));
     }
-    
-    public static void configurarCampoConPlaceholder(JTextField campo, String placeholder) {
-        campo.setText(placeholder);
-        campo.setForeground(Color.GRAY);
-        campo.putClientProperty("placeholder", placeholder);
 
-        if (campo instanceof JPasswordField) {
-            ((JPasswordField) campo).setEchoChar((char) 0);
-        }
-        campo.addFocusListener(new java.awt.event.FocusAdapter() {
-
-            @Override
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                if (campo.getText().equals(placeholder)) {
-                    campo.setText("");
-                    campo.setForeground(Color.BLACK);
-
-                    if (campo instanceof JPasswordField) {
-                        ((JPasswordField) campo).setEchoChar('•');
-                    }
-                }
-            }
-
-            @Override
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                if (campo.getText().isEmpty()) {
-                    campo.setText(placeholder);
-                    campo.setForeground(Color.GRAY);
-
-                    if (campo instanceof JPasswordField) {
-                        ((JPasswordField) campo).setEchoChar((char) 0);
-                    }
-                }
-            }
-        });
-    }
-    
-    public static boolean validarCamposSinPlaceholder(JTextField... campos) {
-        for (JTextField campo : campos) {
-
-            String texto = campo.getText().trim();
-            String placeholder = (String) campo.getClientProperty("placeholder");
-
-            if (texto.isEmpty() || (placeholder != null && texto.equals(placeholder))) {
-                return false;
-            }
-        }
-        return true;
-    }
-    
     public static boolean validarPasswordDoble(JPasswordField pass1, JPasswordField pass2) {
         String texto1 = new String(pass1.getPassword()).trim();
         String texto2 = new String(pass2.getPassword()).trim();
 
-        String placeholder1 = (String) pass1.getClientProperty("placeholder");
-        String placeholder2 = (String) pass2.getClientProperty("placeholder");
+        return !texto1.isEmpty() && texto1.equals(texto2);
+    }
 
-        boolean valido1 = !texto1.isEmpty() && (placeholder1 == null || !texto1.equals(placeholder1));
-        boolean valido2 = !texto2.isEmpty() && (placeholder2 == null || !texto2.equals(placeholder2));
+    public static void configurarCampoConPlaceholder(JTextField campo, String placeholder) {
+        campo.setForeground(Color.BLACK); // color del texto escrito
+        PromptSupport.setPrompt(placeholder, campo);
+        PromptSupport.setForeground(Color.GRAY, campo); // color del placeholder
+    }
 
-        return valido1 && valido2 && texto1.equals(texto2);
+    public static void configurarCampoConPlaceholder(JPasswordField campo, String placeholder) {
+        campo.setForeground(Color.BLACK); // color del texto escrito
+        PromptSupport.setPrompt(placeholder, campo);
+        PromptSupport.setForeground(Color.GRAY, campo);
+    }
+
+    public static boolean validarCamposTextoYPassword(JTextField[] camposTexto, JPasswordField[] camposPassword) {
+        for (JTextField campo : camposTexto) {
+            if (campo.getText().trim().isEmpty()) {
+                return false;
+            }
+        }
+
+        for (JPasswordField campo : camposPassword) {
+            if (new String(campo.getPassword()).trim().isEmpty()) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static boolean validarCamposLlenos(JTextField... campos) {
+        for (JTextField campo : campos) {
+            if (campo.getText().trim().isEmpty()) {
+                return false; // Al menos un campo está vacío
+            }
+        }
+        return true; // Todos los campos tienen texto real
     }
 
 }

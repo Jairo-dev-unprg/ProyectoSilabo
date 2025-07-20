@@ -5,6 +5,7 @@
 package GUI;
 
 import com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg;
+import static com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg.configurarCampoConPlaceholder;
 import entidades.Docente;
 import entidades.Usuario;
 import java.awt.Color;
@@ -32,12 +33,11 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
     public JFDatosCompletarRegistro(Usuario usuario) {
         initComponents();
         this.usuarioRecibido = usuario;
-
-        Proyect_Silabo_Unprg.configurarCampoConPlaceholder(this.txtDni, "Ingrese su DNI");
-        Proyect_Silabo_Unprg.configurarCampoConPlaceholder(this.txtNombres, "Ingrese sus Nombres Completos");
-        Proyect_Silabo_Unprg.configurarCampoConPlaceholder(this.txtApellidos, "Ingrese sus Apellidos Completos");
-        Proyect_Silabo_Unprg.configurarCampoConPlaceholder(this.txtGrado, "Ingrese su grado academico (Ingeniero, Magister, etc)");
-        Proyect_Silabo_Unprg.configurarCampoConPlaceholder(this.txtCorreo, "Ingrese su correo electronico");
+        configurarCampoConPlaceholder(txtDni, "Ingresa tu nombre de usuario");
+        configurarCampoConPlaceholder(txtNombres, "Ingrese sus Nombres Completos");
+        configurarCampoConPlaceholder(txtApellidos, "Ingrese sus Apellidos Completos");
+        configurarCampoConPlaceholder(txtGrado, "Ingrese su grado académico (Ingeniero, Magíster, etc)");
+        configurarCampoConPlaceholder(txtCorreo, "Ingrese su correo electrónico");
 
         actualizarProgreso();
     }
@@ -76,7 +76,6 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
         lblCorreo = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
         separatorCorreo1 = new javax.swing.JSeparator();
-        lblX = new javax.swing.JLabel();
         lblX1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -92,6 +91,7 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
 
         btnFinalizar1.setBackground(new java.awt.Color(25, 118, 210));
         btnFinalizar1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btnFinalizar1.setForeground(new java.awt.Color(255, 255, 255));
         btnFinalizar1.setText("FINALIZAR REGISTRO");
         btnFinalizar1.setBorder(null);
         btnFinalizar1.setBorderPainted(false);
@@ -104,7 +104,8 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
         jPanel4.add(btnFinalizar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 598, 192, 41));
 
         btnCuentaStyle.setBackground(new java.awt.Color(25, 118, 210));
-        btnCuentaStyle.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        btnCuentaStyle.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        btnCuentaStyle.setForeground(new java.awt.Color(255, 255, 255));
         btnCuentaStyle.setText("CUENTA");
         btnCuentaStyle.setBorder(null);
         btnCuentaStyle.setBorderPainted(false);
@@ -112,6 +113,7 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
 
         btnSubirFirma.setBackground(new java.awt.Color(25, 118, 210));
         btnSubirFirma.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btnSubirFirma.setForeground(new java.awt.Color(255, 255, 255));
         btnSubirFirma.setText("SUBIR FIRMA");
         btnSubirFirma.setBorder(null);
         btnSubirFirma.setBorderPainted(false);
@@ -135,7 +137,6 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
         jPanel5.add(lblLogoG, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 14, -1, -1));
 
         lblTittle.setFont(new java.awt.Font("Roboto ExtraBold", 1, 30)); // NOI18N
-        lblTittle.setForeground(new java.awt.Color(0, 0, 0));
         lblTittle.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblTittle.setText("DATOS PERSONALES");
         jPanel5.add(lblTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 103, -1, -1));
@@ -151,7 +152,6 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
         txtNombres.setForeground(new java.awt.Color(153, 153, 153));
         txtNombres.setBorder(null);
         txtNombres.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtNombres.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         txtNombres.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtNombres.setSelectionColor(new java.awt.Color(232, 201, 42));
         txtNombres.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -184,7 +184,6 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
         txtGrado.setForeground(new java.awt.Color(153, 153, 153));
         txtGrado.setBorder(null);
         txtGrado.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtGrado.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         txtGrado.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtGrado.setSelectionColor(new java.awt.Color(232, 201, 42));
         txtGrado.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -202,7 +201,6 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
         txtApellidos.setForeground(new java.awt.Color(153, 153, 153));
         txtApellidos.setBorder(null);
         txtApellidos.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtApellidos.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         txtApellidos.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtApellidos.setSelectionColor(new java.awt.Color(232, 201, 42));
         txtApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -223,14 +221,8 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
         txtDni.setForeground(new java.awt.Color(153, 153, 153));
         txtDni.setBorder(null);
         txtDni.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtDni.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         txtDni.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtDni.setSelectionColor(new java.awt.Color(232, 201, 42));
-        txtDni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDniActionPerformed(evt);
-            }
-        });
         txtDni.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtDniKeyReleased(evt);
@@ -252,7 +244,6 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
         txtCorreo.setForeground(new java.awt.Color(153, 153, 153));
         txtCorreo.setBorder(null);
         txtCorreo.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtCorreo.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         txtCorreo.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtCorreo.setSelectionColor(new java.awt.Color(232, 201, 42));
         txtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -264,18 +255,6 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
 
         separatorCorreo1.setBorder(new javax.swing.border.MatteBorder(null));
         jPanel5.add(separatorCorreo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 594, 337, 10));
-
-        lblX.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
-        lblX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblX.setText("X");
-        lblX.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        lblX.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lblX.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblXMousePressed(evt);
-            }
-        });
-        jPanel5.add(lblX, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 299, -1, 16));
 
         lblX1.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
         lblX1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -311,30 +290,25 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFinalizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizar1ActionPerformed
-        // Obtener texto de los campos
         String dni = txtDni.getText().trim();
         String nombres = txtNombres.getText().trim();
         String apellidos = txtApellidos.getText().trim();
         String grado = txtGrado.getText().trim();
         String correo = txtCorreo.getText().trim();
-
-        // Validar que no estén vacíos ni con los placeholders
-        if (!Proyect_Silabo_Unprg.validarCamposSinPlaceholder(txtDni, txtNombres, txtApellidos, txtGrado, txtCorreo)) {
-            JOptionPane.showMessageDialog(this, "Complete todos los campos correctamente.", "Faltan datos", JOptionPane.WARNING_MESSAGE);
+        
+        if (Proyect_Silabo_Unprg.validarCamposLlenos(txtNombres, txtApellidos, txtCorreo, txtDni, txtGrado) == false){
+            JOptionPane.showMessageDialog(this, "Debe completar todos los campos correctamente.", null, JOptionPane.WARNING_MESSAGE);
             return;
         }
-
-        // Validar que se haya subido la firma
+        
         if (firma == null) {
             JOptionPane.showMessageDialog(this, "Debe subir una imagen de firma en formato PNG.", "Falta la firma", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        // Crear objeto Docente y asociarlo al Usuario
         Docente d = new Docente(nombres, apellidos, grado, dni, correo, firma);
         usuarioRecibido.setDocente(d);
 
-        // Guardar en la lista principal
         Proyect_Silabo_Unprg.usuarios.add(usuarioRecibido);
         Proyect_Silabo_Unprg.docentes.add(d);
 
@@ -343,7 +317,6 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
         System.out.println(usuarioRecibido);
         System.out.println("================================");
 
-        // Mensaje de éxito y volver al login
         JOptionPane.showMessageDialog(this, "Registro completado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         new JFLogeo().setVisible(true);
         this.dispose();
@@ -360,10 +333,6 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
     private void txtApellidosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyReleased
         actualizarProgreso();
     }//GEN-LAST:event_txtApellidosKeyReleased
-
-    private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDniActionPerformed
 
     private void txtDniKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniKeyReleased
         actualizarProgreso();
@@ -388,10 +357,6 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnSubirFirmaActionPerformed
-
-    private void lblXMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblXMousePressed
-        this.dispose();
-    }//GEN-LAST:event_lblXMousePressed
 
     private void lblX1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblX1MousePressed
         JFCrearCuenta prim = new JFCrearCuenta();
@@ -445,7 +410,6 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
     private javax.swing.JLabel lblLogoPanel1;
     private javax.swing.JLabel lblNombres;
     private javax.swing.JLabel lblTittle;
-    private javax.swing.JLabel lblX;
     private javax.swing.JLabel lblX1;
     private javax.swing.JSeparator separador;
     private javax.swing.JSeparator separadorPass;
@@ -463,16 +427,16 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
         int progreso = 0;
         int totalCampos = 5;
 
-        if (!txtDni.getText().trim().equals("Ingrese su DNI") && !txtDni.getText().trim().isEmpty()) {
+        if (!txtDni.getText().trim().isEmpty()) {
             progreso++;
         }
-        if (!txtNombres.getText().trim().equals("Ingrese sus Nombres Completos") && !txtNombres.getText().trim().isEmpty()) {
+        if (!txtNombres.getText().trim().isEmpty()) {
             progreso++;
         }
-        if (!txtApellidos.getText().trim().equals("Ingrese sus Apellidos Completos") && !txtApellidos.getText().trim().isEmpty()) {
+        if (!txtApellidos.getText().trim().isEmpty()) {
             progreso++;
         }
-        if (!txtGrado.getText().trim().equals("Ingrese su grado academico (Ingeniero, Magister, etc)") && !txtGrado.getText().trim().isEmpty()) {
+        if (!txtGrado.getText().trim().isEmpty()) {
             progreso++;
         }
         if (!txtCorreo.getText().trim().isEmpty()) {

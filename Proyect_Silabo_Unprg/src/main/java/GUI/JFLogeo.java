@@ -9,6 +9,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import org.jdesktop.swingx.prompt.PromptSupport;
 
 public class JFLogeo extends javax.swing.JFrame {
 
@@ -19,6 +21,8 @@ public class JFLogeo extends javax.swing.JFrame {
     public JFLogeo() {
         setUndecorated(true); // eliminamos la barra del titulo 
         initComponents();
+        Proyect_Silabo_Unprg.configurarCampoConPlaceholder(txtUsuario, "Ingresa tu nombre de usuario");
+        Proyect_Silabo_Unprg.configurarCampoConPlaceholder(txtPass, "Ingrese su contraseña");
         Proyect_Silabo_Unprg.cargarDatos();
         setLocationRelativeTo(null); // posicion a nada
         setVisible(true);
@@ -98,14 +102,8 @@ public class JFLogeo extends javax.swing.JFrame {
         txtUsuario.setForeground(new java.awt.Color(153, 153, 153));
         txtUsuario.setBorder(null);
         txtUsuario.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtUsuario.setDisabledTextColor(new java.awt.Color(232, 201, 42));
         txtUsuario.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtUsuario.setSelectionColor(new java.awt.Color(232, 201, 42));
-        txtUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtUsuarioFocusGained(evt);
-            }
-        });
         background.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 370, 30));
 
         separadorUsuario.setBorder(new javax.swing.border.MatteBorder(null));
@@ -128,14 +126,8 @@ public class JFLogeo extends javax.swing.JFrame {
         txtPass.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         txtPass.setForeground(new java.awt.Color(153, 153, 153));
         txtPass.setBorder(null);
-        txtPass.setDisabledTextColor(new java.awt.Color(232, 201, 42));
         txtPass.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtPass.setSelectionColor(new java.awt.Color(232, 201, 42));
-        txtPass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPassActionPerformed(evt);
-            }
-        });
         background.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 370, 30));
 
         separadorPass.setBorder(new javax.swing.border.MatteBorder(null));
@@ -237,10 +229,6 @@ public class JFLogeo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuarioFocusGained
-        this.txtUsuario.setForeground(Color.BLACK);
-    }//GEN-LAST:event_txtUsuarioFocusGained
-
     private void chkVerPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkVerPasswordActionPerformed
         if (chkVerPassword.isSelected()) {
             txtPass.setEchoChar((char) 0); // Muestra texto plano
@@ -248,10 +236,6 @@ public class JFLogeo extends javax.swing.JFrame {
             txtPass.setEchoChar('\u2022'); // Vuelve a ocultar la contraseña
         }
     }//GEN-LAST:event_chkVerPasswordActionPerformed
-
-    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPassActionPerformed
 
     private void lblCrearCuentaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCrearCuentaMousePressed
         JFCrearCuenta reg = new JFCrearCuenta();

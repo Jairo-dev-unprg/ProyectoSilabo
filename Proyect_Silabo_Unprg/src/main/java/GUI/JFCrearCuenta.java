@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.jdesktop.swingx.prompt.PromptSupport;
 
 public class JFCrearCuenta extends javax.swing.JFrame {
 
@@ -29,9 +30,11 @@ public class JFCrearCuenta extends javax.swing.JFrame {
 
     public JFCrearCuenta() {
         initComponents();
-        Proyect_Silabo_Unprg.configurarCampoConPlaceholder(txtUsuario, "Ingrese su nombre de usuario");
+        Proyect_Silabo_Unprg.configurarCampoConPlaceholder(txtUsuario, "Ingresa tu nombre de usuario");
         Proyect_Silabo_Unprg.configurarCampoConPlaceholder(txtPass, "Ingrese su contraseña");
         Proyect_Silabo_Unprg.configurarCampoConPlaceholder(txtPassConfirmed, "Confirme su contraseña");
+        
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -94,14 +97,8 @@ public class JFCrearCuenta extends javax.swing.JFrame {
         txtUsuario.setForeground(new java.awt.Color(153, 153, 153));
         txtUsuario.setBorder(null);
         txtUsuario.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtUsuario.setDisabledTextColor(new java.awt.Color(232, 201, 42));
         txtUsuario.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtUsuario.setSelectionColor(new java.awt.Color(232, 201, 42));
-        txtUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtUsuarioFocusGained(evt);
-            }
-        });
         background.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 370, 30));
 
         separadorUsuario.setBorder(new javax.swing.border.MatteBorder(null));
@@ -124,14 +121,8 @@ public class JFCrearCuenta extends javax.swing.JFrame {
         txtPass.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         txtPass.setForeground(new java.awt.Color(153, 153, 153));
         txtPass.setBorder(null);
-        txtPass.setDisabledTextColor(new java.awt.Color(232, 201, 42));
         txtPass.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtPass.setSelectionColor(new java.awt.Color(232, 201, 42));
-        txtPass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPassActionPerformed(evt);
-            }
-        });
         background.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 370, 30));
 
         separadorPass.setBorder(new javax.swing.border.MatteBorder(null));
@@ -217,14 +208,8 @@ public class JFCrearCuenta extends javax.swing.JFrame {
         txtPassConfirmed.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         txtPassConfirmed.setForeground(new java.awt.Color(153, 153, 153));
         txtPassConfirmed.setBorder(null);
-        txtPassConfirmed.setDisabledTextColor(new java.awt.Color(232, 201, 42));
         txtPassConfirmed.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtPassConfirmed.setSelectionColor(new java.awt.Color(232, 201, 42));
-        txtPassConfirmed.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPassConfirmedActionPerformed(evt);
-            }
-        });
         background.add(txtPassConfirmed, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 370, 30));
 
         btnRegistrar.setBackground(new java.awt.Color(232, 201, 42));
@@ -258,10 +243,6 @@ public class JFCrearCuenta extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuarioFocusGained
-        this.txtUsuario.setForeground(Color.BLACK);
-    }//GEN-LAST:event_txtUsuarioFocusGained
-
     private void chkVerPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkVerPasswordActionPerformed
         if (chkVerPassword.isSelected()) {
             txtPass.setEchoChar((char) 0); // Muestra texto plano
@@ -269,10 +250,6 @@ public class JFCrearCuenta extends javax.swing.JFrame {
             txtPass.setEchoChar('\u2022'); // Vuelve a ocultar la contraseña
         }
     }//GEN-LAST:event_chkVerPasswordActionPerformed
-
-    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPassActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         JFLogeo prim = new JFLogeo();
@@ -291,14 +268,6 @@ public class JFCrearCuenta extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_headerMousePressed
 
-    private void txtPassConfirmedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassConfirmedActionPerformed
-        if (chkVerPasswordConfirmed.isSelected()) {
-            txtPassConfirmed.setEchoChar((char) 0);
-        } else {
-            txtPassConfirmed.setEchoChar('\u2022');
-        }
-    }//GEN-LAST:event_txtPassConfirmedActionPerformed
-
     private void chkVerPasswordConfirmedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkVerPasswordConfirmedActionPerformed
         if (chkVerPasswordConfirmed.isSelected()) {
             txtPassConfirmed.setEchoChar((char) 0); // Muestra texto plano
@@ -312,15 +281,11 @@ public class JFCrearCuenta extends javax.swing.JFrame {
         String clave = new String(txtPass.getPassword()).trim();
         String confirmarClave = new String(txtPassConfirmed.getPassword()).trim();
 
-        boolean camposValidos = Proyect_Silabo_Unprg.validarCamposSinPlaceholder(txtUsuario)
-                && Proyect_Silabo_Unprg.validarCamposSinPlaceholder(txtPass)
-                && Proyect_Silabo_Unprg.validarCamposSinPlaceholder(txtPassConfirmed);
-
-        if (!camposValidos) {
-            JOptionPane.showMessageDialog(this, "Completa todos los campos correctamente.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        if (Proyect_Silabo_Unprg.validarCamposLlenos(txtUsuario, txtPass, txtPassConfirmed) == false){
+            JOptionPane.showMessageDialog(this, "Debe completar todos los campos correctamente.", null, JOptionPane.WARNING_MESSAGE);
             return;
         }
-
+        
         if (!clave.equals(confirmarClave)) {
             JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
