@@ -61,7 +61,8 @@ public class JFSilabo extends javax.swing.JFrame {
 
         btnInicio.setBackground(new java.awt.Color(25, 118, 210));
         btnInicio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_home.png"))); // NOI18N
+        btnInicio.setForeground(new java.awt.Color(255, 255, 255));
+        btnInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home.png"))); // NOI18N
         btnInicio.setText("Inicio");
         btnInicio.setBorderPainted(false);
         btnInicio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -74,7 +75,8 @@ public class JFSilabo extends javax.swing.JFrame {
 
         btnCrear.setBackground(new java.awt.Color(25, 118, 210));
         btnCrear.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/crear.png"))); // NOI18N
+        btnCrear.setForeground(new java.awt.Color(255, 255, 255));
+        btnCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/create.png"))); // NOI18N
         btnCrear.setText("Crear");
         btnCrear.setBorderPainted(false);
         btnCrear.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -87,7 +89,8 @@ public class JFSilabo extends javax.swing.JFrame {
 
         btnImportar.setBackground(new java.awt.Color(25, 118, 210));
         btnImportar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnImportar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/file_open.png"))); // NOI18N
+        btnImportar.setForeground(new java.awt.Color(255, 255, 255));
+        btnImportar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/open.png"))); // NOI18N
         btnImportar.setText("Abrir");
         btnImportar.setBorderPainted(false);
         btnImportar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -100,7 +103,8 @@ public class JFSilabo extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(25, 118, 210));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_account.png"))); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user.png"))); // NOI18N
         jButton1.setText("Cuenta");
         jButton1.setBorderPainted(false);
         jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -113,6 +117,7 @@ public class JFSilabo extends javax.swing.JFrame {
 
         btnExportar.setBackground(new java.awt.Color(25, 118, 210));
         btnExportar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnExportar.setForeground(new java.awt.Color(255, 255, 255));
         btnExportar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png"))); // NOI18N
         btnExportar.setText("Exportar");
         btnExportar.setBorderPainted(false);
@@ -125,6 +130,7 @@ public class JFSilabo extends javax.swing.JFrame {
         });
 
         lblBienvenida.setBackground(new java.awt.Color(255, 255, 255));
+        lblBienvenida.setForeground(new java.awt.Color(255, 255, 255));
         lblBienvenida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblBienvenida.setText("Bienvenido {grade} {fullname}");
 

@@ -379,40 +379,7 @@ public class JICuenta extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtNombres;
     // End of variables declaration//GEN-END:variables
 
-//    private void activarControles(boolean estado) {
-//        this.lblConfirmarContraseña.setVisible(!estado);
-//        this.pfRepetirContraseña.setVisible(!estado);
-//        this.btnGuardar.setVisible(!estado);
-//        this.txtUsuario.setEnabled(estado);
-//        this.pfContraseña.setEnabled(estado);
-//        this.txtNombre.setEnabled(estado);
-//        this.txtApellido.setEnabled(estado);
-//        this.txtGrado.setEnabled(estado);
-//        this.txtDNI.setEnabled(estado);
-//        this.btnModificar.setVisible(estado);
-//
-//    }
-
-//    private void IniciarControles(boolean estado) {
-//        this.lblConfirmarContraseña.setVisible(estado);
-//        this.pfRepetirContraseña.setVisible(estado);
-//        this.btnGuardar.setVisible(estado);
-//        this.txtUsuario.setEnabled(estado);
-//        this.pfContraseña.setEnabled(estado);
-//        this.txtNombre.setEnabled(estado);
-//        this.txtApellido.setEnabled(estado);
-//        this.txtGrado.setEnabled(estado);
-//        this.txtDNI.setEnabled(estado);
-//        this.btnModificar.setVisible(estado);
-//
-//    }
-    
     private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
         frm = null;
     }
-    
-    //MODIFICAR CAMBIOS
-//    JDConfirmacionCambioDatos dialgoConfirmacion = new JDConfirmacionCambioDatos(null, true);
-//        this.estadoCambio = dialgoConfirmacion.getConfirmacion();
-//        this.activarControles(this.estadoCambio);
 }
