@@ -79,12 +79,11 @@ public class JIExportar extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Historic", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Exportar");
 
         jButton1.setBackground(new java.awt.Color(25, 118, 210));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Crear documento PDF/EXCEL");
         jButton1.setBorderPainted(false);
 
@@ -111,7 +110,6 @@ public class JIExportar extends javax.swing.JInternalFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Crear un documento pdf/excel");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -121,16 +119,14 @@ public class JIExportar extends javax.swing.JInternalFrame {
         jLabel4.setText(".");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Conserva el diseño, el formato, las fuentes y las imagenes");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Existen varios visores gratuitos para estos documentos");
 
         jButton3.setBackground(new java.awt.Color(25, 118, 210));
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Exportar");
         jButton3.setBorderPainted(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +136,7 @@ public class JIExportar extends javax.swing.JInternalFrame {
         });
 
         btnCerrar.setBackground(new java.awt.Color(25, 118, 210));
+        btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrar.setText("Cerrar");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

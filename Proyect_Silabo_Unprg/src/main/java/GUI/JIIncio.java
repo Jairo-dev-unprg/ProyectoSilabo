@@ -190,6 +190,7 @@ public class JIIncio extends javax.swing.JInternalFrame {
 
         btnNuevo.setBackground(new java.awt.Color(25, 118, 210));
         btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        btnNuevo.setForeground(new java.awt.Color(255, 255, 255));
         btnNuevo.setText("Recientes");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,6 +210,7 @@ public class JIIncio extends javax.swing.JInternalFrame {
 
         jButton3.setBackground(new java.awt.Color(25, 118, 210));
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Buscar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,6 +219,8 @@ public class JIIncio extends javax.swing.JInternalFrame {
         });
 
         btnCerrar.setBackground(new java.awt.Color(25, 118, 210));
+        btnCerrar.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrar.setText("Cerrar");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
