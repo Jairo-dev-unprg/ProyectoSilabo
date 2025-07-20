@@ -202,23 +202,22 @@ public class JFSilabo extends javax.swing.JFrame {
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         limpiarDesktopPane(dpSilabo);
-        if (this.frm1 == null) {
-            this.frm1 = new JDCrearSilabo(null, true);
-            Silabo silabo = frm1.agregar();
-            if (silabo.getEscuela() != null) {
-                this.frmCrear = JICrearSilabo.crear(dpSilabo, silabo, userLogged);
+        
+        // Siempre verificar si necesitamos crear el diálogo de selección
+        if (frm1 == null) {
+            frm1 = new JDCrearSilabo(null, true);
+        }
+        
+        Silabo silabo = frm1.agregar();
+        if (silabo.getEscuela() != null) {
+            // Crear o reutilizar la ventana del silabo
+            frmCrear = JICrearSilabo.crear(dpSilabo, silabo, userLogged);
+            if (frmCrear != null) {
                 frmCrear.setVisible(true);
                 try {
                     frmCrear.setMaximum(true);
                 } catch (Exception e) {
                 }
-
-            }
-        } else {
-            frmCrear.setVisible(true);
-            try {
-                frmCrear.setMaximum(true);
-            } catch (Exception e) {
             }
         }
     }//GEN-LAST:event_btnCrearActionPerformed

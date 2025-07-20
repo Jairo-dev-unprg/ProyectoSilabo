@@ -70,6 +70,15 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         cargarDatosASilabo();
         cargarDatosDocenteLoggeado();
         cargarCiclosDeSilabo();
+        
+        // Configurar listener para limpiar referencia cuando se cierre
+        this.setDefaultCloseOperation(javax.swing.JInternalFrame.DISPOSE_ON_CLOSE);
+        this.addInternalFrameListener(new javax.swing.event.InternalFrameAdapter() {
+            @Override
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent e) {
+                frm = null;
+            }
+        });
     }
 
     public static JICrearSilabo crear(javax.swing.JDesktopPane contenedor, Silabo silabo, Usuario usuarioDocente) {

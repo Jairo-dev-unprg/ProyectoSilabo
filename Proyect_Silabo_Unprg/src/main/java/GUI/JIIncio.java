@@ -61,7 +61,6 @@ public class JIIncio extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
-        btnCerrar = new javax.swing.JButton();
         separadorPass = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -227,16 +226,6 @@ public class JIIncio extends javax.swing.JInternalFrame {
             }
         });
 
-        btnCerrar.setBackground(new java.awt.Color(25, 118, 210));
-        btnCerrar.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
-        btnCerrar.setText("Cerrar");
-        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCerrarActionPerformed(evt);
-            }
-        });
-
         separadorPass.setBorder(new javax.swing.border.MatteBorder(null));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -261,9 +250,7 @@ public class JIIncio extends javax.swing.JInternalFrame {
                         .addContainerGap(478, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCerrar)
-                        .addGap(23, 23, 23))))
+                        .addGap(107, 107, 107))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,9 +266,7 @@ public class JIIncio extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(separadorPass, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
-                    .addComponent(btnCerrar))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
         );
 
@@ -320,14 +305,8 @@ public class JIIncio extends javax.swing.JInternalFrame {
         this.modelo.setSilabo(Proyect_Silabo_Unprg.silabos);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        this.dispose();
-        frm = null;
-    }//GEN-LAST:event_btnCerrarActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
