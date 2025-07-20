@@ -27,6 +27,15 @@ public class JICuenta extends javax.swing.JInternalFrame {
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
         setBorder(null);
+        
+        // Configurar listener para limpiar referencia cuando se cierre
+        this.setDefaultCloseOperation(javax.swing.JInternalFrame.DISPOSE_ON_CLOSE);
+        this.addInternalFrameListener(new javax.swing.event.InternalFrameAdapter() {
+            @Override
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent e) {
+                frm = null;
+            }
+        });
     }
 
     public JICuenta(Usuario usuario) {
@@ -36,6 +45,15 @@ public class JICuenta extends javax.swing.JInternalFrame {
         setBorder(null);
         this.usuarioActual = usuario;
         cargarDatosUsuario();
+        
+        // Configurar listener para limpiar referencia cuando se cierre
+        this.setDefaultCloseOperation(javax.swing.JInternalFrame.DISPOSE_ON_CLOSE);
+        this.addInternalFrameListener(new javax.swing.event.InternalFrameAdapter() {
+            @Override
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent e) {
+                frm = null;
+            }
+        });
     }
 
     public static JICuenta crear(javax.swing.JDesktopPane contenedor, Usuario usuario) {
@@ -428,9 +446,5 @@ public class JICuenta extends javax.swing.JInternalFrame {
                 modeloTabla.addRow(new Object[]{docente.getCorreo()});
             }
         }
-    }
-
-    private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
-        frm = null;
     }
 }

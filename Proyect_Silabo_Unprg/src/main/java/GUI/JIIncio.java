@@ -16,6 +16,15 @@ public class JIIncio extends javax.swing.JInternalFrame {
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
         setBorder(null);
+        
+        // Configurar listener para limpiar referencia cuando se cierre
+        this.setDefaultCloseOperation(javax.swing.JInternalFrame.DISPOSE_ON_CLOSE);
+        this.addInternalFrameListener(new javax.swing.event.InternalFrameAdapter() {
+            @Override
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent e) {
+                frm = null;
+            }
+        });
     }
 
     public static JIIncio crear(javax.swing.JDesktopPane contenedor) {

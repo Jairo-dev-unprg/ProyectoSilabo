@@ -1,12 +1,14 @@
 package GUI;
 
-import com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg;
 import entidades.DepartamentoAcademico;
+import entidades.Docente;
 import entidades.Escuela;
 import entidades.Facultad;
 import entidades.Silabo;
 import entidades.Usuario;
-import java.util.List;
+import java.beans.PropertyVetoException;
+import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
 
 public class JFSilabo extends javax.swing.JFrame {
 
@@ -189,6 +191,7 @@ public class JFSilabo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
+        limpiarDesktopPane(dpSilabo);
         JIIncio frm = JIIncio.crear(this.dpSilabo);
         frm.setVisible(true);
         try {
@@ -198,7 +201,7 @@ public class JFSilabo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-
+        limpiarDesktopPane(dpSilabo);
         if (this.frm1 == null) {
             this.frm1 = new JDCrearSilabo(null, true);
             Silabo silabo = frm1.agregar();
@@ -221,6 +224,7 @@ public class JFSilabo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void btnExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarActionPerformed
+        limpiarDesktopPane(dpSilabo);
         JIExportar frm = JIExportar.crear(this.dpSilabo);
         frm.setVisible(true);
         try {
@@ -230,6 +234,7 @@ public class JFSilabo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExportarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        limpiarDesktopPane(dpSilabo);
         JICuenta frm = JICuenta.crear(this.dpSilabo, userLogged);
         frm.setVisible(true);
         try {
@@ -239,7 +244,7 @@ public class JFSilabo extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportarActionPerformed
-        // TODO add your handling code here:
+        limpiarDesktopPane(dpSilabo);
     }//GEN-LAST:event_btnImportarActionPerformed
 
     /**
@@ -292,13 +297,27 @@ public class JFSilabo extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void mostrarBienvenida() {
-//        if (usuarioActivo != null && usuarioActivo.getDocente() != null) {
-//            Docente d = usuarioActivo.getDocente();
-//            String saludo = "Bienvenido " + d.getGradoAcademico() + " " + d.getFullName();
-//            lblBienvenida.setText(saludo);
-//        } else {
-//            lblBienvenida.setText("Bienvenido usuario");
-//        }
+        if (userLogged != null && userLogged.getDocente() != null) {
+            Docente d = userLogged.getDocente();
+            String saludo = "Bienvenido " + d.getGradoAcademico() + " " + d.getApellidos();
+            lblBienvenida.setText(saludo);
+        } else {
+            lblBienvenida.setText("Bienvenido usuario");
+        }
+    }
+
+    public void limpiarDesktopPane(JDesktopPane desktopPane) {
+        for (JInternalFrame frame : desktopPane.getAllFrames()) {
+            try {
+                frame.setClosed(true);
+            } catch (PropertyVetoException e) {
+                e.printStackTrace();
+                desktopPane.remove(frame);
+            }
+        }
+
+        desktopPane.removeAll();
+        desktopPane.repaint();
     }
 
 }
