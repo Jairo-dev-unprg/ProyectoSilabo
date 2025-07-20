@@ -7,8 +7,12 @@ import entidades.Facultad;
 import entidades.Silabo;
 import entidades.Usuario;
 import java.beans.PropertyVetoException;
+import java.io.File;
 import javax.swing.JDesktopPane;
+import javax.swing.JFileChooser;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class JFSilabo extends javax.swing.JFrame {
 
@@ -37,7 +41,7 @@ public class JFSilabo extends javax.swing.JFrame {
         pnLateral = new javax.swing.JPanel();
         btnInicio = new javax.swing.JButton();
         btnCrear = new javax.swing.JButton();
-        btnImportar = new javax.swing.JButton();
+        btnAbrir = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         btnExportar = new javax.swing.JButton();
         lblBienvenida = new javax.swing.JLabel();
@@ -89,17 +93,17 @@ public class JFSilabo extends javax.swing.JFrame {
             }
         });
 
-        btnImportar.setBackground(new java.awt.Color(25, 118, 210));
-        btnImportar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnImportar.setForeground(new java.awt.Color(255, 255, 255));
-        btnImportar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/open.png"))); // NOI18N
-        btnImportar.setText("Abrir");
-        btnImportar.setBorderPainted(false);
-        btnImportar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnImportar.setIconTextGap(12);
-        btnImportar.addActionListener(new java.awt.event.ActionListener() {
+        btnAbrir.setBackground(new java.awt.Color(25, 118, 210));
+        btnAbrir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAbrir.setForeground(new java.awt.Color(255, 255, 255));
+        btnAbrir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/open.png"))); // NOI18N
+        btnAbrir.setText("Abrir");
+        btnAbrir.setBorderPainted(false);
+        btnAbrir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnAbrir.setIconTextGap(12);
+        btnAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImportarActionPerformed(evt);
+                btnAbrirActionPerformed(evt);
             }
         });
 
@@ -144,7 +148,7 @@ public class JFSilabo extends javax.swing.JFrame {
             pnLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnImportar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnAbrir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnExportar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnLateralLayout.createSequentialGroup()
@@ -165,7 +169,7 @@ public class JFSilabo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
-                .addComponent(btnImportar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
                 .addComponent(btnExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
@@ -203,7 +207,6 @@ public class JFSilabo extends javax.swing.JFrame {
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         limpiarDesktopPane(dpSilabo);
         
-        // Siempre verificar si necesitamos crear el diálogo de selección
         if (frm1 == null) {
             frm1 = new JDCrearSilabo(null, true);
         }
@@ -242,9 +245,88 @@ public class JFSilabo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportarActionPerformed
+    private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
+        // Crear el JFileChooser
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Abrir archivo de sílabo XML");
+        
+        // Configurar filtro de archivo solo para XML
+        FileNameExtensionFilter filtroXml = new FileNameExtensionFilter("Archivos XML (*.xml)", "xml");
+        
+        // Agregar filtro al fileChooser
+        fileChooser.setFileFilter(filtroXml);
+        fileChooser.setAcceptAllFileFilterUsed(false); 
+        
+        // Configurar directorio inicial 
+        fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+        
+        // Mostrar el diálogo
+        int resultado = fileChooser.showOpenDialog(this);
+        
+        if (resultado == JFileChooser.APPROVE_OPTION) {
+            File archivoSeleccionado = fileChooser.getSelectedFile();
+            
+            /////////////////IMPORTANTE LEAN ESTO DOWNS////////////////////
+            // Aquí puedes agregar la lógica para procesar el archivo XML
+            try {
+                procesarArchivoImportado(archivoSeleccionado);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, 
+                    "Error al abrir el archivo XML: " + e.getMessage(), 
+                    "Error", 
+                    JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btnAbrirActionPerformed
+
+    /////////////////IMPORTANTE LEAN ESTO DOWNS////////////////////
+    /**
+     * Procesa el archivo XML importado
+     * @param archivo El archivo XML seleccionado por el usuario
+     * @throws Exception Si hay un error al procesar el archivo
+     */
+    private void procesarArchivoImportado(File archivo) throws Exception {
+        if (archivo == null || !archivo.exists()) {
+            throw new Exception("El archivo no existe");
+        }
+        
+        String nombreArchivo = archivo.getName().toLowerCase();
+        
+        // Verificar que sea un archivo XML
+        if (!nombreArchivo.endsWith(".xml")) {
+            throw new Exception("Solo se admiten archivos XML");
+        }
+        
+        // Limpiar el desktop pane antes de cargar el nuevo contenido
         limpiarDesktopPane(dpSilabo);
-    }//GEN-LAST:event_btnImportarActionPerformed
+        
+        // Procesar el archivo XML
+        procesarArchivoXML(archivo);
+        
+        // Mostrar mensaje de éxito
+        JOptionPane.showMessageDialog(this, 
+            "Archivo XML cargado exitosamente: " + archivo.getName(), 
+            "Éxito", 
+            JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    
+    /////////////////IMPORTANTE LEAN ESTO DOWNS////////////////////
+    /**
+     * Procesa archivos XML
+     */
+    private void procesarArchivoXML(File archivo) throws Exception {
+        // TODO: Implementar lógica para archivos XML
+        System.out.println("Procesando archivo XML: " + archivo.getName());
+        System.out.println("Ruta del archivo: " + archivo.getAbsolutePath());
+        
+        // Aquí puedes agregar tu lógica específica para procesar el XML
+        // Por ejemplo:
+        // - Parsear el XML
+        // - Extraer datos del sílabo
+        // - Crear objetos de entidades
+        // - Mostrar en una ventana interna
+    }
 
     /**
      * @param args the command line arguments
@@ -284,9 +366,9 @@ public class JFSilabo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAbrir;
     private javax.swing.JButton btnCrear;
     private javax.swing.JButton btnExportar;
-    private javax.swing.JButton btnImportar;
     private javax.swing.JButton btnInicio;
     private javax.swing.JDesktopPane dpSilabo;
     private javax.swing.JButton jButton1;

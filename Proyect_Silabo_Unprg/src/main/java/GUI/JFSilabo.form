@@ -73,7 +73,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="btnInicio" max="32767" attributes="0"/>
               <Component id="btnCrear" alignment="0" max="32767" attributes="0"/>
-              <Component id="btnImportar" alignment="0" max="32767" attributes="0"/>
+              <Component id="btnAbrir" alignment="0" max="32767" attributes="0"/>
               <Component id="btnExportar" alignment="0" max="32767" attributes="0"/>
               <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
@@ -96,7 +96,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnCrear" min="-2" pref="48" max="-2" attributes="0"/>
                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                  <Component id="btnImportar" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="btnAbrir" min="-2" pref="48" max="-2" attributes="0"/>
                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                   <Component id="btnExportar" min="-2" pref="48" max="-2" attributes="0"/>
                   <EmptySpace pref="172" max="32767" attributes="0"/>
@@ -152,7 +152,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnImportar">
+        <Component class="javax.swing.JButton" name="btnAbrir">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d2" green="76" red="19" type="rgb"/>
@@ -172,7 +172,7 @@
             <Property name="iconTextGap" type="int" value="12"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImportarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAbrirActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
