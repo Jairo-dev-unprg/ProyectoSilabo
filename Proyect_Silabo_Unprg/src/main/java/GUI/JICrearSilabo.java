@@ -297,7 +297,10 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jTextField1.setEnabled(false);
 
+        txtGrado.setEditable(false);
+        txtGrado.setBackground(new java.awt.Color(255, 255, 255));
         txtGrado.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        txtGrado.setEnabled(false);
 
         lblTipoCurso.setText("Tipo:");
 
