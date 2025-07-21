@@ -1,11 +1,19 @@
 package entidades;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import java.util.List;
 
+@JacksonXmlRootElement(localName = "desempeño")
 public class Desempeño {
 
+    @JacksonXmlProperty(localName = "nombre")
     private String nombre;
+    
+    @JacksonXmlProperty(localName = "descripcion")
     private String Desempeño;
+    
+    @JacksonXmlProperty(localName = "unidad")
     private Unidad unidad;
 
     public Desempeño() {

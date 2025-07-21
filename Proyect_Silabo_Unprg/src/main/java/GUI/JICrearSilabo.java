@@ -1290,6 +1290,11 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         });
 
         jButton4.setText("Exportar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         lblFirma.setText("a");
 
@@ -1422,6 +1427,67 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.pn8.setSelectedIndex(6);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        exportarSilaboAXML();
+    }//GEN-LAST:event_jButton4ActionPerformed
+    
+    /**
+     * Exporta el sílabo actual a un archivo XML
+     */
+    private void exportarSilaboAXML() {
+        try {
+            // Primero cargar los datos del sílabo actual
+            cargarDatosASilabo();
+            
+            if (silabo == null) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                    "No hay datos de sílabo para exportar",
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            // Mostrar diálogo para seleccionar ubicación de guardado
+            javax.swing.JFileChooser fileChooser = new javax.swing.JFileChooser();
+            fileChooser.setDialogTitle("Guardar sílabo como XML");
+            fileChooser.setSelectedFile(new java.io.File("silabo_" + 
+                (silabo.getCurso() != null ? silabo.getCurso().getNombre().replaceAll("[^a-zA-Z0-9]", "_") : "nuevo") + 
+                ".xml"));
+            
+            // Configurar filtro de archivo
+            javax.swing.filechooser.FileNameExtensionFilter filtroXml = 
+                new javax.swing.filechooser.FileNameExtensionFilter("Archivos XML (*.xml)", "xml");
+            fileChooser.setFileFilter(filtroXml);
+            fileChooser.setAcceptAllFileFilterUsed(false);
+            
+            // Mostrar el diálogo
+            int resultado = fileChooser.showSaveDialog(this);
+            
+            if (resultado == javax.swing.JFileChooser.APPROVE_OPTION) {
+                java.io.File archivoSeleccionado = fileChooser.getSelectedFile();
+                String rutaArchivo = archivoSeleccionado.getAbsolutePath();
+                
+                // Asegurar que termine en .xml
+                if (!rutaArchivo.toLowerCase().endsWith(".xml")) {
+                    rutaArchivo += ".xml";
+                }
+                
+                // Guardar el sílabo
+                com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg.guardarSilabo(silabo, rutaArchivo);
+                
+                // También guardar todos los datos del sistema automáticamente
+                com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg.guardarDatosEnXML();
+            }
+            
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Error al exportar el sílabo: " + e.getMessage(),
+                "Error de exportación",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+    }
 
     private void cmbCiclosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCiclosActionPerformed
         int pos = this.cmbCiclos.getSelectedIndex();

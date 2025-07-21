@@ -26,7 +26,7 @@ public class JFLogeo extends javax.swing.JFrame {
         Proyect_Silabo_Unprg.configurarCampoConPlaceholder(txtPass, "Ingrese su contraseña");
 
         if (datoscargados == false) {
-            Proyect_Silabo_Unprg.cargarDatos();
+            Proyect_Silabo_Unprg.cargarDatosDesdeXML();
             datoscargados = true;
         }
         

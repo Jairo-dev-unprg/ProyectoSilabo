@@ -1,19 +1,46 @@
 package entidades;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import java.util.Date;
 
+@JacksonXmlRootElement(localName = "silabo")
 public class Silabo {
 
+    @JacksonXmlProperty(localName = "facultad")
     private Facultad facultad;
+    
+    @JacksonXmlProperty(localName = "departamento")
     private DepartamentoAcademico departamento;
+    
+    @JacksonXmlProperty(localName = "escuela")
     private Escuela escuela;
+    
+    @JacksonXmlProperty(localName = "curso")
     private Curso curso;
+    
+    @JacksonXmlProperty(localName = "docente")
     private Docente docente;
+    
+    @JacksonXmlProperty(localName = "semanas")
     private String Semanas;
+    
+    @JacksonXmlProperty(localName = "fechaInicio")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date FechaInicio;
+    
+    @JacksonXmlProperty(localName = "fechaFin")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date FechaFin;
+    
+    @JacksonXmlProperty(localName = "metodologiaEnseñanza")
     private String MetodologiaEnseñanza;
+    
+    @JacksonXmlProperty(localName = "actividadesAuditorias")
     private String actividadesAuditorias;
+    
+    @JacksonXmlProperty(localName = "fuentesReferenciales")
     private String fuentesReferenciales;
 
     public Silabo() {

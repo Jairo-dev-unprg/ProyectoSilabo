@@ -315,16 +315,45 @@ public class JFSilabo extends javax.swing.JFrame {
      * Procesa archivos XML
      */
     private void procesarArchivoXML(File archivo) throws Exception {
-        // TODO: Implementar lógica para archivos XML
         System.out.println("Procesando archivo XML: " + archivo.getName());
         System.out.println("Ruta del archivo: " + archivo.getAbsolutePath());
 
-        // Aquí puedes agregar tu lógica específica para procesar el XML
-        // Por ejemplo:
-        // - Parsear el XML
-        // - Extraer datos del sílabo
-        // - Crear objetos de entidades
-        // - Mostrar en una ventana interna
+        try {
+            // Intentar cargar como sílabo individual
+            Silabo silabo = com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg.cargarSilabo(archivo.getAbsolutePath());
+            
+            if (silabo != null) {
+                // Crear y mostrar ventana del sílabo cargado
+                JICrearSilabo ventanaSilabo = JICrearSilabo.crear(this.dpSilabo, silabo, this.userLogged);
+                ventanaSilabo.setVisible(true);
+                
+                System.out.println("Sílabo cargado exitosamente:");
+                System.out.println("- Curso: " + (silabo.getCurso() != null ? silabo.getCurso().getNombre() : "No definido"));
+                System.out.println("- Facultad: " + (silabo.getFacultad() != null ? silabo.getFacultad().getNombre() : "No definida"));
+                System.out.println("- Docente: " + (silabo.getDocente() != null ? silabo.getDocente().getFullName() : "No definido"));
+            } else {
+                throw new Exception("No se pudo cargar el sílabo desde el archivo XML");
+            }
+            
+        } catch (Exception e) {
+            // Si falla cargar como sílabo individual, intentar como datos del sistema
+            try {
+                cargaDeDatos.DatosSistema datos = cargaDeDatos.ArchivosXML.cargarTodosLosDatos(archivo.getParent());
+                
+                if (datos.tieneDatos()) {
+                    System.out.println("Datos del sistema cargados:");
+                    System.out.println(datos.obtenerResumen());
+                    
+                    // Aquí podrías actualizar los datos del sistema si es necesario
+                    // Por ejemplo, actualizar las listas globales
+                } else {
+                    throw new Exception("El archivo XML no contiene datos válidos");
+                }
+                
+            } catch (Exception e2) {
+                throw new Exception("Error al procesar el archivo XML: " + e2.getMessage());
+            }
+        }
     }
 
     /**

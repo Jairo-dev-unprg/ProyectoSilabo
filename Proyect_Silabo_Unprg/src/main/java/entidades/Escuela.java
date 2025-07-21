@@ -1,13 +1,23 @@
 
 package entidades;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@JacksonXmlRootElement(localName = "escuela")
 public class Escuela {
+    
+    @JacksonXmlElementWrapper(localName = "ciclos")
+    @JacksonXmlProperty(localName = "ciclo")
     private List<Ciclo> ciclo;
+    
+    @JacksonXmlProperty(localName = "nombre")
     private String nombre;
+    
+    @JacksonXmlProperty(localName = "vigente")
     private boolean vigente;
 
     public Escuela() {

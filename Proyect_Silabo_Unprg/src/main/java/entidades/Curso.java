@@ -1,25 +1,60 @@
 package entidades;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import java.util.List;
 
-
+@JacksonXmlRootElement(localName = "curso")
 public class Curso {
     
+    @JacksonXmlProperty(localName = "nombre")
     private String nombre;
+    
+    @JacksonXmlProperty(localName = "tipo")
     private String tipo;
+    
+    @JacksonXmlProperty(localName = "codigoCurso")
     private String codigoCurso;
+    
+    @JacksonXmlProperty(localName = "prerrequisitos")
     private String prerrequisitos;
+    
+    @JacksonXmlProperty(localName = "cicloEstudio")
     private int cicloEstudio;
+    
+    @JacksonXmlProperty(localName = "creditos")
     private int creditos;
+    
+    @JacksonXmlProperty(localName = "horasTeoricaSemanales")
     private int HorasTeoricaSemanales;
+    
+    @JacksonXmlProperty(localName = "horasPracticasSemanales")
     private int HorasPracticasSemanales;
+    
+    @JacksonXmlProperty(localName = "sumilla")
     private String sumilla;
+    
+    @JacksonXmlProperty(localName = "competenciaProfesional")
     private String competenciaProfesional;
+    
+    @JacksonXmlProperty(localName = "capacidadDelCurso")
     private String capacidadDelCurso;
+    
+    @JacksonXmlElementWrapper(localName = "desempeños")
+    @JacksonXmlProperty(localName = "desempeño")
     private List<Desempeño> desempeños;
+    
+    @JacksonXmlProperty(localName = "metologiaEnsanza")
     private String metologiaEnsanza;
+    
+    @JacksonXmlProperty(localName = "actividadTutoria")
     private String actividadTutoria;
+    
+    @JacksonXmlProperty(localName = "referencias")
     private String referencias;
+    
+    @JacksonXmlProperty(localName = "vigente")
     private boolean vigente;
 
     public boolean isVigente() {

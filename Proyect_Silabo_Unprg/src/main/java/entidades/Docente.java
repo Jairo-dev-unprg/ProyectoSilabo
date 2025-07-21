@@ -1,16 +1,30 @@
 
 package entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import java.awt.image.BufferedImage;
 
-
+@JacksonXmlRootElement(localName = "docente")
 public class Docente {
     
+    @JacksonXmlProperty(localName = "nombres")
     private String nombres;
+    
+    @JacksonXmlProperty(localName = "apellidos")
     private String Apellidos;
+    
+    @JacksonXmlProperty(localName = "gradoAcademico")
     private String gradoAcademico;
+    
+    @JacksonXmlProperty(localName = "dni")
     private String DNI;
+    
+    @JsonIgnore // No serializar imagen en XML
     private BufferedImage firma;
+    
+    @JacksonXmlProperty(localName = "correo")
     private String correo;
 
     public Docente() {

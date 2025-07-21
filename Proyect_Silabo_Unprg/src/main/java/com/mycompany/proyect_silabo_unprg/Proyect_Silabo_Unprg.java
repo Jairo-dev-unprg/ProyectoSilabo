@@ -1,6 +1,8 @@
 package com.mycompany.proyect_silabo_unprg;
 
 import GUI.JFLogeo;
+import cargaDeDatos.ArchivosXML;
+import cargaDeDatos.DatosSistema;
 import entidades.Ciclo;
 import com.formdev.flatlaf.FlatLightLaf;
 import entidades.Desempeño;
@@ -14,11 +16,13 @@ import entidades.Unidad;
 import entidades.Usuario;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
@@ -105,8 +109,105 @@ public class Proyect_Silabo_Unprg {
 
     public static void main(String[] args) throws UnsupportedLookAndFeelException {
         UIManager.setLookAndFeel(new FlatLightLaf());
-        JFLogeo logeo = new JFLogeo();
         
+        // Intentar cargar datos desde XML primero
+        if (!cargarDatosDesdeXML()) {
+            // Si no se pueden cargar desde XML, usar datos hardcodeados
+            cargarDatos();
+            
+            // Guardar los datos hardcodeados en XML para próximas ejecuciones
+            guardarDatosEnXML();
+        }
+        
+        JFLogeo logeo = new JFLogeo();
+    }
+    
+    /**
+     * Intenta cargar datos desde archivos XML
+     * @return true si se cargaron exitosamente, false en caso contrario
+     */
+    public static boolean cargarDatosDesdeXML() {
+        try {
+            String directorioXML = System.getProperty("user.home") + "/ProyectoSilabo/datos";
+            DatosSistema datos = ArchivosXML.cargarTodosLosDatos(directorioXML);
+            
+            if (datos.tieneDatos()) {
+                // Asignar los datos cargados a las variables estáticas
+                if (datos.getFacultades() != null && !datos.getFacultades().isEmpty()) {
+                    facultad.clear();
+                    facultad.addAll(datos.getFacultades());
+                }
+                
+                if (datos.getDocentes() != null && !datos.getDocentes().isEmpty()) {
+                    docentes.clear();
+                    docentes.addAll(datos.getDocentes());
+                }
+                
+                if (datos.getUsuarios() != null && !datos.getUsuarios().isEmpty()) {
+                    usuarios.clear();
+                    usuarios.addAll(datos.getUsuarios());
+                }
+                
+                if (datos.getSilabos() != null && !datos.getSilabos().isEmpty()) {
+                    silabos.clear();
+                    silabos.addAll(datos.getSilabos());
+                }
+                
+                System.out.println("Datos cargados exitosamente desde XML:");
+                System.out.println(datos.obtenerResumen());
+                return true;
+            }
+        } catch (IOException e) {
+            System.out.println("No se pudieron cargar datos desde XML: " + e.getMessage());
+        }
+        return false;
+    }
+    
+    /**
+     * Guarda todos los datos del sistema en archivos XML
+     */
+    public static void guardarDatosEnXML() {
+        try {
+            String directorioXML = System.getProperty("user.home") + "/ProyectoSilabo/datos";
+            ArchivosXML.guardarTodosLosDatos(directorioXML, silabos, facultad, docentes, usuarios);
+            System.out.println("Datos guardados exitosamente en XML en: " + directorioXML);
+        } catch (IOException e) {
+            System.err.println("Error al guardar datos en XML: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * Guarda un silabo específico en un archivo XML
+     */
+    public static void guardarSilabo(Silabo silabo, String rutaArchivo) {
+        try {
+            ArchivosXML.guardarSilabo(silabo, rutaArchivo);
+            JOptionPane.showMessageDialog(null, 
+                "Sílabo guardado exitosamente en: " + rutaArchivo,
+                "Guardado exitoso", 
+                JOptionPane.INFORMATION_MESSAGE);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, 
+                "Error al guardar el sílabo: " + e.getMessage(),
+                "Error de guardado", 
+                JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    /**
+     * Carga un silabo desde un archivo XML
+     */
+    public static Silabo cargarSilabo(String rutaArchivo) {
+        try {
+            return ArchivosXML.cargarSilabo(rutaArchivo);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, 
+                "Error al cargar el sílabo: " + e.getMessage(),
+                "Error de carga", 
+                JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
     }
 
     public static void cargarDatos() {

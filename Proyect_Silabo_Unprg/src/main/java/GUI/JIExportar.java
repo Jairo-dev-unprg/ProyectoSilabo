@@ -201,8 +201,62 @@ public class JIExportar extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameClosed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        // Mostrar opciones de exportación
+        String[] opciones = {"Exportar PDF/Excel", "Guardar datos en XML", "Cancelar"};
+        int seleccion = javax.swing.JOptionPane.showOptionDialog(
+            this,
+            "Seleccione el tipo de exportación:",
+            "Opciones de Exportación",
+            javax.swing.JOptionPane.YES_NO_CANCEL_OPTION,
+            javax.swing.JOptionPane.QUESTION_MESSAGE,
+            null,
+            opciones,
+            opciones[0]
+        );
+        
+        switch (seleccion) {
+            case 0: // PDF/Excel
+                exportarPDFExcel();
+                break;
+            case 1: // Guardar XML
+                guardarDatosXML();
+                break;
+            default: // Cancelar o cerrar
+                break;
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
+    
+    /**
+     * Exporta documentos PDF/Excel (funcionalidad original)
+     */
+    private void exportarPDFExcel() {
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "Funcionalidad de exportación PDF/Excel aún no implementada",
+            "En desarrollo",
+            javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    /**
+     * Guarda todos los datos del sistema en archivos XML
+     */
+    private void guardarDatosXML() {
+        try {
+            // Guardar todos los datos del sistema
+            com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg.guardarDatosEnXML();
+            
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Datos guardados exitosamente en XML\n" +
+                "Ubicación: " + System.getProperty("user.home") + "/ProyectoSilabo/datos/",
+                "Guardado exitoso",
+                javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Error al guardar los datos: " + e.getMessage(),
+                "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
