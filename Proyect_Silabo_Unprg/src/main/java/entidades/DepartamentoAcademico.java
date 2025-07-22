@@ -12,7 +12,7 @@ public class DepartamentoAcademico {
     
     @JacksonXmlElementWrapper(localName = "escuelas")
     @JacksonXmlProperty(localName = "escuela")
-    private List<Escuela> Escuelas;
+    private List<Escuela> escuelas;
     
     @JacksonXmlProperty(localName = "nombre")
     private String nombre;
@@ -23,18 +23,18 @@ public class DepartamentoAcademico {
     public DepartamentoAcademico() {
     }
 
-    public DepartamentoAcademico(List<Escuela> Escuelas, String nombre, boolean vigente) {
-        this.Escuelas = Escuelas;
+    public DepartamentoAcademico(List<Escuela> escuelas, String nombre, boolean vigente) {
+        this.escuelas = escuelas;
         this.nombre = nombre;
         this.vigente = vigente;
     }
 
     public List<Escuela> getEscuelas() {
-        return Escuelas;
+        return escuelas;
     }
 
-    public void setEscuelas(List<Escuela> Escuelas) {
-        this.Escuelas = Escuelas;
+    public void setEscuelas(List<Escuela> escuelas) {
+        this.escuelas = escuelas;
     }
 
     public String getNombre() {

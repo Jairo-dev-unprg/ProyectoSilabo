@@ -1474,7 +1474,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 }
                 
                 // Guardar el sílabo
-                com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg.guardarSilabo(silabo, rutaArchivo);
+                //com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg.guardarSilabo(silabo, rutaArchivo);
                 
                 // También guardar todos los datos del sistema automáticamente
                 com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg.guardarDatosEnXML();

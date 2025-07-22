@@ -28,19 +28,19 @@ public class ArchivosXML {
     
     /**
      * Guarda un silabo en un archivo XML
-     */
-    public static void guardarSilabo(Silabo silabo, String rutaArchivo) throws IOException {
-        xmlMapper.writeValue(new File(rutaArchivo), silabo);
-    }
+//     */
+//    public static void guardarSilabo(Silabo silabo, String rutaArchivo) throws IOException {
+//        xmlMapper.writeValue(new File(rutaArchivo), silabo);
+//    }
     
     /**
      * Guarda una lista de sílabos en un archivo XML
-     */
-    public static void guardarSilabos(List<Silabo> silabos, String rutaArchivo) throws IOException {
-        SilaboWrapper wrapper = new SilaboWrapper();
-        wrapper.setSilabos(silabos);
-        xmlMapper.writeValue(new File(rutaArchivo), wrapper);
-    }
+//     */
+//    public static void guardarSilabos(List<Silabo> silabos, String rutaArchivo) throws IOException {
+//        SilaboWrapper wrapper = new SilaboWrapper();
+//        wrapper.setSilabos(silabos);
+//        xmlMapper.writeValue(new File(rutaArchivo), wrapper);
+//    }
     
     /**
      * Guarda una facultad en un archivo XML
@@ -78,9 +78,8 @@ public class ArchivosXML {
     
     /**
      * Guarda todos los datos del sistema en archivos XML separados
-     */
-    public static void guardarTodosLosDatos(String directorioBase, 
-                                          List<Silabo> silabos,
+     */                                           
+    public static void guardarTodosLosDatos(String directorioBase,
                                           List<Facultad> facultades,
                                           List<Docente> docentes,
                                           List<Usuario> usuarios) throws IOException {
@@ -92,9 +91,9 @@ public class ArchivosXML {
         }
         
         // Guardar cada tipo de dato en su archivo correspondiente
-        if (silabos != null && !silabos.isEmpty()) {
-            guardarSilabos(silabos, directorioBase + "/silabos.xml");
-        }
+//        if (silabos != null && !silabos.isEmpty()) {
+//            guardarSilabos(silabos, directorioBase + "/silabos.xml");
+//        }
         
         if (facultades != null && !facultades.isEmpty()) {
             guardarFacultades(facultades, directorioBase + "/facultades.xml");

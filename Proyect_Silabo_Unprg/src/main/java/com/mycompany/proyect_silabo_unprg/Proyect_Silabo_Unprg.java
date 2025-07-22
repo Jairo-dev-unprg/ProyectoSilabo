@@ -116,9 +116,9 @@ public class Proyect_Silabo_Unprg {
             cargarDatos();
             
             // Guardar los datos hardcodeados en XML para próximas ejecuciones
-            guardarDatosEnXML();
+            
         }
-        
+        guardarDatosEnXML();
         JFLogeo logeo = new JFLogeo();
     }
     
@@ -169,7 +169,7 @@ public class Proyect_Silabo_Unprg {
     public static void guardarDatosEnXML() {
         try {
             String directorioXML = System.getProperty("user.home") + "/ProyectoSilabo/datos";
-            ArchivosXML.guardarTodosLosDatos(directorioXML, silabos, facultad, docentes, usuarios);
+            ArchivosXML.guardarTodosLosDatos(directorioXML, facultad, docentes, usuarios);
             System.out.println("Datos guardados exitosamente en XML en: " + directorioXML);
         } catch (IOException e) {
             System.err.println("Error al guardar datos en XML: " + e.getMessage());
@@ -179,21 +179,21 @@ public class Proyect_Silabo_Unprg {
     
     /**
      * Guarda un silabo específico en un archivo XML
-     */
-    public static void guardarSilabo(Silabo silabo, String rutaArchivo) {
-        try {
-            ArchivosXML.guardarSilabo(silabo, rutaArchivo);
-            JOptionPane.showMessageDialog(null, 
-                "Sílabo guardado exitosamente en: " + rutaArchivo,
-                "Guardado exitoso", 
-                JOptionPane.INFORMATION_MESSAGE);
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, 
-                "Error al guardar el sílabo: " + e.getMessage(),
-                "Error de guardado", 
-                JOptionPane.ERROR_MESSAGE);
-        }
-    }
+//     */
+//    public static void guardarSilabo(Silabo silabo, String rutaArchivo) {
+//        try {
+//            ArchivosXML.guardarSilabo(silabo, rutaArchivo);
+//            JOptionPane.showMessageDialog(null, 
+//                "Sílabo guardado exitosamente en: " + rutaArchivo,
+//                "Guardado exitoso", 
+//                JOptionPane.INFORMATION_MESSAGE);
+//        } catch (IOException e) {
+//            JOptionPane.showMessageDialog(null, 
+//                "Error al guardar el sílabo: " + e.getMessage(),
+//                "Error de guardado", 
+//                JOptionPane.ERROR_MESSAGE);
+//        }
+//    }
     
     /**
      * Carga un silabo desde un archivo XML

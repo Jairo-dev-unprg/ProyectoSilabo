@@ -47,7 +47,7 @@ public class Docente {
         this.firma = firma;
     }
     
-    
+    @JsonIgnore
     public String getFullName(){
         return Apellidos + ", " + nombres;
     }
