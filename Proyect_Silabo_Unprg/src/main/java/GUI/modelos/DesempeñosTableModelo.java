@@ -2,7 +2,10 @@ package GUI.modelos;
 
 import entidades.Desempeño;
 import entidades.Unidad;
+import java.awt.Component;
 import java.util.List;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.table.AbstractTableModel;
 
 public class DesempeñosTableModelo extends AbstractTableModel {
@@ -81,23 +84,19 @@ public class DesempeñosTableModelo extends AbstractTableModel {
         if (desempeño != null && rowIndex >= 0 && rowIndex < desempeño.size()) {
             Desempeño d = desempeño.get(rowIndex);
 
-        
             if (columnIndex == 1 && value instanceof String) {
                 String nuevoNombre = ((String) value).trim();
 
                 if (!nuevoNombre.isEmpty()) {
-                   
+
                     if (d.getUnidad() == null) {
                         d.setUnidad(new Unidad());
                     }
 
-                   
                     d.getUnidad().setNombre(nuevoNombre);
 
-                   
                     fireTableCellUpdated(rowIndex, columnIndex);
 
-                    
                     System.out.println("Unidad actualizada en fila " + rowIndex + ": " + nuevoNombre);
                 } else {
                     System.out.println("⚠ El nombre de unidad no puede estar vacío.");
@@ -105,4 +104,5 @@ public class DesempeñosTableModelo extends AbstractTableModel {
             }
         }
     }
+
 }

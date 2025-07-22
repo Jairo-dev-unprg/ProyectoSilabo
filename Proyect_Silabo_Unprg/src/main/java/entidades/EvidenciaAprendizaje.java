@@ -1,27 +1,18 @@
 package entidades;
 
-class EvidenciaAprendizaje {
-    
-    private String nombre;
+public class EvidenciaAprendizaje {
+
     private String tipoEvidencia;
+    private String evidencia;
     private String instrumentoEvaluacion;
 
     public EvidenciaAprendizaje() {
     }
 
     public EvidenciaAprendizaje(String nombre, String tipoEvidencia, String instrumentoEvaluacion) {
-        this.nombre = nombre;
+        this.evidencia = nombre;
         this.tipoEvidencia = tipoEvidencia;
         this.instrumentoEvaluacion = instrumentoEvaluacion;
-    }
-
-    
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getTipoEvidencia() {
@@ -32,6 +23,14 @@ class EvidenciaAprendizaje {
         this.tipoEvidencia = tipoEvidencia;
     }
 
+    public String getEvidencia() {
+        return evidencia;
+    }
+
+    public void setEvidencia(String evidencia) {
+        this.evidencia = evidencia;
+    }
+
     public String getInstrumentoEvaluacion() {
         return instrumentoEvaluacion;
     }
@@ -39,6 +38,5 @@ class EvidenciaAprendizaje {
     public void setInstrumentoEvaluacion(String instrumentoEvaluacion) {
         this.instrumentoEvaluacion = instrumentoEvaluacion;
     }
-    
-    
+
 }

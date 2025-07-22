@@ -8,7 +8,10 @@ import entidades.Curso;
 import entidades.DepartamentoAcademico;
 import entidades.Docente;
 import entidades.Escuela;
+import entidades.EvidenciaAprendizaje;
 import entidades.Facultad;
+import entidades.HabilidadRequerida;
+import entidades.Semana;
 import entidades.Silabo;
 import entidades.Unidad;
 import entidades.Usuario;
@@ -106,7 +109,7 @@ public class Proyect_Silabo_Unprg {
     public static void main(String[] args) throws UnsupportedLookAndFeelException {
         UIManager.setLookAndFeel(new FlatLightLaf());
         JFLogeo logeo = new JFLogeo();
-        
+
     }
 
     public static void cargarDatos() {
@@ -255,8 +258,22 @@ public class Proyect_Silabo_Unprg {
         Unidad unidad1EA = new Unidad();
         Unidad unidad2EA = new Unidad();
         Unidad unidad3EA = new Unidad();
+        Unidad ejemplo = new Unidad();
+        ejemplo.setNombre("Unidad Demo");
+        ejemplo.setDesempeño("Analiza problemas del entorno…");
 
-        desempeñosEA.add(new Desempeño("D1", "Realiza mediciones de los parámetros eléctricos en un circuito con diodos, teniendo en cuenta los procesos de polarización y rectificación de señales eléctricas.", unidad1EA));
+        HabilidadRequerida habilidad = new HabilidadRequerida();
+        habilidad.setHabilidad("Habilidad crítica");
+
+        Semana s1 = new Semana(1, "Conocimiento 1", "Actividad 1");
+        Semana s2 = new Semana(2, "Conocimiento 2", "Actividad 2");
+        habilidad.setSemanas(List.of(s1, s2));
+
+        EvidenciaAprendizaje evidencia = new EvidenciaAprendizaje("Informe técnico", "Documento", "Rúbrica");
+        habilidad.setEvidenciasAprendizaje(evidencia);
+
+
+        desempeñosEA.add(new Desempeño("D1", "Realiza mediciones de los parámetros eléctricos en un circuito con diodos, teniendo en cuenta los procesos de polarización y rectificación de señales eléctricas.", ejemplo));
         desempeñosEA.add(new Desempeño("D2", "Realiza circuitos con transistores teniendo en cuenta las leyes de conmutación de las señales eléctricas.", unidad2EA));
         desempeñosEA.add(new Desempeño("D3", "Realiza circuitos con amplificadores operacionales y fuentes de alimentación reguladas y estabilizadas, teniendo en cuenta la entrada y salida de voltajes..", unidad3EA));
     }
@@ -299,10 +316,10 @@ public class Proyect_Silabo_Unprg {
     public static boolean validarCamposLlenos(JTextField... campos) {
         for (JTextField campo : campos) {
             if (campo.getText().trim().isEmpty()) {
-                return false; // Al menos un campo está vacío
+                return false;
             }
         }
-        return true; // Todos los campos tienen texto real
+        return true;
     }
 
 }
