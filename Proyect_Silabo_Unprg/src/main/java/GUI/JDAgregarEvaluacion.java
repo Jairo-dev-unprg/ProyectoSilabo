@@ -147,8 +147,8 @@ public class JDAgregarEvaluacion extends javax.swing.JDialog {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         EvaluacionesCalificadas evaluacion;
-        if (this.validardatos()==true) {
-            this.evaluacion=this.crearEvaluacion();
+        if (this.validardatos() == true) {
+            this.evaluacion = this.crearEvaluacion();
             this.setVisible(false);
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
@@ -270,7 +270,6 @@ public class JDAgregarEvaluacion extends javax.swing.JDialog {
     }
 
    public  EvaluacionesCalificadas agregar() {
-       this.setVisible(true);
        return this.evaluacion;
     }
     
