@@ -101,10 +101,10 @@ public class UnidadTableModel extends AbstractTableModel {
             case 5:
                 return u.getHabilidadesRequeridas() != null
                     ? u.getHabilidadesRequeridas().stream()
-                        .map(HabilidadRequerida::getEvidenciasAprendizaje)
-                        .filter(ev -> ev != null && ev.getEvidencia() != null)
-                        .map(EvidenciaAprendizaje::getEvidencia)
-                        .collect(Collectors.joining("; "))
+                        //.map(HabilidadRequerida::getEvidenciasAprendizaje)
+                       // .filter(ev -> ev != null && ev.getEvidencia() != null)
+                        //.map(EvidenciaAprendizaje::getEvidencia)
+                       // .collect(Collectors.joining("; "))
                     : "";
 
             default:

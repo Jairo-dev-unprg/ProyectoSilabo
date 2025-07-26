@@ -6,14 +6,16 @@ public class Semana {
     private int numeroSemana;
     private String conocimiento;
     private String actividadAprendizaje;
+    private EvidenciaAprendizaje evidenciasAprendizaje;
 
     public Semana() {
     }
 
-    public Semana(int numeroSemana, String conocimiento, String actividadAprendizaje) {
+    public Semana(int numeroSemana, String conocimiento, String actividadAprendizaje, EvidenciaAprendizaje evidenciasAprendizaje) {
         this.numeroSemana = numeroSemana;
         this.conocimiento = conocimiento;
         this.actividadAprendizaje = actividadAprendizaje;
+        this.evidenciasAprendizaje = evidenciasAprendizaje;
     }
 
     public int getNumeroSemana() {
@@ -39,8 +41,14 @@ public class Semana {
     public void setActividadAprendizaje(String actividadAprendizaje) {
         this.actividadAprendizaje = actividadAprendizaje;
     }
-    
-    
-    
-    
+
+    public EvidenciaAprendizaje getEvidenciasAprendizaje() {
+        return evidenciasAprendizaje;
+    }
+
+    public void setEvidenciasAprendizaje(EvidenciaAprendizaje evidenciasAprendizaje) {
+        this.evidenciasAprendizaje = evidenciasAprendizaje;
+    }
+
+
 }
