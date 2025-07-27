@@ -185,7 +185,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         btnAnterior4 = new javax.swing.JButton();
         btnSiguiente4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        btnActualizarNombreUnidad = new javax.swing.JButton();
+        btnMostrarUnidad = new javax.swing.JButton();
         pn5 = new javax.swing.JPanel();
         ADS = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
@@ -944,10 +944,10 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
         jLabel2.setText("ver los contenidos");
 
-        btnActualizarNombreUnidad.setText("Mostrar");
-        btnActualizarNombreUnidad.addActionListener(new java.awt.event.ActionListener() {
+        btnMostrarUnidad.setText("Mostrar");
+        btnMostrarUnidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarNombreUnidadActionPerformed(evt);
+                btnMostrarUnidadActionPerformed(evt);
             }
         });
 
@@ -972,7 +972,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                         .addGap(9, 9, 9)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(btnActualizarNombreUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnMostrarUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         pn4Layout.setVerticalGroup(
@@ -983,7 +983,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 .addGap(31, 31, 31)
                 .addGroup(pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(btnActualizarNombreUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnMostrarUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
@@ -1507,33 +1507,20 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         frmEval = null;
     }//GEN-LAST:event_btnAgregarEvaluacionActionPerformed
 
-    private void btnActualizarNombreUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarNombreUnidadActionPerformed
+    private void btnMostrarUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarUnidadActionPerformed
 
         this.panUnidades.setEnabled(true);
         this.jscUnidad.setEnabled(true);
         this.lblUnidades.setEnabled(true);
         this.cmbUMostrarUnidades.setEnabled(true);
         this.tblUnidades.setEnabled(true);
-        if (unidadesLis == null) {
-            unidadesLis = new ArrayList<>();
-        } else {
-            unidadesLis.clear();
-        }
-        if (cursoSeleccionado != null && cursoSeleccionado.getDesempeños() != null) {
-            for (Desempeño d : cursoSeleccionado.getDesempeños()) {
-                Unidad u = d.getUnidad();
-                u.setDesempeño(d.getDesempeño());
-                if (u != null && u.getNombre() != null && !u.getNombre().trim().isEmpty()) {
-                    unidadesLis.add(u);
-                }
-            }
-        }
+        
         this.modeloComboUnidad.setUnidad(unidadesLis);
         this.cmbUMostrarUnidades.setModel(modeloComboUnidad);
         this.cmbUMostrarUnidades.setSelectedIndex(-1);
         configurarTablaUnidadMultilinea();
 
-    }//GEN-LAST:event_btnActualizarNombreUnidadActionPerformed
+    }//GEN-LAST:event_btnMostrarUnidadActionPerformed
 
     private void cmbUMostrarUnidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUMostrarUnidadesActionPerformed
         cmbUMostrarUnidades.addActionListener(e -> {
@@ -1615,7 +1602,23 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSiguiente3ActionPerformed
 
     private void btnEditarUnidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarUnidadesActionPerformed
-     JFUnidades frm = JFUnidades.mostrar(unidadesLis);
+       if (unidadesLis == null) {
+            unidadesLis = new ArrayList<>();
+        } else {
+            unidadesLis.clear();
+        }
+        if (cursoSeleccionado != null && cursoSeleccionado.getDesempeños() != null) {
+            for (Desempeño d : cursoSeleccionado.getDesempeños()) {
+                Unidad u = d.getUnidad();
+                u.setDesempeño(d.getDesempeño());
+                if (u != null && u.getNombre() != null && !u.getNombre().trim().isEmpty()) {
+                    unidadesLis.add(u);
+                }
+            }
+        }
+        
+        JFUnidades frm = JFUnidades.mostrar(unidadesLis, (int) spDuración.getValue());
+        this.unidadesLis = JFUnidades.devolverDatos();
     }//GEN-LAST:event_btnEditarUnidadesActionPerformed
 
 
@@ -1630,7 +1633,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea axtSumilla;
     private javax.swing.JButton bntAtras3;
     private javax.swing.JButton bntSiguiente1;
-    private javax.swing.JButton btnActualizarNombreUnidad;
     private javax.swing.JButton btnAgregarEvaluacion;
     private javax.swing.JButton btnAnterior4;
     private javax.swing.JButton btnAnterior5;
@@ -1641,6 +1643,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEditarUnidades;
     private javax.swing.JButton btnGenerarFormula;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnMostrarUnidad;
     private javax.swing.JButton btnSiguiente2;
     private javax.swing.JButton btnSiguiente3;
     private javax.swing.JButton btnSiguiente4;
@@ -1747,25 +1750,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtUniversidad;
     // End of variables declaration//GEN-END:variables
 
-    public void cargarDatosASilabo() {
-        this.txtUniversidad.setText("Universidad Nacional Pedro Ruiz Gallo");
-        this.txtFacultad.setText(this.facultad.getNombre());
-        this.txtDepartamento.setText(this.departamento.getNombre());
-        this.txtEscuela.setText(this.escuela.getNombre());
-
-    }
-
-    private void cargarCiclosDeSilabo() {
-        this.ciclosVigentes = new ArrayList<>();
-        for (Ciclo ciclo1 : this.escuela.getCiclo()) {
-            if (ciclo1.isVigente() == true) {
-                this.ciclosVigentes.add(ciclo1);
-            }
-        }
-        this.modeloCiclos.setCiclo(ciclosVigentes);
-        this.cmbCiclos.setSelectedIndex(-1);
-    }
-
     private void cargarCusos() {
         if (this.cicloSeleccionado != null) {
             this.cursosVigentes = new ArrayList<>();
@@ -1810,25 +1794,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             this.modeloDesempeño.setDesempeño(cursoSeleccionado.getDesempeños());
 
         }
-    }
-
-    private void cargarDatosDocenteLoggeado() {
-        BufferedImage firma = usuarioCreador.getFirma();
-
-        if (firma != null) {
-            ImageIcon iconoFirma = new ImageIcon(firma);
-            this.lblFirma.setIcon(iconoFirma);
-            this.lblFirma.setText("");
-        } else {
-            this.lblFirma.setText("Sin firma disponible");
-        }
-        this.txtDocente.setText(usuarioCreador.getFullName());
-        this.txtCorreo.setText(usuarioCreador.getCorreo());
-        this.txtGrado.setText(usuarioCreador.getGradoAcademico());
-    }
-
-    private void listarEvaluaciones() {
-        this.modelo.setCalificaciones(this.evaluaciones);
     }
 
     public void mostrarDatosDeUnidadSeleccionada() {
@@ -1942,4 +1907,41 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
     }
 
+    private void cargarDatosDocenteLoggeado() {
+        BufferedImage firma = usuarioCreador.getFirma();
+
+        if (firma != null) {
+            ImageIcon iconoFirma = new ImageIcon(firma);
+            this.lblFirma.setIcon(iconoFirma);
+            this.lblFirma.setText("");
+        } else {
+            this.lblFirma.setText("Sin firma disponible");
+        }
+        this.txtDocente.setText(usuarioCreador.getFullName());
+        this.txtCorreo.setText(usuarioCreador.getCorreo());
+        this.txtGrado.setText(usuarioCreador.getGradoAcademico());
+    }
+
+    private void listarEvaluaciones() {
+        this.modelo.setCalificaciones(this.evaluaciones);
+    }
+
+    public void cargarDatosASilabo() {
+        this.txtUniversidad.setText("Universidad Nacional Pedro Ruiz Gallo");
+        this.txtFacultad.setText(this.facultad.getNombre());
+        this.txtDepartamento.setText(this.departamento.getNombre());
+        this.txtEscuela.setText(this.escuela.getNombre());
+
+    }
+
+    private void cargarCiclosDeSilabo() {
+        this.ciclosVigentes = new ArrayList<>();
+        for (Ciclo ciclo1 : this.escuela.getCiclo()) {
+            if (ciclo1.isVigente() == true) {
+                this.ciclosVigentes.add(ciclo1);
+            }
+        }
+        this.modeloCiclos.setCiclo(ciclosVigentes);
+        this.cmbCiclos.setSelectedIndex(-1);
+    }
 }

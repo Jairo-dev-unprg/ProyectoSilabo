@@ -10,16 +10,17 @@
         <maven.compiler.release>23</maven.compiler.release>
         <exec.mainClass>com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg</exec.mainClass>
     </properties>
+    
     <dependencies>
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+            <version>3.6.1</version>
+        </dependency>
         <dependency>
             <groupId>org.netbeans.external</groupId>
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE260</version>
-        </dependency>
-        <dependency>
-            <groupId>com.formdev</groupId>
-            <artifactId>flatlaf</artifactId>
-            <version>3.6</version>
         </dependency>
         <dependency>
             <groupId>com.formdev</groupId>
@@ -36,5 +37,7 @@
             <artifactId>swingx</artifactId>
             <version>1.6.1</version>
         </dependency>
+        
+        
     </dependencies>
 </project>

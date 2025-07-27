@@ -66,7 +66,8 @@ public class EvaluacionesTableModel extends AbstractTableModel {
     }
 
     @Override
-    public Class<?> getColumnClass(int columnIndex) {
+  
+  public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
             case 0:
                 return java.lang.String.class;
@@ -81,6 +82,5 @@ public class EvaluacionesTableModel extends AbstractTableModel {
         return super.getColumnClass(columnIndex); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
 
-    
     
 }

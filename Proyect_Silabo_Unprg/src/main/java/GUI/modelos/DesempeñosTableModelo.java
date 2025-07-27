@@ -4,6 +4,7 @@ import entidades.Desempeño;
 import entidades.Unidad;
 import java.awt.Component;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.table.AbstractTableModel;
@@ -99,7 +100,7 @@ public class DesempeñosTableModelo extends AbstractTableModel {
 
                     System.out.println("Unidad actualizada en fila " + rowIndex + ": " + nuevoNombre);
                 } else {
-                    System.out.println("⚠ El nombre de unidad no puede estar vacío.");
+                    JOptionPane.showMessageDialog(null, "El nombre de unidad no puede estar vacío.");
                 }
             }
         }
