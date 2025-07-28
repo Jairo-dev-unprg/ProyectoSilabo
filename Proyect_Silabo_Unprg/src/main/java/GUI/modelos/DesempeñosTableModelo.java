@@ -12,7 +12,7 @@ import javax.swing.table.AbstractTableModel;
 public class DesempeñosTableModelo extends AbstractTableModel {
 
     private List<Desempeño> desempeño;
-    private final String[] columnas = {"Desempeño", "Unidad"};
+    private final String[] columnas = {"Desempeño", "Nombre las Unidad"};
 
     public List<Desempeño> getDesempeño() {
         return desempeño;

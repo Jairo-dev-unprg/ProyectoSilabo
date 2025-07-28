@@ -102,15 +102,18 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="cmbHabilidadesConfig" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="btnConfigurarSemana" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="btnConfigurarSemana" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <Component id="panSemana" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btnModificarLasHabilidades" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblSemanasConfig" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="spSemanasConfig" min="-2" pref="96" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="cmbSemana" min="-2" pref="150" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -136,7 +139,7 @@
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblSemanasConfig" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="spSemanasConfig" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbSemana" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="btnConfigurarSemana" min="-2" pref="23" max="-2" attributes="0"/>
@@ -158,17 +161,14 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="cmbHabilidadesConfig">
           <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="this.modeloComboHabilidad" type="code"/>
             </Property>
-            <Property name="selectedIndex" type="int" value="-1"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbHabilidadesConfigActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -193,11 +193,6 @@
         <Component class="javax.swing.JLabel" name="lblSemanasConfig">
           <Properties>
             <Property name="text" type="java.lang.String" value="Semana: "/>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JSpinner" name="spSemanasConfig">
-          <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
@@ -234,7 +229,7 @@
                                       <Component id="scpConocimiento" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="lblEvidenciaAprendizaje" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblActividadAprendizaje" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -256,7 +251,7 @@
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jComboBox1" max="32767" attributes="0"/>
+                                      <Component id="cmbTipoEvidencia" max="32767" attributes="0"/>
                                       <EmptySpace min="207" pref="207" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="scpEvidencia" alignment="0" pref="536" max="32767" attributes="0"/>
@@ -288,11 +283,11 @@
                           <Component id="scpActividadesAprendizaje" alignment="0" pref="51" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="lblEvidenciaAprendizaje" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblActividadAprendizaje" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblTipoEvidencia" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmbTipoEvidencia" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -350,7 +345,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="lblEvidenciaAprendizaje">
+            <Component class="javax.swing.JLabel" name="lblActividadAprendizaje">
               <Properties>
                 <Property name="text" type="java.lang.String" value="EVIDENCIA APRENDIZAJE: "/>
                 <Property name="enabled" type="boolean" value="false"/>
@@ -362,7 +357,7 @@
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox1">
+            <Component class="javax.swing.JComboBox" name="cmbTipoEvidencia">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="15">
@@ -383,6 +378,7 @@
                     <StringItem index="14" value="Cuadernos de Notas y Bit&#xe1;coras"/>
                   </StringArray>
                 </Property>
+                <Property name="selectedIndex" type="int" value="-1"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
@@ -432,6 +428,9 @@
                 <Property name="text" type="java.lang.String" value="Guardar"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarSemanaActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -440,6 +439,9 @@
             <Property name="text" type="java.lang.String" value="Configurar"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConfigurarSemanaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnModificarLasHabilidades">
           <Properties>
@@ -449,6 +451,22 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarLasHabilidadesActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cmbSemana">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
@@ -517,9 +535,6 @@
               <Connection code="this.modeloComboUnidad" type="code"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbUnidadActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -800,6 +815,7 @@
                     <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                       <SpinnerModel initial="1" maximum="4" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                     </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
               </SubComponents>
