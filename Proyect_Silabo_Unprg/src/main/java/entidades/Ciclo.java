@@ -1,12 +1,11 @@
-
 package entidades;
 
 import java.util.List;
 
-
 public class Ciclo {
+
+    private String Ciclo;
     private List<Curso> curos;
-    private String Ciclo; 
     private boolean vigente;
 
     public Ciclo() {
@@ -41,6 +40,4 @@ public class Ciclo {
     public void setVigente(boolean vigente) {
         this.vigente = vigente;
     }
-    
-    
 }

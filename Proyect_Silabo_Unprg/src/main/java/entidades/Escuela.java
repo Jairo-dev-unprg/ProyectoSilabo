@@ -1,13 +1,12 @@
-
 package entidades;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Escuela {
-    private List<Ciclo> ciclo;
+
     private String nombre;
+    private List<Ciclo> ciclo;
     private boolean vigente;
 
     public Escuela() {
@@ -42,7 +41,4 @@ public class Escuela {
     public void setVigente(boolean vigente) {
         this.vigente = vigente;
     }
-
-
-    
 }
