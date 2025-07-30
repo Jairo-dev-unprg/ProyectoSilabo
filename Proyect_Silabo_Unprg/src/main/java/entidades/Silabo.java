@@ -9,7 +9,7 @@ public class Silabo {
     private Escuela escuela;
     private Curso curso;
     private Docente docente;
-    private String Semanas;
+    private String cantidadSemanas;
     private Date FechaInicio;
     private Date FechaFin;
     private String MetodologiaEnseñanza;
@@ -25,7 +25,7 @@ public class Silabo {
         this.escuela = escuela;
         this.curso = curso;
         this.docente = docente;
-        this.Semanas = Semanas;
+        this.cantidadSemanas = Semanas;
         this.FechaInicio = FechaInicio;
         this.FechaFin = FechaFin;
         this.MetodologiaEnseñanza = MetodologiaEnseñanza;
@@ -68,11 +68,11 @@ public class Silabo {
     }
 
     public String getSemanas() {
-        return Semanas;
+        return cantidadSemanas;
     }
 
     public void setSemanas(String Semanas) {
-        this.Semanas = Semanas;
+        this.cantidadSemanas = Semanas;
     }
 
     public String getMetodologiaEnseñanza() {

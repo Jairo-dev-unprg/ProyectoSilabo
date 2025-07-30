@@ -293,7 +293,6 @@ public class JFUnidades extends javax.swing.JFrame {
             }
         });
 
-        cmbSemana.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbSemana.setEnabled(false);
 
         javax.swing.GroupLayout panConfiguracionHabilidadesLayout = new javax.swing.GroupLayout(panConfiguracionHabilidades);
