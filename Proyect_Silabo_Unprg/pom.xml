@@ -37,7 +37,11 @@
             <artifactId>swingx</artifactId>
             <version>1.6.1</version>
         </dependency>
-        
-        
+        <dependency>
+            <groupId>io.gitee.chming7</groupId>
+            <artifactId>data-converter-xml</artifactId>
+            <version>1.0.18</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 </project>

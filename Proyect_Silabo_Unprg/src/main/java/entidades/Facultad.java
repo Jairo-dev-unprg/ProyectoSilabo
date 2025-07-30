@@ -1,15 +1,14 @@
-
 package entidades;
 
+import com.chm.converter.xml.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
-
-
+@XmlRootElement(name= "facultades")
 public class Facultad {
-    
-    private List<DepartamentoAcademico> departamentosAcademicos;
-    private String nombre; 
+
+    private String nombre;
     private String abreviatura;
+    private List<DepartamentoAcademico> departamentosAcademicos;
     private boolean vigente;
 
     public Facultad() {
