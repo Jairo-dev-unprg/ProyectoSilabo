@@ -4,7 +4,7 @@ import java.util.List;
 
 public class HabilidadRequerida {
 
-    private String habilidad;
+    private String nombreHabilidad;
     private int cantidadSemanas;
     private List<Semana> semanas;
 
@@ -12,17 +12,17 @@ public class HabilidadRequerida {
     }
 
     public HabilidadRequerida(String habilidad, int cantidadSemanas, List<Semana> semanas) {
-        this.habilidad = habilidad;
+        this.nombreHabilidad = habilidad;
         this.cantidadSemanas = cantidadSemanas;
         this.semanas = semanas;
     }
 
-    public String getHabilidad() {
-        return habilidad;
+    public String getNombreHabilidad() {
+        return nombreHabilidad;
     }
 
-    public void setHabilidad(String habilidad) {
-        this.habilidad = habilidad;
+    public void setNombreHabilidad(String habilidad) {
+        this.nombreHabilidad = habilidad;
     }
 
     public int getCantidadSemanas() {

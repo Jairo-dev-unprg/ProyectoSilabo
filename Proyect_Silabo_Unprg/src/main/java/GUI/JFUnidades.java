@@ -97,7 +97,7 @@ public class JFUnidades extends javax.swing.JFrame {
         btnGuardarSemana = new javax.swing.JButton();
         btnConfigurarSemana = new javax.swing.JButton();
         btnModificarLasHabilidades = new javax.swing.JButton();
-        cmbSemana = new javax.swing.JComboBox<>();
+        cmbSemanaConfig = new javax.swing.JComboBox<>();
         panRegistroDeHabilidades = new javax.swing.JPanel();
         cmbUnidad = new javax.swing.JComboBox<>();
         lblUnidad = new javax.swing.JLabel();
@@ -147,6 +147,11 @@ public class JFUnidades extends javax.swing.JFrame {
 
         cmbUnidadConfig.setModel(this.modeloComboUnidad);
         cmbUnidadConfig.setEnabled(false);
+        cmbUnidadConfig.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbUnidadConfigActionPerformed(evt);
+            }
+        });
 
         lblSemanasConfig.setText("Semana: ");
         lblSemanasConfig.setEnabled(false);
@@ -293,7 +298,7 @@ public class JFUnidades extends javax.swing.JFrame {
             }
         });
 
-        cmbSemana.setEnabled(false);
+        cmbSemanaConfig.setEnabled(false);
 
         javax.swing.GroupLayout panConfiguracionHabilidadesLayout = new javax.swing.GroupLayout(panConfiguracionHabilidades);
         panConfiguracionHabilidades.setLayout(panConfiguracionHabilidadesLayout);
@@ -320,7 +325,7 @@ public class JFUnidades extends javax.swing.JFrame {
                             .addGroup(panConfiguracionHabilidadesLayout.createSequentialGroup()
                                 .addComponent(lblSemanasConfig)
                                 .addGap(18, 18, 18)
-                                .addComponent(cmbSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(cmbSemanaConfig, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -338,7 +343,7 @@ public class JFUnidades extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(panConfiguracionHabilidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSemanasConfig)
-                    .addComponent(cmbSemana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbSemanaConfig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addComponent(btnConfigurarSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -447,7 +452,7 @@ public class JFUnidades extends javax.swing.JFrame {
 
         lblSemanas.setText("Semanas: ");
 
-        spCantidadSemanas.setModel(new javax.swing.SpinnerNumberModel(1, 1, 4, 1));
+        spCantidadSemanas.setModel(new javax.swing.SpinnerNumberModel(1, 1, 16, 1));
         spCantidadSemanas.setEnabled(false);
 
         javax.swing.GroupLayout panHabilidadLayout = new javax.swing.GroupLayout(panHabilidad);
@@ -622,7 +627,7 @@ public class JFUnidades extends javax.swing.JFrame {
         }
         List<HabilidadRequerida> habilidadesUnidad = habilidadesPorUnidad.getOrDefault(unidadSeleccionada, new ArrayList<>());
         boolean duplicado = habilidadesUnidad.stream().anyMatch(h
-                -> h.getHabilidad().equalsIgnoreCase(texto)
+                -> h.getNombreHabilidad().equalsIgnoreCase(texto)
                 && h.getCantidadSemanas() == semanas
                 && habilidadesUnidad.indexOf(h) != filaSeleccionada
         );
@@ -633,13 +638,13 @@ public class JFUnidades extends javax.swing.JFrame {
         }
         if (filaSeleccionada > -1) {
             HabilidadRequerida habilidad = habilidadesUnidad.get(filaSeleccionada);
-            habilidad.setHabilidad(texto);
+            habilidad.setNombreHabilidad(texto);
             habilidad.setCantidadSemanas(semanas);
             filaSeleccionada = -1;
             System.out.println("[EDITADO] " + texto + " - " + semanas);
         } else {
             HabilidadRequerida nueva = new HabilidadRequerida();
-            nueva.setHabilidad(texto);
+            nueva.setNombreHabilidad(texto);
             nueva.setCantidadSemanas(semanas);
             habilidadesUnidad.add(nueva);
             habilidadesPorUnidad.put(unidadSeleccionada, habilidadesUnidad);
@@ -665,7 +670,7 @@ public class JFUnidades extends javax.swing.JFrame {
 
         if (filaSeleccionada > -1) {
             HabilidadRequerida habilidad = habilidadRequerida.get(filaSeleccionada);
-            txaHabilidad.setText(habilidad.getHabilidad());
+            txaHabilidad.setText(habilidad.getNombreHabilidad());
             activarControles(true);
         } else {
             JOptionPane.showMessageDialog(this, "Selecciona una habilidad para modificar");
@@ -692,7 +697,7 @@ public class JFUnidades extends javax.swing.JFrame {
 
         for (HabilidadRequerida nueva : habilidadesActuales) {
             boolean yaExiste = habilidadesGuardadas.stream().anyMatch(h
-                    -> h.getHabilidad().equalsIgnoreCase(nueva.getHabilidad())
+                    -> h.getNombreHabilidad().equalsIgnoreCase(nueva.getNombreHabilidad())
                     && h.getCantidadSemanas() == nueva.getCantidadSemanas()
             );
             if (!yaExiste) {
@@ -709,15 +714,15 @@ public class JFUnidades extends javax.swing.JFrame {
         }
         for (HabilidadRequerida nueva : habilidadesActuales) {
             boolean yaExiste = habilidadesGuardadas.stream().anyMatch(h
-                    -> h.getHabilidad().equalsIgnoreCase(nueva.getHabilidad())
+                    -> h.getNombreHabilidad().equalsIgnoreCase(nueva.getNombreHabilidad())
                     && h.getCantidadSemanas() == nueva.getCantidadSemanas()
             );
             if (!yaExiste) {
                 habilidadesGuardadas.add(nueva);
                 nuevasAgregadas++;
-                System.out.println("[GUARDADO] " + nueva.getHabilidad() + " - " + nueva.getCantidadSemanas());
+                System.out.println("[GUARDADO] " + nueva.getNombreHabilidad() + " - " + nueva.getCantidadSemanas());
             } else {
-                System.out.println("[OMITIDO] Ya registrada: " + nueva.getHabilidad() + " - " + nueva.getCantidadSemanas());
+                System.out.println("[OMITIDO] Ya registrada: " + nueva.getNombreHabilidad() + " - " + nueva.getCantidadSemanas());
             }
         }
 
@@ -739,6 +744,7 @@ public class JFUnidades extends javax.swing.JFrame {
 
     private void btnConfigurarHabilidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigurarHabilidadesActionPerformed
         activarControlesPanel(true);
+        this.cargarDatosUnidadeConfig();
     }//GEN-LAST:event_btnConfigurarHabilidadesActionPerformed
 
     private void btnEliminarHabilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarHabilidadActionPerformed
@@ -787,6 +793,15 @@ public class JFUnidades extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnGuardarSemanaActionPerformed
 
+    private void cmbUnidadConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUnidadConfigActionPerformed
+        Unidad unidadSelec;
+        if (this.cmbHabilidadesConfig.getSelectedIndex() != -1) {
+            unidadSelec = (Unidad) this.cmbUnidadConfig.getSelectedItem();
+            this.activarControlesPanelConfig(false);
+            this.cargarComboHabilidadSemana(unidadSelec);
+        }
+    }//GEN-LAST:event_cmbUnidadConfigActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -832,7 +847,7 @@ public class JFUnidades extends javax.swing.JFrame {
     private javax.swing.JButton btnModificarLasHabilidades;
     private javax.swing.JButton btnNuevaHabilidad;
     private javax.swing.JComboBox<String> cmbHabilidadesConfig;
-    private javax.swing.JComboBox<String> cmbSemana;
+    private javax.swing.JComboBox<String> cmbSemanaConfig;
     private javax.swing.JComboBox<String> cmbTipoEvidencia;
     private javax.swing.JComboBox<String> cmbUnidad;
     private javax.swing.JComboBox<String> cmbUnidadConfig;
@@ -904,6 +919,12 @@ public class JFUnidades extends javax.swing.JFrame {
         this.cmbUnidad.setSelectedIndex(-1);
     }
 
+    private void cargarDatosUnidadeConfig() {
+        this.modeloComboUnidad.setUnidad(unidades);
+        this.cmbUnidadConfig.setModel(modeloComboUnidad);
+        this.cmbUnidadConfig.setSelectedIndex(-1);
+    }
+
     private boolean validarDatos() {
         return true;
     }
@@ -928,7 +949,7 @@ public class JFUnidades extends javax.swing.JFrame {
         this.lblNombreHabilidad.setEnabled(estado);
         this.cmbHabilidadesConfig.setEnabled(estado);
         this.lblSemanasConfig.setEnabled(estado);
-        this.cmbSemana.setEnabled(estado);
+        this.cmbSemanaConfig.setEnabled(estado);
         this.btnConfigurarSemana.setEnabled(estado);
         this.btnModificarLasHabilidades.setEnabled(estado);
 
@@ -958,10 +979,10 @@ public class JFUnidades extends javax.swing.JFrame {
         List<HabilidadRequerida> habilidades = habilidadesPorUnidad.get(unidad);
 
         for (HabilidadRequerida h : habilidades) {
-            if (h.getHabilidad().equalsIgnoreCase(nombreHab)) {
-                cmbSemana.removeAllItems();
+            if (h.getNombreHabilidad().equalsIgnoreCase(nombreHab)) {
+                cmbSemanaConfig.removeAllItems();
                 for (Semana s : h.getSemanas()) {
-                    cmbSemana.addItem("Semana " + s.getNumeroSemana());
+                    cmbSemanaConfig.addItem("Semana " + s.getNumeroSemana());
                 }
                 break;
             }
@@ -978,26 +999,26 @@ public class JFUnidades extends javax.swing.JFrame {
     }
 
     private void mostrarDatosDeHabilidadesSeleccionadaParaSemana() {
-        
+
         Unidad unidad = (Unidad) cmbUnidadConfig.getSelectedItem();
         if (unidad == null) {
-            cmbSemana.removeAllItems();
+            cmbSemanaConfig.removeAllItems();
             return;
         }
         String nombreHab = (String) cmbHabilidadesConfig.getSelectedItem();
         if (nombreHab == null) {
-            cmbSemana.removeAllItems();
+            cmbSemanaConfig.removeAllItems();
             return;
         }
         List<HabilidadRequerida> habs
                 = habilidadesPorUnidad.getOrDefault(unidad, Collections.emptyList());
 
-        cmbSemana.removeAllItems();
+        cmbSemanaConfig.removeAllItems();
 
         for (HabilidadRequerida h : habs) {
-            if (h.getHabilidad().equalsIgnoreCase(nombreHab)) {
+            if (h.getNombreHabilidad().equalsIgnoreCase(nombreHab)) {
                 for (Semana s : h.getSemanas()) {
-                    cmbSemana.addItem("Semana " + s.getNumeroSemana());
+                    cmbSemanaConfig.addItem("Semana " + s.getNumeroSemana());
                 }
                 break;
             }
@@ -1023,4 +1044,21 @@ public class JFUnidades extends javax.swing.JFrame {
         return true;
     }
 
+    private void activarControlesPanelConfig(boolean estado) {
+        this.cmbHabilidadesConfig.setEnabled(!estado);
+        this.cmbSemanaConfig.setEnabled(!estado);
+    }
+
+    private void cargarComboHabilidadSemana(Unidad unidadSelec) {
+        List<HabilidadRequerida> habilidadesUnidad = unidadSelec.getHabilidadesRequeridas();
+        this.cargarComboHabilidadUnidad(habilidadesUnidad);
+    }
+
+    private void cargarComboHabilidadUnidad(List<HabilidadRequerida> habilidadesUnidad) {
+        int index = cmbHabilidadesConfig.getSelectedIndex();
+        if (index >= 0 && habilidadesUnidad != null && index < habilidadesUnidad.size()) {
+            
+            this.modeloComboHabilidad.setHabi(unidadSeleccionada.getHabilidadesRequeridas());
+        }
+    }
 }

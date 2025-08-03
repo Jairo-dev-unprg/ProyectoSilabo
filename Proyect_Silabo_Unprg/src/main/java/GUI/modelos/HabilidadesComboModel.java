@@ -40,7 +40,7 @@ public class HabilidadesComboModel extends AbstractListModel<String> implements 
 
     @Override
     public String getElementAt(int index) {
-        return this.habi.get(index).getHabilidad();
+        return this.habi.get(index).getNombreHabilidad();
     }
 
     @Override
@@ -49,7 +49,7 @@ public class HabilidadesComboModel extends AbstractListModel<String> implements 
         if (anItem != null) {
 
             for (HabilidadRequerida habilidads : this.habi) {
-                if (habilidads.getHabilidad().equals(anItem.toString()) == true) {
+                if (habilidads.getNombreHabilidad().equals(anItem.toString()) == true) {
                     this.seleccionado = habilidads;
                     return;
                 }
@@ -61,7 +61,7 @@ public class HabilidadesComboModel extends AbstractListModel<String> implements 
     public Object getSelectedItem() {
         String valor = "";
         if (this.seleccionado != null) {
-            valor = this.seleccionado.getHabilidad();
+            valor = this.seleccionado.getNombreHabilidad();
         }
         return valor;
 

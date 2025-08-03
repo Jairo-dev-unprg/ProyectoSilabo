@@ -68,7 +68,7 @@ public class UnidadTableModel extends AbstractTableModel {
             case 1:
                 return u.getHabilidadesRequeridas() != null
                     ? u.getHabilidadesRequeridas().stream()
-                        .map(HabilidadRequerida::getHabilidad)
+                        .map(HabilidadRequerida::getNombreHabilidad)
                         .collect(Collectors.joining("; "))
                     : "";
 

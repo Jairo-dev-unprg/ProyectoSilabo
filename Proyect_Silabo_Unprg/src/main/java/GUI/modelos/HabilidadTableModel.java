@@ -46,7 +46,7 @@ public class HabilidadTableModel extends AbstractTableModel {
         if (this.habilidadesReque != null) {
             switch (columnIndex) {
                 case 0 ->
-                    valor = this.habilidadesReque.get(rowIndex).getHabilidad();
+                    valor = this.habilidadesReque.get(rowIndex).getNombreHabilidad();
                 case 1 ->
                     valor = this.habilidadesReque.get(rowIndex).getCantidadSemanas();
                 default ->
