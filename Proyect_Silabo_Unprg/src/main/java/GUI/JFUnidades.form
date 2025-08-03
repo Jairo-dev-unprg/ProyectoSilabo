@@ -66,6 +66,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntCancelarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAcepetarEditar">
       <Properties>
@@ -92,28 +95,29 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblUnidadConfig" min="-2" pref="49" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="cmbUnidadConfig" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblNombreHabilidad" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cmbHabilidadesConfig" max="32767" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="btnConfigurarSemana" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="panSemana" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="btnModificarLasHabilidades" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblSemanasConfig" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblUnidadConfig" min="-2" pref="49" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="cmbSemanaConfig" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="txtUnidad" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblNombreHabilidad" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblSemanasConfig" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtHabilidad" min="-2" pref="550" max="-2" attributes="0"/>
+                                      <Component id="spSemana" min="-2" pref="75" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -128,18 +132,18 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cmbUnidadConfig" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblUnidadConfig" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtUnidad" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblNombreHabilidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cmbHabilidadesConfig" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtHabilidad" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblSemanasConfig" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cmbSemanaConfig" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="spSemana" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="btnConfigurarSemana" min="-2" pref="23" max="-2" attributes="0"/>
@@ -159,39 +163,11 @@
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cmbHabilidadesConfig">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="this.modeloComboHabilidad" type="code"/>
-            </Property>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbHabilidadesConfigActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
         <Component class="javax.swing.JLabel" name="lblUnidadConfig">
           <Properties>
             <Property name="text" type="java.lang.String" value="Unidad: "/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="cmbUnidadConfig">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="this.modeloComboUnidad" type="code"/>
-            </Property>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbUnidadConfigActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="lblSemanasConfig">
           <Properties>
@@ -222,7 +198,7 @@
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblActividadDeAprendizaje" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="scpActividadesAprendizaje" max="32767" attributes="0"/>
                                   </Group>
@@ -232,7 +208,7 @@
                                       <Component id="scpConocimiento" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="lblActividadAprendizaje" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblEvidenciaAprendizaje" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -282,11 +258,11 @@
                       </Group>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblActividadDeAprendizaje" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="scpActividadesAprendizaje" alignment="0" pref="51" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="lblActividadAprendizaje" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblEvidenciaAprendizaje" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblTipoEvidencia" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -329,7 +305,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="lblActividadDeAprendizaje">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Actividad de aprendizaje: "/>
                 <Property name="enabled" type="boolean" value="false"/>
@@ -348,7 +324,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="lblActividadAprendizaje">
+            <Component class="javax.swing.JLabel" name="lblEvidenciaAprendizaje">
               <Properties>
                 <Property name="text" type="java.lang.String" value="EVIDENCIA APRENDIZAJE: "/>
                 <Property name="enabled" type="boolean" value="false"/>
@@ -455,16 +431,22 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarLasHabilidadesActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cmbSemanaConfig">
+        <Component class="javax.swing.JTextField" name="txtUnidad">
           <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
-            </Property>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtHabilidad">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="spSemana">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

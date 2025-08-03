@@ -125,7 +125,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         lblCorreo = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
         jdcFechaInicio = new com.toedter.calendar.JDateChooser();
-        jTextField1 = new javax.swing.JTextField();
+        txtFechaFinal = new javax.swing.JTextField();
         txtGrado = new javax.swing.JTextField();
         lblTipoCurso = new javax.swing.JLabel();
         txtTipo = new javax.swing.JTextField();
@@ -294,10 +294,10 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        jTextField1.setEnabled(false);
+        txtFechaFinal.setEditable(false);
+        txtFechaFinal.setBackground(new java.awt.Color(255, 255, 255));
+        txtFechaFinal.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        txtFechaFinal.setEnabled(false);
 
         txtGrado.setEditable(false);
         txtGrado.setBackground(new java.awt.Color(255, 255, 255));
@@ -590,7 +590,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                                         .addComponent(spDuración, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                    .addComponent(txtFechaFinal, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(lblPrerrequistos, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -649,7 +649,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                 .addComponent(jdcFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1489,7 +1489,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             cal.add(Calendar.WEEK_OF_YEAR, ((Integer) spDuración.getValue()) - 1);
             cal.set(Calendar.DAY_OF_WEEK, Calendar.FRIDAY);
             Date fechaFinal = cal.getTime();
-            jTextField1.setText(sdf.format(fechaFinal));
+            txtFechaFinal.setText(sdf.format(fechaFinal));
         }
 
     }//GEN-LAST:event_jdcFechaInicioPropertyChange
@@ -1694,7 +1694,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea jTextArea10;
     private javax.swing.JTextArea jTextArea11;
     private javax.swing.JTextArea jTextArea5;
-    private javax.swing.JTextField jTextField1;
     private com.toedter.calendar.JDateChooser jdcFechaInicio;
     private javax.swing.JScrollPane jscUnidad;
     private javax.swing.JLabel lbl11;
@@ -1741,6 +1740,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtDocente;
     private javax.swing.JTextField txtEscuela;
     private javax.swing.JTextField txtFacultad;
+    private javax.swing.JTextField txtFechaFinal;
     private javax.swing.JTextField txtGrado;
     private javax.swing.JTextField txtHorasPracticas;
     private javax.swing.JTextField txtHorasSemanales;
